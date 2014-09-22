@@ -8,4 +8,4 @@ Thanks! :sparkling_heart:
 
 ==================
 
-For the GitHub uninitiated, a ReadME file is a great place to describe your repository or project in more detail. A well-written ReadME broadly describes the contents of the project and allows the reader to quickly decide whether to watch, if not collaborate, on the project.   
+For the GitHub uninitiated, a ReadME file is a great place to describe your repository or project in more detail. A ReadME can include specs, instructions, version change overviews, etc. When well-written, this file allows the reader to quickly decide if they want to watch, fork, collaborate, or contribute to the project, or just move on.   

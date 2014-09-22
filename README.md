@@ -5,3 +5,7 @@ This repository is meant to be a placeholder for homework assignments as complet
 For more information about how the Iron Yard Academy can supercharge your coding career, [check them out here](http://theironyard.com/). 
 
 Thanks! :sparkling_heart:
+
+==================
+
+For the GitHub uninitiated, a ReadME file is a great place to describe your repository or project in more detail. A well-written ReadME broadly describes the contents of the project and allows the reader to quickly decide whether to watch, if not collaborate, on the project.   

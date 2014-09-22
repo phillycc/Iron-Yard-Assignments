@@ -4,7 +4,7 @@
 
 > The "nature lovers" are the ones who enjoy snorkeling around for brief periods of time. They always try to have a minimal impact on the environment. For example, their trash, or garbage, is always taken out. Removing rocks and shells are something they would never do. They are there to see, not spoil, the beauty of nature that is underwater.
 
-> The "pool guys" are the divers who want to go to the beach, or ocean without ever actually leaving their backyard. They come in utility vehicles (SUVs), carrying heavy-duty wet suits, and the latest in diving masks, fins, and air tanks.
+> The "pool guys" are the divers who want to go to the beach, or ocean, without ever actually leaving their backyard. They come in sport utility vehicles (SUVs), carrying heavy-duty wet suits, and the latest in diving masks, fins, and air tanks.
 
 > They are the ones who are so covered with equipment they can hardly see, feel, and touch the underwater environment.  Comparing air tanks and wet suits are what they do most.
 

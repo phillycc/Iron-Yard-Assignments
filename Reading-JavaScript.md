@@ -7,10 +7,8 @@ var prefixes = 'transform WebkitTransform MozTransform OTransform msTransform'.s
 for(var i = 0; i < prefixes.length; i++) {
 ```
 
-* Variable: `prefixes` (array)
-* Value: transform,WebkitTransform,MozTransform,OTransform,msTransform
-* Value prefixes.length: 5
- 
+* Variable: `prefixes` 
+* Value: comma-delimited list = transform,WebkitTransform,MozTransform,OTransform,msTransform
 * Variable: `i` (integer)
 * Value: Number 0
  
@@ -47,8 +45,28 @@ var sections = [];
 var $header = $(this);
 ```
  
-* Variables: `$header` (jQuery object) 
-* Value: 
+* Variable: `$header` (object) 
+* Value: a jquery reference to a header element, such as h1, h2, etc. 
 
+~~~
 
+```javascript
+var defaultPaddings = {
+          top: $originalHeader.css("padding-top"),
+          right: $originalHeader.css("padding-right"),
+          bottom: $originalHeader.css("padding-bottom"),
+          left: $originalHeader.css("padding-left")
+};
+```
 
+* Variable: `defaultPaddings` (object)
+* Value: an object with 4 properties that get the padding of the originalHeader
+
+~~~
+
+```javascript
+var headerHeight = headerInfo.height;
+```
+
+* Variable: `headerHeight` (integer)
+* Value: fixed height of the header of the active document 

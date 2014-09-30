@@ -19,24 +19,11 @@ var multiply = function(a,b){
   return a * b;
 }
 
+var print = function (a,b,c) {
+console.log('it should multiply "' + a + '" and "' + b + '": ',
+  multiply(a, b) === c);
+}
 
-console.log('it should multiply "one" and "zero": ',
-  multiply("one","zero") === 0);
-console.log('it should multiply "one" and "one": ',
-  multiply("one","one") === 1);
-console.log('it should multiply "one" and "two": ',
-  multiply("one", "two") === 2);
-console.log('it should multiply "two" and "zero": ',
-  multiply("two","zero") === 0);
-console.log('it should multiply "two" and "one": ',
-  multiply("two","one") === 2);
-console.log('it should multiply "two" and "two": ',
-  multiply("two", "two") === 4);
-console.log('it should multiply "three" and "zero": ',
-  multiply("three","zero") === 0);
-console.log('it should multiply "three" and "one": ',
-  multiply("three","one") === 3);
-console.log('it should multiply "three" and "two": ',
-  multiply("three", "two") === 6);
-console.log('it should multiple "four" and "zero": ',
-  multiply("four", "zero") === 0);
+print("one", "zero", 0);
+print("one", "one", 1);
+print("one", "two", 2);

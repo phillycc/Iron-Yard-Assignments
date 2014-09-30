@@ -26,10 +26,8 @@ console.log('it should multiply "' + a + '" and "' + b + '": ',
   multiply(a, b) === c);
 }
 
-for (var i = 0; i < letterNum.length; i++){
-    console.log(letterNum[i]);
+for (var j = 1; j <= 10; j++){
+  for (var i = 0; i < letterNum.length; i++){
+    print(letterNum[j], letterNum[i], i*j);
+  }
 }
-
-print("one", "zero", 0);
-print("one", "one", 1);
-print("one", "two", 2);

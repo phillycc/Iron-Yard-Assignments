@@ -1,38 +1,25 @@
-var multiply = function(a,b){
-  if (a === "one"){
-    if (b === "zero"){
-      return 0;
-    }
-    if (b === "one"){
-      return 1;
-    }
-    if (b === "two"){
-      return 2;
-    }
-  }
-  if (a === "two"){
-    if (b === "zero"){
-      return 0;
-    }
-    if (b === "one"){
-      return 2;
-    }
-    if (b === "two"){
-      return 4;
-    }
-  }
-  if (a === "three"){
-    if (b === "zero") {
-      return 0;
-    }
-    if (b === "one") {
-      return 3;
-    }
-    if (b === "two") {
-      return 6;
-    }
-  }
+
+function letToNum(y){
+  if (y === "zero"){return 0;}
+  if (y === "one"){return 1;}
+  if (y === "two"){return 2;}
+  if (y === "three"){return 3;}
+  if (y === "four"){return 4;}
+  if (y === "five"){return 5;}
+  if (y === "six"){return 6;}
+  if (y === "seven"){return 7;}
+  if (y === "eight"){return 8;}
+  if (y === "nine"){return 9;}
+  if (y === "ten"){return 10;}
 }
+
+var multiply = function(a,b){
+  a = letToNum(a);
+  b = letToNum(b);
+  return a * b;
+}
+
+
 console.log('it should multiply "one" and "zero": ',
   multiply("one","zero") === 0);
 console.log('it should multiply "one" and "one": ',

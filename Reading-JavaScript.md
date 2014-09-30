@@ -3,18 +3,6 @@ midnight.jquery.js
 ~~~
 
 ```javascript
-var prefixes = 'transform WebkitTransform MozTransform OTransform msTransform'.split(' ');
-for(var i = 0; i < prefixes.length; i++) {
-```
-
-* Variable: `prefixes` 
-* Value: comma-delimited list = transform,WebkitTransform,MozTransform,OTransform,msTransform
-* Variable: `i` (integer)
-* Value: Number 0
- 
-~~~
-
-```javascript
 var maxHeight = 0;
 ```
  
@@ -24,11 +12,60 @@ var maxHeight = 0;
 ~~~
 
 ```javascript
+var totalProgress = 0.0;
+```
+
+* Variable: `totalProgress` (floating point)
+* Value: Number 0.0 
+
+~~~
+
+```javascript
+var lastActiveClass = '';
+```
+
+* Variable: `lastActiveClass` (string)
+* Value: [empty string] 
+
+~~~
+
+```javascript
+var hasAnyClass = false;
+```
+
+* Variable: `hasAnyClass` (boolean)
+* Value: 0
+
+~~~
+
+```javascript
+var prefixes = 'transform WebkitTransform MozTransform OTransform msTransform'.split(' ');
+for(var i = 0; i < prefixes.length; i++) {
+```
+
+* Variable: `prefixes` 
+* Value: comma-delimited list = transform,WebkitTransform,MozTransform,OTransform,msTransform
+* Variable: `i` (integer)
+* Value: Number 0
+
+~~~
+
+```javascript
+var headerHeight = headerInfo.height;
+```
+
+* Variable: `headerHeight` (integer)
+* Value: fixed height of the header of the active document 
+
+~~~
+
+```javascript
 maxHeight = (height > maxHeight) ? height : maxHeight;
 ```
  
-* Variables: `maxHeight` (integer), `height` (integer)
-* Value: `maxHeight` value is computed via a shorthand if statement: If value of height is greater then the value of maxHeight, then set maxHeight = height, else set maxHeight to maxHeight.
+* Variable: `maxHeight` (integer)
+* Variable: `height` (integer)
+* Value: `maxHeight` value is computed: If value of height is greater than the value of maxHeight, then set maxHeight = height, else set maxHeight to maxHeight.
 
 ~~~
 
@@ -62,11 +99,7 @@ var defaultPaddings = {
 * Variable: `defaultPaddings` (object)
 * Value: an object with 4 properties that get the padding of the originalHeader
 
-~~~
 
-```javascript
-var headerHeight = headerInfo.height;
-```
+ 
 
-* Variable: `headerHeight` (integer)
-* Value: fixed height of the header of the active document 
+

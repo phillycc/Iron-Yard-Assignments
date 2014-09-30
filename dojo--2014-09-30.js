@@ -13,6 +13,8 @@ function letToNum(y){
   if (y === "ten"){return 10;}
 }
 
+var letterNum = ['zero','one','two','three','four','five','six','seven','eight','nine','ten'];
+
 var multiply = function(a,b){
   a = letToNum(a);
   b = letToNum(b);
@@ -22,6 +24,10 @@ var multiply = function(a,b){
 var print = function (a,b,c) {
 console.log('it should multiply "' + a + '" and "' + b + '": ',
   multiply(a, b) === c);
+}
+
+for (var i = 0; i < letterNum.length; i++){
+    console.log(letterNum[i]);
 }
 
 print("one", "zero", 0);

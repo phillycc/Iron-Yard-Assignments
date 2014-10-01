@@ -1,22 +1,32 @@
 
 function wordsOneDigit(a){
-  if(a === 1){
-    return "one";
-  }
-  if(a === 2){
-    return "two";
-  }
-  if(a === 3){
-    return "three";
-  }
+  if(a === 0){return "zero";}
+  if(a === 1){return "one";}
+  if(a === 2){return "two";}
+  if(a === 3){return "three";}
+  if(a === 4){return "four";}
+  if(a === 5){return "five";}
+  if(a === 6){return "six";}
+  if(a === 7){return "seven";}
+  if(a === 8){return "eight";}
+  if(a === 9){return "nine";}
 }
 
 function wordsTwoDigit(b){
   if(b === 11){
     return "eleven";
   }
+  if(b === 12){
+    return "twelve";
+  }
+  if(b === 15){
+    return "fifteen";
+  }
 }
 
+function countsDigits(){
+
+}
 
 
 console.log('if it is 1: ',
@@ -29,3 +39,7 @@ console.log('if it is 11: ',
   wordsTwoDigit(11) === "eleven");
 console.log('if it is 12: ',
   wordsTwoDigit(12) === "twelve");
+console.log('if it is 15: ',
+  wordsTwoDigit(15) === "fifteen");
+console.log('if it is 13: ',
+  wordsTwoDigit(13) === "thirteen");

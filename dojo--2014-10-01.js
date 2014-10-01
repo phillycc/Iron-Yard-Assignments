@@ -13,11 +13,12 @@ function wordsOneDigit(a){
 }
 
 function wordsTwoDigit(a,b){
-  if (a===1){
-      if (b===1){
+
+  if (a==="1"){
+      if (b==="1"){
         return "eleven";
       }
-      else if (b===2){
+      else if (b==="2"){
         return "twelve";
       }
       else {
@@ -34,9 +35,11 @@ function convertNum(c){
     wordsOneDigit(c);
   }
   if (arrDigits.length === 2){
-    return wordsTwoDigit(arrDigits[0],arrDigits[1]);
+    var num = wordsTwoDigit(arrDigits[0],arrDigits[1]);
+    return num;
   }
 }
 
-console.log('if it is 13: ',
-  convertNum(13) === "'thirteen'");
+console.log('if it is 11: ',
+  convertNum(11) === "eleven");
+console.log(convertNum(12))

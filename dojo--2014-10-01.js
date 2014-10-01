@@ -24,10 +24,16 @@ function wordsTwoDigit(b){
   }
 }
 
-function countsDigits(){
+function convertNum(c){
+  var arrDigits = [];
+  arrDigits = c.toString().split('');
+
+  if (arrDigits.length)
 
 }
 
+console.log('if it is 1234: ',
+  countsDigits(1234) === 4);
 
 console.log('if it is 1: ',
   wordsOneDigit(1) === "one");

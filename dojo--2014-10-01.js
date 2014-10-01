@@ -26,9 +26,18 @@ function wordsTwoDigit(a,b){
       }
   }
   if (a==="2"){
-
-      return "twenty "+wordsOneDigit(b);
-
+      if (b==="0"){
+        return "twenty";
+      } else {
+        return "twenty "+wordsOneDigit(b);
+      }
+  }
+  if (a==="9"){
+      if (b==="0"){
+        return "ninety";
+      } else {
+        return "ninety "+wordsOneDigit(b);
+      }
   }
 }
 
@@ -49,3 +58,9 @@ console.log('if it is 11: ',
   convertNum(11) === "eleven");
 console.log('if it is 22: ',
   convertNum(22) === "twenty two");
+console.log('if it is 20: ',
+  convertNum(20) === "twenty");
+console.log('if it is 98: ',
+  convertNum(98) === "ninety eight");
+console.log('if it is 123: ',
+  convertNum(123) === "one hundred twenty three");

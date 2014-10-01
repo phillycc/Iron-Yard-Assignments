@@ -60,9 +60,13 @@ function wordsTwoDigit(a,b){
 
 function wordsThreeDigit(a,b,c){
   if (a===1){
-      if(b===0 || c===0){
+      if(b===0 && c===0){
         return "one hundred"
-      } else {return "one hundred "+wordsTwoDigit(b,c);}
+      } else if (b===0){
+        return "one hundred "+wordsOneDigit(c);
+      } else {
+        return "one hundred "+wordsTwoDigit(b,c);
+      }
   }
   if (a===2){
       if(b===0 || c===0){

@@ -16,36 +16,48 @@ function wordsTwoDigit(a,b){
 
   a = Math.floor(a);
   b = Math.floor(b);
-  for(j=1;j<=9;j++){
-    for(k=0;k<=9;k++){
-        
-    }
-  }
-
   if (a===1){
-      if (b===1){
-        return "eleven";
-      }
-      else if (b===2){
-        return "twelve";
-      }
-      else {
-        return "thirteen";
-      }
+      if (b===1){return "eleven";}
+      if (b===2){return "twelve";}
+      if (b===3){return "thirteen";}
+      if (b===4){return "fourteen";}
+      if (b===5){return "fifteen";}
+      if (b===6){return "sixteen";}
+      if (b===7){return "seventeen";}
+      if (b===8){return "eighteen";}
+      if (b===9){return "nineteen";}
   }
   if (a===2){
-      if (b===0){
-        return "twenty";
-      } else {
-        return "twenty "+wordsOneDigit(b);
-      }
+      if (b===0){return "twenty";
+      } else {return "twenty "+wordsOneDigit(b);}
+  }
+  if (a===3){
+      if (b===0){return "thirty";
+    } else {return "thirty "+wordsOneDigit(b);}
+  }
+  if (a===4){
+      if (b===0){return "forty";
+    } else {return "forty "+wordsOneDigit(b);}
+  }
+  if (a===5){
+      if (b===0){return "fifty";
+    } else {return "fifty "+wordsOneDigit(b);}
+  }
+  if (a===6){
+      if (b===0){return "sixty";
+    } else {return "sixty "+wordsOneDigit(b);}
+  }
+  if (a===7){
+      if (b===0){return "seventy";
+    } else {return "seventy "+wordsOneDigit(b);}
+  }
+  if (a===8){
+      if (b===0){return "eighty";
+    } else {return "eighty "+wordsOneDigit(b);}
   }
   if (a===9){
-      if (b===0){
-        return "ninety";
-      } else {
-        return "ninety "+wordsOneDigit(b);
-      }
+      if (b===0){return "ninety";
+      } else {return "ninety "+wordsOneDigit(b);}
   }
 }
 
@@ -54,7 +66,7 @@ function convertNum(c){
   arrDigits = c.toString().split('');
 
   if (arrDigits.length === 1){
-    wordsOneDigit(c);
+    wordsOneDigit(arrDigits[0]);
   }
   if (arrDigits.length === 2){
     var num = wordsTwoDigit(arrDigits[0],arrDigits[1]);

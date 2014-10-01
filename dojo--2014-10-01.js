@@ -1,39 +1,47 @@
 
 function wordsOneDigit(a){
-  if(a === "0"){return "zero";}
-  if(a === "1"){return "one";}
-  if(a === "2"){return "two";}
-  if(a === "3"){return "three";}
-  if(a === "4"){return "four";}
-  if(a === "5"){return "five";}
-  if(a === "6"){return "six";}
-  if(a === "7"){return "seven";}
-  if(a === "8"){return "eight";}
-  if(a === "9"){return "nine";}
+  if(a === 0){return "zero";}
+  if(a === 1){return "one";}
+  if(a === 2){return "two";}
+  if(a === 3){return "three";}
+  if(a === 4){return "four";}
+  if(a === 5){return "five";}
+  if(a === 6){return "six";}
+  if(a === 7){return "seven";}
+  if(a === 8){return "eight";}
+  if(a === 9){return "nine";}
 }
 
 function wordsTwoDigit(a,b){
 
-  if (a==="1"){
-      if (b==="1"){
+  a = Math.floor(a);
+  b = Math.floor(b);
+  for(j=1;j<=9;j++){
+    for(k=0;k<=9;k++){
+        
+    }
+  }
+
+  if (a===1){
+      if (b===1){
         return "eleven";
       }
-      else if (b==="2"){
+      else if (b===2){
         return "twelve";
       }
       else {
         return "thirteen";
       }
   }
-  if (a==="2"){
-      if (b==="0"){
+  if (a===2){
+      if (b===0){
         return "twenty";
       } else {
         return "twenty "+wordsOneDigit(b);
       }
   }
-  if (a==="9"){
-      if (b==="0"){
+  if (a===9){
+      if (b===0){
         return "ninety";
       } else {
         return "ninety "+wordsOneDigit(b);

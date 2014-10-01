@@ -1,5 +1,5 @@
 
-function convertToWords(a){
+function wordsOneDigit(a){
   if(a === 1){
     return "one";
   }
@@ -11,11 +11,21 @@ function convertToWords(a){
   }
 }
 
+function wordsTwoDigit(b){
+  if(b === 11){
+    return "eleven";
+  }
+}
+
+
+
 console.log('if it is 1: ',
-  convertToWords(1) === "one");
+  wordsOneDigit(1) === "one");
 console.log('if it is 2: ',
-  convertToWords(2) === "two");
+  wordsOneDigit(2) === "two");
 console.log('if it is 3: ',
-  convertToWords(3) === "three");
+  wordsOneDigit(3) === "three");
 console.log('if it is 11: ',
-  convertToWords(11) === "eleven");
+  wordsTwoDigit(11) === "eleven");
+console.log('if it is 12: ',
+  wordsTwoDigit(12) === "twelve");

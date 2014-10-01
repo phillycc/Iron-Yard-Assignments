@@ -12,13 +12,13 @@
 ~~~
 
 ```javascript
- for (var i = 0, stepsLength = this._options.steps.length; i < stepsLength; i++) {
-        var currentItem = _cloneObject(this._options.steps[i]);
-        //set the step
-        currentItem.step = introItems.length + 1;
+ for (var i = 0, elmsLength = allIntroSteps.length; i < elmsLength; i++) {
+        var currentElement = allIntroSteps[i];
+        var step = parseInt(currentElement.getAttribute('data-step'), 10);
 ```
-
-* for loop 
+* for loop - loops through an array of DOM elements
+* Variable: `currentElement` is set to the current DOM element
+* Variable: `step` - parseInt converts the first argument to a string, parses it, and returns an integer 
 
 ~~~
 

@@ -42,6 +42,14 @@ var temp = {};
 * Variable: `currentElement` is set to the current DOM element
 * Variable: `step` - parseInt converts the first argument to a string, parses it, and returns an integer 
 
+~~~
+
+```javascript
+  if ((targetOffset.height + targetOffset.top + tooltipHeight) > windowSize.height) {
+      _removeEntry(possiblePositions, "bottom")
+  }
+```
+* if statement that adds height values and compares to the windowsSize height. If sum is greater, removes space below
 
 ~~~
 

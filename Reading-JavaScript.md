@@ -20,6 +20,21 @@
 * Variable: `currentElement` is set to the current DOM element
 * Variable: `step` - parseInt converts the first argument to a string, parses it, and returns an integer 
 
+
+~~~
+
+```javascript
+  while (true) {
+    if (typeof introItems[nextStep] == 'undefined') {
+        break;
+    } else {
+        nextStep++;
+    }
+  }
+```
+* while loop - loops while condition is true
+* if array element introItems[nextStep] is typeof undefined, then break the loop, else increment nextStep by 1 
+
 ~~~
 
 ```javascript
@@ -38,6 +53,15 @@
 * Conditional if/elseif
 * typeof operator - if operand (exports) is an object, then pass the object into the function factory()
 * typeof operator - if operand (define) is a function and that function has an anonymous module, then pass 2 arguments: export object and factory function into the define function
+
+~~~
+
+```javascript
+  introItems.sort(function (a, b) {
+    return a.step - b.step;
+  });
+```
+* `introItems` is an array whose elements are sorted in ascending order via the array sort function
 
 
 

@@ -1,4 +1,37 @@
-midnight.jquery.js
+**intro.js**
+
+~~~
+
+```javascript
+  var allIntroSteps = [];
+```
+
+* Variable: `allIntroSteps` (array)
+* Value: empty array
+
+
+~~~
+
+```javascript
+  if (typeof exports === 'object') {
+    // CommonJS
+    factory(exports);
+  } else if (typeof define === 'function' && define.amd) {
+    // AMD. Register as an anonymous module.
+    define(['exports'], factory);
+  } else {
+    // Browser globals
+    factory(root);
+  }
+```
+ 
+* Conditional if/elseif
+* typeof operator - if operand (exports) is an object, then pass the object into the function factory()
+* typeof operator - if operand (define) is a function, then pass 2 arguments: export object and factory function into the define function
+
+
+
+**midnight.jquery.js**
 
 ~~~
 

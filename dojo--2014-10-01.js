@@ -12,15 +12,17 @@ function wordsOneDigit(a){
   if(a === 9){return "nine";}
 }
 
-function wordsTwoDigit(b){
-  if(b === 11){
-    return "eleven";
-  }
-  if(b === 12){
-    return "twelve";
-  }
-  if(b === 15){
-    return "fifteen";
+function wordsTwoDigit(a,b){
+  if (a===1){
+      if (b===1){
+        return "eleven";
+      }
+      else if (b===2){
+        return "twelve";
+      }
+      else {
+        return "thirteen";
+      }
   }
 }
 
@@ -28,24 +30,13 @@ function convertNum(c){
   var arrDigits = [];
   arrDigits = c.toString().split('');
 
-  if (arrDigits.length)
-
+  if (arrDigits.length === 1){
+    wordsOneDigit(c);
+  }
+  if (arrDigits.length === 2){
+    return wordsTwoDigit(arrDigits[0],arrDigits[1]);
+  }
 }
 
-console.log('if it is 1234: ',
-  countsDigits(1234) === 4);
-
-console.log('if it is 1: ',
-  wordsOneDigit(1) === "one");
-console.log('if it is 2: ',
-  wordsOneDigit(2) === "two");
-console.log('if it is 3: ',
-  wordsOneDigit(3) === "three");
-console.log('if it is 11: ',
-  wordsTwoDigit(11) === "eleven");
-console.log('if it is 12: ',
-  wordsTwoDigit(12) === "twelve");
-console.log('if it is 15: ',
-  wordsTwoDigit(15) === "fifteen");
 console.log('if it is 13: ',
-  wordsTwoDigit(13) === "thirteen");
+  convertNum(13) === "'thirteen'");

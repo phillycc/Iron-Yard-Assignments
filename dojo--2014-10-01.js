@@ -59,7 +59,51 @@ function wordsTwoDigit(a,b){
 }
 
 function wordsThreeDigit(a,b,c){
-
+  if (a===1){
+      if(b===0 || c===0){
+        return "one hundred"
+      } else {return "one hundred "+wordsTwoDigit(b,c);}
+  }
+  if (a===2){
+      if(b===0 || c===0){
+        return "two hundred"
+      } else {return "two hundred "+wordsTwoDigit(b,c);}
+  }
+  if (a===3){
+      if(b===0 || c===0){
+      return "three hundred"
+    } else {return "three hundred "+wordsTwoDigit(b,c);}
+  }
+  if (a===4){
+      if(b===0 || c===0){
+        return "four hundred"
+      } else {return "four hundred "+wordsTwoDigit(b,c);}
+  }
+  if (a===5){
+      if(b===0 || c===0){
+      return "five hundred"
+    } else {return "five hundred "+wordsTwoDigit(b,c);}
+  }
+  if (a===6){
+      if(b===0 || c===0){
+      return "six hundred"
+    } else {return "six hundred "+wordsTwoDigit(b,c);}
+  }
+  if (a===7){
+      if(b===0 || c===0){
+      return "seven hundred"
+    } else {return "seven hundred "+wordsTwoDigit(b,c);}
+  }
+  if (a===8){
+      if(b===0 || c===0){
+      return "eight hundred"
+    } else {return "nine hundred "+wordsTwoDigit(b,c);}
+  }
+  if (a===9){
+      if(b===0 || c===0){
+        return "nine hundred"
+      } else {return "nine hundred "+wordsTwoDigit(b,c);}
+  }
 }
 
 function convertNum(c){
@@ -67,11 +111,13 @@ function convertNum(c){
   arrDigits = c.toString().split('');
 
   if (arrDigits.length === 1){
-    wordsOneDigit(Math.floor(arrDigits[0]));
+    return wordsOneDigit(Math.floor(arrDigits[0]));
   }
   if (arrDigits.length === 2){
-    var num = wordsTwoDigit(Math.floor(arrDigits[0]),Math.floor(arrDigits[1]));
-    return num;
+    return wordsTwoDigit(Math.floor(arrDigits[0]),Math.floor(arrDigits[1]));
+  }
+  if (arrDigits.length === 3){
+    return wordsThreeDigit(Math.floor(arrDigits[0]),Math.floor(arrDigits[1]),Math.floor(arrDigits[2]));
   }
 }
 
@@ -85,3 +131,5 @@ console.log('if it is 98: ',
   convertNum(98) === "ninety eight");
 console.log('if it is 123: ',
   convertNum(123) === "one hundred twenty three");
+console.log('if it is 101: ',
+  convertNum(101) === "one hundred one");

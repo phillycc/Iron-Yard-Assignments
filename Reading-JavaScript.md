@@ -12,6 +12,28 @@
 ~~~
 
 ```javascript
+var temp = {};
+      for (var key in object) {
+          temp[key] = _cloneObject(object[key]);
+      }
+```
+
+* Variable: `temp` (object)
+* for-in loop where key-value pairs of the object are being looped through
+
+~~~
+
+```javascript
+ if (this._options.showButtons === false) {
+        buttonsLayer.style.display = 'none';
+ }
+```
+
+* if showButtons property of the object is false (bolean), then hide DOM element buttonsLayer
+
+~~~
+
+```javascript
  for (var i = 0, elmsLength = allIntroSteps.length; i < elmsLength; i++) {
         var currentElement = allIntroSteps[i];
         var step = parseInt(currentElement.getAttribute('data-step'), 10);

@@ -1,15 +1,15 @@
 
 function wordsOneDigit(a){
-  if(a === 0){return "zero";}
-  if(a === 1){return "one";}
-  if(a === 2){return "two";}
-  if(a === 3){return "three";}
-  if(a === 4){return "four";}
-  if(a === 5){return "five";}
-  if(a === 6){return "six";}
-  if(a === 7){return "seven";}
-  if(a === 8){return "eight";}
-  if(a === 9){return "nine";}
+  if(a === "0"){return "zero";}
+  if(a === "1"){return "one";}
+  if(a === "2"){return "two";}
+  if(a === "3"){return "three";}
+  if(a === "4"){return "four";}
+  if(a === "5"){return "five";}
+  if(a === "6"){return "six";}
+  if(a === "7"){return "seven";}
+  if(a === "8"){return "eight";}
+  if(a === "9"){return "nine";}
 }
 
 function wordsTwoDigit(a,b){
@@ -24,6 +24,11 @@ function wordsTwoDigit(a,b){
       else {
         return "thirteen";
       }
+  }
+  if (a==="2"){
+
+      return "twenty "+wordsOneDigit(b);
+
   }
 }
 
@@ -42,4 +47,5 @@ function convertNum(c){
 
 console.log('if it is 11: ',
   convertNum(11) === "eleven");
-console.log(convertNum(12))
+console.log('if it is 22: ',
+  convertNum(22) === "twenty two");

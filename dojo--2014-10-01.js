@@ -13,9 +13,6 @@ function wordsOneDigit(a){
 }
 
 function wordsTwoDigit(a,b){
-
-  a = Math.floor(a);
-  b = Math.floor(b);
   if (a===1){
       if (b===1){return "eleven";}
       if (b===2){return "twelve";}
@@ -61,15 +58,19 @@ function wordsTwoDigit(a,b){
   }
 }
 
+function wordsThreeDigit(a,b,c){
+
+}
+
 function convertNum(c){
   var arrDigits = [];
   arrDigits = c.toString().split('');
 
   if (arrDigits.length === 1){
-    wordsOneDigit(arrDigits[0]);
+    wordsOneDigit(Math.floor(arrDigits[0]));
   }
   if (arrDigits.length === 2){
-    var num = wordsTwoDigit(arrDigits[0],arrDigits[1]);
+    var num = wordsTwoDigit(Math.floor(arrDigits[0]),Math.floor(arrDigits[1]));
     return num;
   }
 }

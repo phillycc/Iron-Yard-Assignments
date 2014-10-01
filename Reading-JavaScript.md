@@ -9,6 +9,16 @@
 * Variable: `allIntroSteps` (array)
 * Value: empty array
 
+~~~
+
+```javascript
+ for (var i = 0, stepsLength = this._options.steps.length; i < stepsLength; i++) {
+        var currentItem = _cloneObject(this._options.steps[i]);
+        //set the step
+        currentItem.step = introItems.length + 1;
+```
+
+* for loop 
 
 ~~~
 
@@ -27,7 +37,7 @@
  
 * Conditional if/elseif
 * typeof operator - if operand (exports) is an object, then pass the object into the function factory()
-* typeof operator - if operand (define) is a function, then pass 2 arguments: export object and factory function into the define function
+* typeof operator - if operand (define) is a function and that function has an anonymous module, then pass 2 arguments: export object and factory function into the define function
 
 
 

@@ -1,9 +1,9 @@
-/**var assert = require(‘assert’);
-*
-*function test(actual, expected, success){
-*  assert(actual === expected) || console.log(success);
-*}
-*/
+var assert = require(‘assert’);
+
+function test(actual, expected, success){
+  assert(actual === expected) || console.log(success);
+}
+
 
 /** Check writing
 *

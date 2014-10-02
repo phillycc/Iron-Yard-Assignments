@@ -46,6 +46,17 @@ var thousands = ["zero", "one thousand", "two thousand", "three thousand",
 
 function numChange(a){
 
+  var cents = "00";
+  temp = a.toString();
+  if(temp.indexOf('.') !== -1)
+  { // Grab all numbers after period
+    cents = temp.substr(temp.indexOf('.'));
+    // Removes the period from the beginning of cents string
+    cents = cents.replace(".", "");
+    // Removes the period and everything to the left of it
+    a = temp.split(".")[0];
+  }
+
   var value = a.toString().split("");
 
     if (a < 20){return(ones[a])}; //for numbers 0-19
@@ -54,7 +65,7 @@ function numChange(a){
       if (a % 10 === 0){
         return(tens[value[0]]);
       }
-      return(tens[value[0]] +" "+ ones[value[1]])
+      return(tens[value[0]] +" "+ ones[value[1]] +" and "+cents+"/100s")
     };
 ////////////////////////////////////////////////////////////
     if (a < 1000){                 //for numbers 100-999
@@ -62,20 +73,20 @@ function numChange(a){
         return(hundreds[value[0]]);
       }
         if (a % 10 === 0){     //numbers between 100-999 and divisible by 10
-        return(hundreds[value[0]]+" "+ tens[value[1]]);
+        return(hundreds[value[0]]+" "+ tens[value[1]]+" and "+cents+"/100s");
         }
           if (value[1] < 2) {   //hundreds digits, _10 < x < _20
-          return(hundreds[value[0]] +" "+ teens[value[2]]);
+          return(hundreds[value[0]] +" "+ teens[value[2]]+" and "+cents+"/100s");
           }
-      return(hundreds[value[0]] +" "+ tens[value[1]] +" "+ ones[value[2]])
+      return(hundreds[value[0]] +" "+ tens[value[1]] +" "+ ones[value[2]]+" and "+cents+"/100s")
     }
 
   if (a < 10000){
-    if (a % 1000 === 0){return(thousands[value[0]]);}
-      if (a % 100 === 0){return(thousands[value[0]] +" "+ hundreds[value[1]]);}
-        if (a % 10 === 0){return(thousands[value[0]] +" "+ hundreds[value[1]] +" "+ tens[value[2]]);}
-          if (value[2] < 2) {return(thousands[value[0]] +" "+ hundreds[value[1]] +" "+ teens[value[3]]);}
-    return(thousands[value[0]] +" "+ hundreds[value[1]] +" "+ tens[value[2]] +" "+ ones[value[3]])
+    if (a % 1000 === 0){return(thousands[value[0]]+" and "+cents+"/100s");}
+      if (a % 100 === 0){return(thousands[value[0]] +" "+ hundreds[value[1]]+" and "+cents+"/100s");}
+        if (a % 10 === 0){return(thousands[value[0]] +" "+ hundreds[value[1]] +" "+ tens[value[2]]+" and "+cents+"/100s");}
+          if (value[2] < 2) {return(thousands[value[0]] +" "+ hundreds[value[1]] +" "+ teens[value[3]]+" and "+cents+"/100s");}
+    return(thousands[value[0]] +" "+ hundreds[value[1]] +" "+ tens[value[2]] +" "+ ones[value[3]]+" and "+cents+"/100s")
   }
 
 }
@@ -89,4 +100,4 @@ while (balls<750){
 
 //////////////////////TEST////////////////////
 
-console.log(numChange(123))
+console.log(numChange(1234.56))

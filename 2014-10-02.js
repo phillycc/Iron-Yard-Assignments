@@ -128,10 +128,39 @@ function test(actual, expected, success){
  */
 function board(){
     return [
-        [ false, false, false ],
+        [ true, false, false ],
         [ false, false, false ],
         [ false, false, false ],
     ];
+};
+
+var arrBoard=board();
+for (var i = 0; i < arrBoard.length; i++){
+    for (var j = 0; j < arrBoard[i].length; j++){
+        console.log(arrBoard[i][j]);
+    }
+}
+
+var neighbors = neighborsOf(1,1);
+console.log(neighbors.length);
+
+
+/**
+ *
+ * The conway function determines if a cell in
+ * Conway's Game of Life is alive or dead given
+ * the neighbors of that cell.
+ *
+**/
+function conway(board, row, col){
+  // grabs the input board
+  var arrBoard=board();
+  // grabs neighbors of a given cooridnate
+  var neighbors = neighborsOf(row,col);
+
+
+
+  // applies Conway rules to return whether cell lives (True) or dies (False)
 }
 
 /**
@@ -191,22 +220,9 @@ function neighborsOf(row,col){
 
 /**
  *
- * The conway function determines if a cell in
- * Conway's Game of Life is alive or dead given
- * the neighbors of that cell.
- *
-**/
-function conway(board, neighborsOf(row,col)){
-  // grabs neighbors of a given cooridnate
-  // determines each coordinate if True or False
-  // applies Conway rules to return whether cell lives (True) or dies (False)
-}
-
-/**
- *
  * The tick function is passed a 3x3 board,
  * applies Conway's Game of Life rules, and
- * returns a 3x3 board after a single tick. 
+ * returns a 3x3 board after a single tick.
  *
 **/
 function tick(board){
@@ -215,12 +231,22 @@ function tick(board){
   // updates board based on returned cell values
 }
 
-test(neighborsOf(0,0).length,3,'Number of neighbors of [0,0] should be 3');
-test(neighborsOf(0,1).length,5,'Number of neighbors of [0,1] should be 5');
-test(neighborsOf(0,2).length,3,'Number of neighbors of [0,2] should be 3');
-test(neighborsOf(1,0).length,5,'Number of neighbors of [1,0] should be 5');
-test(neighborsOf(1,1).length,8,'Number of neighbors of [1,1] should be 8');
-test(neighborsOf(1,2).length,5,'Number of neighbors of [1,2] should be 5');
-test(neighborsOf(2,0).length,3,'Number of neighbors of [2,0] should be 3');
-test(neighborsOf(2,1).length,5,'Number of neighbors of [2,1] should be 5');
-test(neighborsOf(2,2).length,3,'Number of neighbors of [2,2] should be 3');
+console.log(board);
+
+// determines each coordinate if True or False
+//for(var i = 0; i < board.length; i++) {
+//    var cell = board[i];
+//    for(var j = 0; j < cell.length; j++) {
+//        console.log("cell[" + i + "][" + j + "] = " + cell[j]);
+//    }
+//}
+
+//test(neighborsOf(0,0).length,3,'Number of neighbors of [0,0] should be 3');
+//test(neighborsOf(0,1).length,5,'Number of neighbors of [0,1] should be 5');
+//test(neighborsOf(0,2).length,3,'Number of neighbors of [0,2] should be 3');
+//test(neighborsOf(1,0).length,5,'Number of neighbors of [1,0] should be 5');
+//test(neighborsOf(1,1).length,8,'Number of neighbors of [1,1] should be 8');
+//test(neighborsOf(1,2).length,5,'Number of neighbors of [1,2] should be 5');
+//test(neighborsOf(2,0).length,3,'Number of neighbors of [2,0] should be 3');
+//test(neighborsOf(2,1).length,5,'Number of neighbors of [2,1] should be 5');
+//test(neighborsOf(2,2).length,3,'Number of neighbors of [2,2] should be 3');

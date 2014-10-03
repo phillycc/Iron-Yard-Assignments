@@ -115,10 +115,8 @@ var assert = require('assert');
  */
 function test(actual, expected, success){
     if (success === undefined) success = 'pass!';
-
     assert.strictEqual(actual, expected);
-
-    console.log(success);
+    //console.log(success);
 }
 
 /**
@@ -128,7 +126,7 @@ function test(actual, expected, success){
  */
 function board(){
     return [
-        [ true, false, false ],
+        [ false, false, false ],
         [ false, false, false ],
         [ false, false, false ],
     ];
@@ -270,6 +268,22 @@ function tick(board){
   // calls conway passing the board and a row-column
   // updates board based on returned cell values
 }
+
+console.log(conway(board,0,0));
+
+var testCases = [
+  [
+    [
+      [ false, false, false ],
+      [ false, false, false ],
+      [ false, false, false ],
+    ],0,0
+  ]
+];
+
+//for (var index=0; index<testCases.length; index++){
+//  test(conway(testCases[index][0],testCases[index][1],testCases[index][2]),false);
+//}
 
 test(neighborsOf(0,0).length,3,'Number of neighbors of [0,0] should be 3');
 test(neighborsOf(0,1).length,5,'Number of neighbors of [0,1] should be 5');

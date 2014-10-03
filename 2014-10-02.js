@@ -135,17 +135,26 @@ function board(){
 };
 
 var arrBoard=board();
-var neighbors = neighborsOf(2,2);
+var neighbors = neighborsOf(1,1);
+var liveNeighbors=0;
+//loops through board columns
 for (var i = 0; i < arrBoard.length; i++){
+    //loops through board rows
     for (var j = 0; j < arrBoard[i].length; j++){
+        //loops through all neighbors values
         for (var k = 0; k < neighbors.length; k++){
-            if(j === neighbors[k][0] && i === neighbors[k][1]){
+            //compare x and y values of neighbors with the x y of board
+            if(i === neighbors[k][0] && j === neighbors[k][1]){
+               //if the value of board is true increment counter
+               if (arrBoard[i][j]===true){
+                   liveNeighbors++;
+               }
                console.log(j+','+i+': '+arrBoard[i][j]);
             }
         }
     }
 }
-
+console.log('This cell has '+liveNeighbors+' live neighbors.')
 
 /**
  *
@@ -154,7 +163,7 @@ for (var i = 0; i < arrBoard.length; i++){
  * the neighbors of that cell.
  *
 **/
-function conway(board, row, col){
+function conway(board, col, row){
   // grabs the input board
   var arrBoard=board();
   // grabs neighbors of a given cooridnate
@@ -172,48 +181,48 @@ function conway(board, row, col){
  * for a given row-column coordinate
  *
 **/
-function neighborsOf(row,col){
-    if (row===0 && col===0){
+function neighborsOf(col,row){
+    if (col===0 && row===0){
         return [
           [0,1],[1,0],[1,1]
         ];
     }
-    if (row===0 && col===1){
+    if (col===0 && row===1){
         return [
           [0,0],[1,0],[1,1],[1,2],[0,2]
         ];
     }
-    if (row===0 && col===2){
+    if (col===0 && row===2){
         return [
           [0,1],[1,1],[1,2]
         ];
     }
-    if (row===1 && col===0){
+    if (col===1 && row===0){
         return [
           [0,0],[0,1],[1,1],[2,0],[2,1]
         ];
     }
-    if (row===1 && col===1){
+    if (col===1 && row===1){
         return [
           [0,0],[0,1],[0,2],[1,0],[1,2],[2,0],[2,1],[2,2]
         ];
     }
-    if (row===1 && col===2){
+    if (col===1 && row===2){
         return [
           [0,1],[0,2],[1,1],[2,1],[2,2]
         ];
     }
-    if (row===2 && col===0){
+    if (col===2 && row===0){
         return [
           [1,0],[1,1],[2,1]
         ];
     }
-    if (row===2 && col===1){
+    if (col===2 && row===1){
         return [
           [1,0],[1,1],[1,2],[2,0],[2,2]
         ];
     }
-    if (row===2 && col===2){
+    if (col===2 && row===2){
         return [
           [1,1],[1,2],[2,1]
         ];

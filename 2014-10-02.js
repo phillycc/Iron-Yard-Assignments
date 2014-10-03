@@ -134,63 +134,68 @@ function board(){
     ];
 };
 
-//
-var arrBoard=board();
-var neighbors = neighborsOf(1,1);
-var liveNeighbors=0;
-var cellStatus=arrBoard[1][1];
-
-//loops through board columns
-for (var i = 0; i < arrBoard.length; i++){
-    //loops through board rows
-    for (var j = 0; j < arrBoard[i].length; j++){
-        //loops through all neighbors values
-        for (var k = 0; k < neighbors.length; k++){
-            //compare x and y values of neighbors with the x y of board
-            if(i === neighbors[k][0] && j === neighbors[k][1]){
-               //if the value of board is true increment counter
-               if (arrBoard[i][j]===true){
-                   liveNeighbors++;
-               }
-               console.log(j+','+i+': '+arrBoard[i][j]);
-            }
-        }
-    }
-}
-console.log('This cell has '+liveNeighbors+' live neighbors.')
-
-/**
- * Conway's Rules
- * RULE 1 - live cell < 2 live neighbours : return false
- * RULE 2 - (live cell === 2 live neighbours || live cell === 3 live neighbours) : return true
- * RULE 3 - live cell > 3 live neighbours : return false
- * RULE 4 - dead cell === 3 live neighbours : return true
-*/
-if (cellStatus){
-
-}
-
-
 /**
  *
  * The conway function determines if a cell in
- * Conway's Game of Life is alive or dead given
- * the neighbors of that cell.
+ * Conway's Game of Life is alive or dead after
+ * a single tick given the status of the neighbors
+ * of that cell.
  *
  * Function Definition: conway()
- * @params: Array board; Number col; Number row
+ * @param: Array of Array of Boolean board
+ * @param: Number col
+ * @param: Number row
  * @return: Boolean
  *
 **/
 function conway(board, col, row){
-  // grabs the input board
+  //assigns board array to a variable
   var arrBoard=board();
-  // grabs neighbors of a given cooridnate
-  var neighbors = neighborsOf(row,col);
+  //assigns boolean value of cell to a variable
+  var cellStatus=arrBoard[col][row];
+  //assigns neighborsOf array to a variable
+  var neighbors = neighborsOf(col,row);
+  //initializes counter of liveNeighbors to zero
+  var liveNeighbors=0;
 
+  //loops through board columns
+  for (var i = 0; i < arrBoard.length; i++){
+      //loops through board rows
+      for (var j = 0; j < arrBoard[i].length; j++){
+          //loops through all neighbors values
+          for (var k = 0; k < neighbors.length; k++){
+              //compare x and y values of neighbors with the x y of board
+              if(i === neighbors[k][0] && j === neighbors[k][1]){
+                 //if the value of board is true increment counter
+                 if (arrBoard[i][j]===true){
+                     liveNeighbors++;
+                 }
+                 //console.log(j+','+i+': '+arrBoard[i][j]);
+              }
+          }
+      }
+  }
+  //console.log('This cell has '+liveNeighbors+' live neighbors.')
 
-
-  // applies Conway rules to return whether cell lives (True) or dies (False)
+  if (cellStatus===true){
+      //RULE 1 - live cell < 2 live neighbors : return false
+      if (liveNeighbors < 2){
+          return false;
+      //RULE 2 - live cell with 2 or 3 live neighbors : return true
+      } else if (liveNeighbors===2 || liveNeighbors===3){
+          return true;
+      //RULE 3 - live cell > 3 live neighbors : return false
+      } else {
+          return false;
+      }
+  } else {
+      //RULE 4 - dead cell with 3 live neighbors : return true
+      if (liveNeighbors===3){
+          return true;
+      } else {
+          return false;
+      }
+  }
 }
 
 /**
@@ -198,6 +203,11 @@ function conway(board, col, row){
  * The neighborsOf function returns a list of all
  * neighboring cells inside a 3x3 board of cells
  * for a given row-column coordinate
+ *
+ * Function Definition: neighborsOf()
+ * @param: Number col
+ * @param: Number row
+ * @return: Array of Array of Number
  *
 **/
 function neighborsOf(col,row){
@@ -261,20 +271,12 @@ function tick(board){
   // updates board based on returned cell values
 }
 
-// determines each coordinate if True or False
-//for(var i = 0; i < board.length; i++) {
-//    var cell = board[i];
-//    for(var j = 0; j < cell.length; j++) {
-//        console.log("cell[" + i + "][" + j + "] = " + cell[j]);
-//    }
-//}
-
-//test(neighborsOf(0,0).length,3,'Number of neighbors of [0,0] should be 3');
-//test(neighborsOf(0,1).length,5,'Number of neighbors of [0,1] should be 5');
-//test(neighborsOf(0,2).length,3,'Number of neighbors of [0,2] should be 3');
-//test(neighborsOf(1,0).length,5,'Number of neighbors of [1,0] should be 5');
-//test(neighborsOf(1,1).length,8,'Number of neighbors of [1,1] should be 8');
-//test(neighborsOf(1,2).length,5,'Number of neighbors of [1,2] should be 5');
-//test(neighborsOf(2,0).length,3,'Number of neighbors of [2,0] should be 3');
-//test(neighborsOf(2,1).length,5,'Number of neighbors of [2,1] should be 5');
-//test(neighborsOf(2,2).length,3,'Number of neighbors of [2,2] should be 3');
+test(neighborsOf(0,0).length,3,'Number of neighbors of [0,0] should be 3');
+test(neighborsOf(0,1).length,5,'Number of neighbors of [0,1] should be 5');
+test(neighborsOf(0,2).length,3,'Number of neighbors of [0,2] should be 3');
+test(neighborsOf(1,0).length,5,'Number of neighbors of [1,0] should be 5');
+test(neighborsOf(1,1).length,8,'Number of neighbors of [1,1] should be 8');
+test(neighborsOf(1,2).length,5,'Number of neighbors of [1,2] should be 5');
+test(neighborsOf(2,0).length,3,'Number of neighbors of [2,0] should be 3');
+test(neighborsOf(2,1).length,5,'Number of neighbors of [2,1] should be 5');
+test(neighborsOf(2,2).length,3,'Number of neighbors of [2,2] should be 3');

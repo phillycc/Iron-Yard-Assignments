@@ -147,7 +147,7 @@ var neighborsOf = function(row,col){
     }
     if (row===0 && col===2){
         return [
-          [0,1],[1,1],[1,]
+          [0,1],[1,1],[1,2]
         ];
     }
     if (row===1 && col===0){

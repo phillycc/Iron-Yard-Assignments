@@ -134,6 +134,13 @@ function board(){
     ];
 }
 
+/**
+ *
+ * The neighborsOf function returns a list of all
+ * neighboring cells inside a 3x3 board of cells
+ * for a given row-column coordinate  
+ *
+**/
 var neighborsOf = function(row,col){
     if (row===0 && col===0){
         return [

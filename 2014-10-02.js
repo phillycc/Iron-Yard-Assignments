@@ -150,8 +150,26 @@ var neighborsOf = function(row,col){
           [0,1],[1,1],[1,]
         ];
     }
+    if (row===1 && col===0){
+        return [
+          [0,0],[0,1],[1,1],[2,0],[2,1]
+        ];
+    }
+    if (row===1 && col===1){
+        return [
+          [0,0],[0,1],[0,2],[1,0],[1,2],[2,0],[2,1],[2,2]
+        ];
+    }
+    if (row===1 && col===2){
+        return [
+          [0,1],[0,2],[1,1],[2,1],[2,2]
+        ];
+    }
 }
 
 test(neighborsOf(0,0).length,3,'Number of neighbors of [0,0] should be 3');
 test(neighborsOf(0,1).length,5,'Number of neighbors of [0,1] should be 5');
 test(neighborsOf(0,2).length,3,'Number of neighbors of [0,2] should be 3');
+test(neighborsOf(1,0).length,5,'Number of neighbors of [1,0] should be 5');
+test(neighborsOf(1,1).length,8,'Number of neighbors of [1,1] should be 8');
+test(neighborsOf(1,2).length,5,'Number of neighbors of [1,2] should be 5');

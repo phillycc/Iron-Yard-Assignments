@@ -135,15 +135,15 @@ function board(){
 };
 
 var arrBoard=board();
+var neighbors = neighborsOf(1,1);
 for (var i = 0; i < arrBoard.length; i++){
     for (var j = 0; j < arrBoard[i].length; j++){
         console.log(arrBoard[i][j]);
     }
 }
-
-var neighbors = neighborsOf(1,1);
-console.log(neighbors.length);
-
+for (var k = 0; k < neighbors.length; k++){
+  console.log('x'+neighbors[k][0], 'y'+neighbors[k][1]);
+}
 
 /**
  *
@@ -230,8 +230,6 @@ function tick(board){
   // calls conway passing the board and a row-column
   // updates board based on returned cell values
 }
-
-console.log(board);
 
 // determines each coordinate if True or False
 //for(var i = 0; i < board.length; i++) {

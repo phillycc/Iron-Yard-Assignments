@@ -134,9 +134,12 @@ function board(){
     ];
 };
 
+//
 var arrBoard=board();
 var neighbors = neighborsOf(1,1);
 var liveNeighbors=0;
+var cellStatus=arrBoard[1][1];
+
 //loops through board columns
 for (var i = 0; i < arrBoard.length; i++){
     //loops through board rows
@@ -157,10 +160,26 @@ for (var i = 0; i < arrBoard.length; i++){
 console.log('This cell has '+liveNeighbors+' live neighbors.')
 
 /**
+ * Conway's Rules
+ * RULE 1 - live cell < 2 live neighbours : return false
+ * RULE 2 - (live cell === 2 live neighbours || live cell === 3 live neighbours) : return true
+ * RULE 3 - live cell > 3 live neighbours : return false
+ * RULE 4 - dead cell === 3 live neighbours : return true
+*/
+if (cellStatus){
+
+}
+
+
+/**
  *
  * The conway function determines if a cell in
  * Conway's Game of Life is alive or dead given
  * the neighbors of that cell.
+ *
+ * Function Definition: conway()
+ * @params: Array board; Number col; Number row
+ * @return: Boolean
  *
 **/
 function conway(board, col, row){

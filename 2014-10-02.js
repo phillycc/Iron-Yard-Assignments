@@ -135,15 +135,17 @@ function board(){
 };
 
 var arrBoard=board();
-var neighbors = neighborsOf(1,1);
+var neighbors = neighborsOf(2,2);
 for (var i = 0; i < arrBoard.length; i++){
     for (var j = 0; j < arrBoard[i].length; j++){
-        console.log(arrBoard[i][j]);
+        for (var k = 0; k < neighbors.length; k++){
+            if(j === neighbors[k][0] && i === neighbors[k][1]){
+               console.log(j+','+i+': '+arrBoard[i][j]);
+            }
+        }
     }
 }
-for (var k = 0; k < neighbors.length; k++){
-  console.log('x'+neighbors[k][0], 'y'+neighbors[k][1]);
-}
+
 
 /**
  *

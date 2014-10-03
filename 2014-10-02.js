@@ -138,10 +138,10 @@ function board(){
  *
  * The neighborsOf function returns a list of all
  * neighboring cells inside a 3x3 board of cells
- * for a given row-column coordinate  
+ * for a given row-column coordinate
  *
 **/
-var neighborsOf = function(row,col){
+function neighborsOf(row,col){
     if (row===0 && col===0){
         return [
           [0,1],[1,0],[1,1]
@@ -187,6 +187,32 @@ var neighborsOf = function(row,col){
           [1,1],[1,2],[2,1]
         ];
     }
+}
+
+/**
+ *
+ * The conway function determines if a cell in
+ * Conway's Game of Life is alive or dead given
+ * the neighbors of that cell.
+ *
+**/
+function conway(board, neighborsOf(row,col)){
+  // grabs neighbors of a given cooridnate
+  // determines each coordinate if True or False
+  // applies Conway rules to return whether cell lives (True) or dies (False)
+}
+
+/**
+ *
+ * The tick function is passed a 3x3 board,
+ * applies Conway's Game of Life rules, and
+ * returns a 3x3 board after a single tick. 
+ *
+**/
+function tick(board){
+  // loops over list in board for each row-column combo
+  // calls conway passing the board and a row-column
+  // updates board based on returned cell values
 }
 
 test(neighborsOf(0,0).length,3,'Number of neighbors of [0,0] should be 3');

@@ -146,13 +146,14 @@ function board(){
  * @return: Boolean
  *
 **/
-function conway(board, col, row){
+function conway(col, row){
   //assigns board array to a variable
-  var arrBoard=board();
+  var arrBoard=board;
   //assigns boolean value of cell to a variable
   var cellStatus=arrBoard[col][row];
   //assigns neighborsOf array to a variable
   var neighbors = neighborsOf(col,row);
+  //console.log(neighbors);
   //initializes counter of liveNeighbors to zero
   var liveNeighbors=0;
 
@@ -208,53 +209,64 @@ function conway(board, col, row){
  * @return: Array of Array of Number
  *
 **/
-function neighborsOf(col,row){
+function neighborsOf(board,col,row){
+    //assigns board array to a variable
+    var arrBoard=board;
+
+    //return boolean values of nearest neighbors for given col,row
     if (col===0 && row===0){
         return [
-          [0,1],[1,0],[1,1]
+          arrBoard[0][1],arrBoard[1][0],arrBoard[1][1]
         ];
     }
     if (col===0 && row===1){
         return [
-          [0,0],[1,0],[1,1],[1,2],[0,2]
+          arrBoard[0][0],arrBoard[1][0],arrBoard[1][1],
+          arrBoard[1][2],arrBoard[0][2]
         ];
     }
     if (col===0 && row===2){
         return [
-          [0,1],[1,1],[1,2]
+          arrBoard[0][1],arrBoard[1][1],arrBoard[1][2]
         ];
     }
     if (col===1 && row===0){
         return [
-          [0,0],[0,1],[1,1],[2,0],[2,1]
+          arrBoard[0][0],arrBoard[0][1],arrBoard[1][1],
+          arrBoard[2][0],arrBoard[2][1]
         ];
     }
     if (col===1 && row===1){
         return [
-          [0,0],[0,1],[0,2],[1,0],[1,2],[2,0],[2,1],[2,2]
+          arrBoard[0][0],arrBoard[0][1],arrBoard[0][2],
+          arrBoard[1][0],arrBoard[1][2],arrBoard[2][0],
+          arrBoard[2][1],arrBoard[2][2]
         ];
     }
     if (col===1 && row===2){
         return [
-          [0,1],[0,2],[1,1],[2,1],[2,2]
+          arrBoard[0][1],arrBoard[0][2],arrBoard[1][1],
+          arrBoard[2][1],arrBoard[2][2]
         ];
     }
     if (col===2 && row===0){
         return [
-          [1,0],[1,1],[2,1]
+          arrBoard[1][0],arrBoard[1][1],arrBoard[2][1]
         ];
     }
     if (col===2 && row===1){
         return [
-          [1,0],[1,1],[1,2],[2,0],[2,2]
+          arrBoard[1][0],arrBoard[1][1],arrBoard[1][2],
+          arrBoard[2][0],arrBoard[2][2]
         ];
     }
     if (col===2 && row===2){
         return [
-          [1,1],[1,2],[2,1]
+          arrBoard[1][1],arrBoard[1][2],arrBoard[2][1]
         ];
     }
 }
+
 
 /**
  *
@@ -269,21 +281,36 @@ function tick(board){
   // updates board based on returned cell values
 }
 
-console.log(conway(board,0,0));
+//console.log(conway(board,0,0));
 
 var testCases = [
   [
     [
-      [ false, false, false ],
-      [ false, false, false ],
-      [ false, false, false ],
-    ],0,0
+      [ false, true, false ],
+      [ false, false, true ],
+      [ false, true, false ],
+    ],1,1
   ]
 ];
 
-//for (var index=0; index<testCases.length; index++){
+for (var index=0; index<testCases.length; index++){
+   console.log(neighborsOf(testCases[index][0],testCases[index][1],testCases[index][2]));
+}
+
+
+
+/*
+for (var index=0; index<testCases.length; index++){
+
+console.log(testCases[index][0]);
+console.log(testCases[index][1]);
+console.log(testCases[index][2]);
+console.log(conway(testCases[index][0],testCases[index][1],testCases[index][2]));
+
+
+
 //  test(conway(testCases[index][0],testCases[index][1],testCases[index][2]),false);
-//}
+}
 
 test(neighborsOf(0,0).length,3,'Number of neighbors of [0,0] should be 3');
 test(neighborsOf(0,1).length,5,'Number of neighbors of [0,1] should be 5');
@@ -294,3 +321,4 @@ test(neighborsOf(1,2).length,5,'Number of neighbors of [1,2] should be 5');
 test(neighborsOf(2,0).length,3,'Number of neighbors of [2,0] should be 3');
 test(neighborsOf(2,1).length,5,'Number of neighbors of [2,1] should be 5');
 test(neighborsOf(2,2).length,3,'Number of neighbors of [2,2] should be 3');
+*/

@@ -104,6 +104,7 @@
  * You may test more starting position, if you like, of course.
  */
 
+//******** PRODUCTION CODE ************//
 /**
  *
  * The tick function is passed a 3x3 board,
@@ -247,9 +248,9 @@ function neighborsOf(board,row,col){
     }
 }
 
+//************ TEST CODE ************//
 
 var assert = require('assert');
-
 /**
  * Log `success` if `actual` is STRICTLY equal to `expected`
  *
@@ -258,64 +259,123 @@ var assert = require('assert');
  * @param String success
  */
 function test(actual, expected, success){
-    if (success === undefined) success = 'pass!';
+    if (success === undefined) success = actual+' >> '+expected+' pass!';
     assert.strictEqual(actual, expected);
-    //console.log(success);
+    console.log(success);
 }
 
-/**
- * Return a nested array representing an initially empty 3x3 board.
- *
- * @return Array of Array of Boolean
- */
-/*function board(){
-    return [
-        [ false, false, false ],
-        [ false, false, false ],
-        [ false, false, false ],
-    ];
-};*/
-
 var testCases = [
+    // CASE 1 - Initially Empty Board
+    [
+      [ false, false, false ],
+      [ false, false, false ],
+      [ false, false, false ],
+    ],
+    // CASE 2 - Just One Cell
+    [
+      [ false, false, false ],
+      [ false, true, false ],
+      [ false, false, false ],
+    ],
+    // CASE 3 - Two Cells in Any Arrangement (Horizontal)
+    [
+      [ false, false, false ],
+      [ false, true, true ],
+      [ false, false, false ],
+    ],
+    // CASE 4 - Two Cells in Any Arrangement (Diagonal)
+    [
+      [ true, false, false ],
+      [ false, true, false ],
+      [ false, false, false ],
+    ],
+    // CASE 5 - Two Cells in Any Arrangement (Vertical)
+    [
+      [ false, true, false ],
+      [ false, true, false ],
+      [ false, false, false ],
+    ],
+    // CASE 6 - Three Cells in a Line (Vertical)
+    [
+      [ false, true, false ],
+      [ false, true, false ],
+      [ false, true, false ],
+    ],
+    // CASE 7 - Three Cells in a Line (Horizontal)
+    [
+      [ false, false, false ],
+      [ true, true, true ],
+      [ false, false, false ],
+    ],
+    // CASE 8 - Three Cells in a Line (Diagonal)
+    [
+      [ true, false, false ],
+      [ false, true, false ],
+      [ false, false, true ],
+    ]
+];
+
+console.log('\n=====Production Tests======')
+
+for (var index=0; index<testCases.length; index++){
+   console.log('CASE '+(index+1)+':\n'+tick(testCases[index]));
+}
+
+console.log('\n======Function Tests=======')
+
+var neighborsTestCases = [
   [
     [
       [ false, true, false ],
       [ false, true, false ],
       [ false, true, false ],
-    ],0,1
-  ]
+    ],0,0,3
+  ],
+  [
+    [
+      [ false, true, false ],
+      [ false, true, false ],
+      [ false, true, false ],
+    ],1,0,5
+  ],
+  [
+    [
+      [ false, true, false ],
+      [ false, true, false ],
+      [ false, true, false ],
+    ],1,1,8
+  ],
 ];
 
-console.log(testCases[0][0]);
-
-console.log(tick(testCases[0][0]));
-
-/*for (var index=0; index<testCases.length; index++){
-  console.log(neighborsOf(testCases[index][0],testCases[index][1],testCases[index][2]));
-}*/
-
-//console.log(conway(testCases[0][0],testCases[0][1],testCases[0][2]));
-
-/*
-for (var index=0; index<testCases.length; index++){
-
-console.log(testCases[index][0]);
-console.log(testCases[index][1]);
-console.log(testCases[index][2]);
-console.log(conway(testCases[index][0],testCases[index][1],testCases[index][2]));
-
-
-
-//  test(conway(testCases[index][0],testCases[index][1],testCases[index][2]),false);
+console.log('\n\nTESTS: neighborsOf\n');
+for (var index=0; index<neighborsTestCases.length; index++){
+   test(neighborsOf(neighborsTestCases[index][0],neighborsTestCases[index][1],neighborsTestCases[index][2]).length,neighborsTestCases[index][3]);
 }
 
-test(neighborsOf(0,0).length,3,'Number of neighbors of [0,0] should be 3');
-test(neighborsOf(0,1).length,5,'Number of neighbors of [0,1] should be 5');
-test(neighborsOf(0,2).length,3,'Number of neighbors of [0,2] should be 3');
-test(neighborsOf(1,0).length,5,'Number of neighbors of [1,0] should be 5');
-test(neighborsOf(1,1).length,8,'Number of neighbors of [1,1] should be 8');
-test(neighborsOf(1,2).length,5,'Number of neighbors of [1,2] should be 5');
-test(neighborsOf(2,0).length,3,'Number of neighbors of [2,0] should be 3');
-test(neighborsOf(2,1).length,5,'Number of neighbors of [2,1] should be 5');
-test(neighborsOf(2,2).length,3,'Number of neighbors of [2,2] should be 3');
-*/
+var conwayTestCases = [
+  [
+    [
+      [ false, true, false ],
+      [ false, true, false ],
+      [ false, true, false ],
+    ],0,0,false
+  ],
+  [
+    [
+      [ false, true, false ],
+      [ false, true, false ],
+      [ false, true, false ],
+    ],1,0,true
+  ],
+  [
+    [
+      [ false, true, false ],
+      [ false, true, false ],
+      [ false, true, false ],
+    ],1,1,true
+  ],
+];
+console.log('\n\nTESTS: conway\n');
+for (var index=0; index<conwayTestCases.length; index++){
+   test(conway(conwayTestCases[index][0],conwayTestCases[index][1],conwayTestCases[index][2]),conwayTestCases[index][3]);
+}

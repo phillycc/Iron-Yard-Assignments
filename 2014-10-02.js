@@ -157,9 +157,7 @@ function conway(board, row, col){
     if (neighbors[i] ===  true)
       liveNeighbors++;
   }
-
-  //console.log('Cell ('+cellStatus+') '+row+','+col+' has '+liveNeighbors+' live neighbors.')
-
+  //checks cell's status and applies Conway's rules
   if (cellStatus===true){
       //RULE 1 - live cell < 2 live neighbors : return false
       if (liveNeighbors < 2){

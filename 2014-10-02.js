@@ -104,34 +104,29 @@
  * You may test more starting position, if you like, of course.
  */
 
-var assert = require('assert');
-
 /**
- * Log `success` if `actual` is STRICTLY equal to `expected`
  *
- * @param ANY actual
- * @param ANY expected
- * @param String success
- */
-function test(actual, expected, success){
-    if (success === undefined) success = 'pass!';
-    assert.strictEqual(actual, expected);
-    //console.log(success);
+ * The tick function is passed a 3x3 board,
+ * applies Conway's Game of Life rules, and
+ * returns a 3x3 board after a single tick.
+ *
+ * Function Definition: tick()
+ * @param: Array of Array of Boolean board
+ * @return: Array of Array of Boolean
+ *
+**/
+function tick(board){
+  //initialize 1-dimensional array with 3 elements
+  var arrNextBoard = new Array(3);
+  for (var i = 0; i < arrNextBoard.length; i++){
+      //initialize a second 1-dimensional array within first array
+      arrNextBoard[i] = new Array(3);
+      for (var j = 0; j < arrNextBoard[i].length; j++){
+          arrNextBoard[i][j]=conway(board,i,j);
+      }
+  }
+  return arrNextBoard;
 }
-
-/**
- * Return a nested array representing an initially empty 3x3 board.
- *
- * @return Array of Array of Boolean
- */
-/*function board(){
-    return [
-        [ false, false, false ],
-        [ false, false, false ],
-        [ false, false, false ],
-    ];
-};*/
-
 /**
  *
  * The conway function determines if a cell in
@@ -162,7 +157,7 @@ function conway(board, row, col){
       liveNeighbors++;
   }
 
-  console.log('Cell ('+cellStatus+') '+row+','+col+' has '+liveNeighbors+' live neighbors.')
+  //console.log('Cell ('+cellStatus+') '+row+','+col+' has '+liveNeighbors+' live neighbors.')
 
   if (cellStatus===true){
       //RULE 1 - live cell < 2 live neighbors : return false
@@ -184,7 +179,6 @@ function conway(board, row, col){
       }
   }
 }
-
 /**
  *
  * The neighborsOf function returns a list of all
@@ -192,9 +186,10 @@ function conway(board, row, col){
  * for a given row-column coordinate
  *
  * Function Definition: neighborsOf()
+ * @param: Array of Array of Boolean board
  * @param: Number row
  * @param: Number col
- * @return: Array of Array of Number
+ * @return: Array of Array of Boolean
  *
 **/
 function neighborsOf(board,row,col){
@@ -253,24 +248,33 @@ function neighborsOf(board,row,col){
 }
 
 
+var assert = require('assert');
+
 /**
+ * Log `success` if `actual` is STRICTLY equal to `expected`
  *
- * The tick function is passed a 3x3 board,
- * applies Conway's Game of Life rules, and
- * returns a 3x3 board after a single tick.
- *
-**/
-function tick(board){
-  //creates array to hold updated board values
-  var arrNextBoard = [];
-  //loops through board rows
-  for (var i = 0; i < board.length; i++){
-      //loops through board columns
-      for (var j = 0; j < board[i].length; j++){
-          console.log(i+','+j+' return: '+conway(board,i,j));
-      }
-  }
+ * @param ANY actual
+ * @param ANY expected
+ * @param String success
+ */
+function test(actual, expected, success){
+    if (success === undefined) success = 'pass!';
+    assert.strictEqual(actual, expected);
+    //console.log(success);
 }
+
+/**
+ * Return a nested array representing an initially empty 3x3 board.
+ *
+ * @return Array of Array of Boolean
+ */
+/*function board(){
+    return [
+        [ false, false, false ],
+        [ false, false, false ],
+        [ false, false, false ],
+    ];
+};*/
 
 var testCases = [
   [

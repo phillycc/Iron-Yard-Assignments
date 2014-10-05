@@ -141,27 +141,28 @@ function test(actual, expected, success){
  *
  * Function Definition: conway()
  * @param: Array of Array of Boolean board
- * @param: Number col
  * @param: Number row
+ * @param: Number col
  * @return: Boolean
  *
 **/
-function conway(board, col, row){
+function conway(board, row, col){
   //assigns boolean status of current cell
-  var cellStatus = board[col][row];
+  var cellStatus = board[row][col];
 
   //assigns neighborsOf array to a variable
-  var neighbors = neighborsOf(board,col,row);
+  var neighbors = neighborsOf(board,row,col);
 
   //initializes counter of liveNeighbors to zero
   var liveNeighbors=0;
 
+  //counts the number of live neighbors
   for (i = 0; i < neighbors.length; i++) {
     if (neighbors[i] ===  true)
       liveNeighbors++;
   }
 
-  console.log('Cell ('+cellStatus+') '+col+','+row+' has '+liveNeighbors+' live neighbors.')
+  console.log('Cell ('+cellStatus+') '+row+','+col+' has '+liveNeighbors+' live neighbors.')
 
   if (cellStatus===true){
       //RULE 1 - live cell < 2 live neighbors : return false
@@ -191,60 +192,60 @@ function conway(board, col, row){
  * for a given row-column coordinate
  *
  * Function Definition: neighborsOf()
- * @param: Number col
  * @param: Number row
+ * @param: Number col
  * @return: Array of Array of Number
  *
 **/
-function neighborsOf(board,col,row){
+function neighborsOf(board,row,col){
     //return boolean values of nearest neighbors for given col,row
-    if (col===0 && row===0){
+    if (row===0 && col===0){
         return [
           board[0][1],board[1][0],board[1][1]
         ];
     }
-    if (col===0 && row===1){
+    if (row===0 && col===1){
         return [
           board[0][0],board[1][0],board[1][1],
-          board[1][2],board[0][2]
+          board[0][2],board[1][2]
         ];
     }
-    if (col===0 && row===2){
+    if (row===0 && col===2){
         return [
           board[0][1],board[1][1],board[1][2]
         ];
     }
-    if (col===1 && row===0){
+    if (row===1 && col===0){
         return [
           board[0][0],board[0][1],board[1][1],
           board[2][0],board[2][1]
         ];
     }
-    if (col===1 && row===1){
+    if (row===1 && col===1){
         return [
           board[0][0],board[0][1],board[0][2],
           board[1][0],board[1][2],board[2][0],
           board[2][1],board[2][2]
         ];
     }
-    if (col===1 && row===2){
+    if (row===1 && col===2){
         return [
           board[0][1],board[0][2],board[1][1],
           board[2][1],board[2][2]
         ];
     }
-    if (col===2 && row===0){
+    if (row===2 && col===0){
         return [
           board[1][0],board[1][1],board[2][1]
         ];
     }
-    if (col===2 && row===1){
+    if (row===2 && col===1){
         return [
-          board[1][0],board[1][1],board[1][2],
-          board[2][0],board[2][2]
+          board[1][0],board[2][0],board[1][1],
+          board[1][2],board[2][2]
         ];
     }
-    if (col===2 && row===2){
+    if (row===2 && col===2){
         return [
           board[1][1],board[1][2],board[2][1]
         ];
@@ -262,9 +263,9 @@ function neighborsOf(board,col,row){
 function tick(board){
   //creates array to hold updated board values
   var arrNextBoard = [];
-  //loops through board columns
+  //loops through board rows
   for (var i = 0; i < board.length; i++){
-      //loops through board rows
+      //loops through board columns
       for (var j = 0; j < board[i].length; j++){
           console.log(i+','+j+' return: '+conway(board,i,j));
       }
@@ -274,9 +275,9 @@ function tick(board){
 var testCases = [
   [
     [
-      [ true, false, false ],
       [ false, true, false ],
-      [ false, false, true ],
+      [ false, true, false ],
+      [ false, true, false ],
     ],0,1
   ]
 ];

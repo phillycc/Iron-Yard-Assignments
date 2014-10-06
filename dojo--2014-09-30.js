@@ -29,7 +29,11 @@ console.log('it should multiply "' + a + '" and "' + b + '": ',
 
 var iCount=0;
 letterNum.forEach(function(i){
-  console.log(i+' '+iCount);
+  var jCount=0;
+    letterNum.forEach(function(j){
+      console.log(i+' '+iCount+' : '+j+' '+jCount);
+      jCount++;
+  });
   iCount++;
 });
 

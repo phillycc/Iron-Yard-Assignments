@@ -1,3 +1,72 @@
+**cleanupLoaded.js**
+
+```javascript
+for (var key in loaded.success) {
+  data = loaded.success[key];
+  newData = {
+    Address: {},
+    location: {},
+    LegacyData: {}
+  };
+  for (var dataKey in data) {
+
+    /**
+     * Converting String fields to Booleans
+     */
+    if (booleans.hasOwnProperty(dataKey)) {
+        data[dataKey] = (data[dataKey] === 'Y' || data[dataKey] === true);
+    }
+```
+
+```javascript
+var mapped_fields = {
+  Address: {
+    address1: true,
+    address2: true,
+    city: true,
+    state: true,
+    postalCode: true
+  },
+```
+
+**server.js**
+
+```javascript
+// temporary redirect from sheltr.org to philly.sheltr.org
+function phillyRedirect() {
+  return function(req, res, next) {
+    res.writeHead(301, {'Location': 'http://philly.sheltr.org'});
+    return res.end();
+  };
+};
+```
+
+```javascript
+var settings = {
+        // The class that wraps each header. Used as a clipping mask.
+        headerClass: 'midnightHeader',
+        // The class that wraps the contents of each header. Also used as a clipping mask.
+        innerClass: 'midnightInner',
+        // The class used by the default header (useful when adding multiple headers with different markup).
+        defaultClass: 'default',
+      };
+      
+  (...)
+  for( headerClass in headers ) {
+          if( typeof headers[headerClass].element === 'undefined' ) {
+
+            // Create the outer clipping mask
+            // If there's some custom markup, use it, or else just clone the default header
+            var $existingHeader = $customHeaders.filter('.'+headerClass);
+            if( $existingHeader.length ) {
+              headers[headerClass].element = $existingHeader;
+            } else {
+              headers[headerClass].element = $defaultHeader.clone(true, true).removeClass( settings['defaultClass'] ).addClass(headerClass).appendTo( $originalHeader );
+            }
+};
+```
+
+
 **intro.js**
 
 ~~~

@@ -10,7 +10,7 @@ if (path.existsSync('loaded.json')) {
 }
 ```
 
-* Conditional if () { block }
+* Conditional if statement with { block }
 * `path` is an object with method existsSync that passes in a JSON file
 * `fs`is a built-in Node I/O synchronous function that reads the JSON file and assigns the resulting string to `loadedFile` 
 * `JSON.parse()` method parses the `loadedFile` JSON and assigns the resulting string to variable `loaded`
@@ -27,7 +27,7 @@ for (var key in loaded.success) {
 ```
 
 * for-in loop with variable `key` iterates over the JSON Object for all elements that were successfully parsed
-* Variable `data` is an array of parsed JSON strings
+* Variable `data` is an object/array of parsed JSON strings
 * `newData` is an object literal with 3 empty object properties: Address, location, LegacyData  
 
 ```javascript
@@ -53,6 +53,10 @@ function phillyRedirect() {
   };
 };
 ```
+
+* `phillyRedirect` is a function acting as a listener in Node that redirects an http request 
+* it returns a function that passes in an http request/response then uses Node's writeHead( ) funciton to send a response header to http://philly.sheltr.org, when the incoming http request is http://sheltr.org 
+
 **midnight.js**
 
 ```javascript
@@ -80,6 +84,12 @@ var settings = {
 };
 ```
 
+* `settings` is an object literal with 3 object properties, all of which contain string names of CSS classes
+* for-in loop with object `headerClass` iterates over an array `headers`
+* Conditional if statement uses dot notation to determine the type of each element in the headers array based on the `headerClass` key
+* for an undefined element in headers, jQuery variable array `$existingHeader` is assigned one or more `$customerHeaders` values that has CSS class value of headerClass per the .filter( ) method
+* if the length of `$existingHeader` array is greater than 0, then the previously undefined headers[headerClass].element is assigned $existingHeader, else jQuery variable `$defaultHeader` is cloned and operated on via a chain of three methods: .removeClass ( ), .addClass( ) and .appendTo( ). These three first remove the default class, then add the headerClass passed in via the for-in loop, and then append the cloned defaultHeader to the originalHeader. The resulting string is than assigned to the requisite key'ed element of the headers array.
+
 ```javascript
 // Reset the header status
         for( ix in headers ) {
@@ -88,7 +98,9 @@ var settings = {
           headers[ ix ].progress = 0.0;
         }
 ```
-
+* for-in loop with variable `ix` iterates over object `headers` and assigns values to 2 properties: from and progress. 
+* from is assigned the empty string and progress is assigned a floating point number of 0.0
+ 
 ```javascript
 // We need to recalculate all sections and headers on resize.
       $(window).resize(function(){
@@ -99,6 +111,9 @@ var settings = {
         updateHeaders();
       }).trigger('resize');
 ```    
+* window object uses .resize( ) function to resize within the browser window specific page elements based on what is returned from calling 4 named functions
+* Uses the jQuery .trigger( ) function to trigger the resize event once all functions have been called
+
 
 **intro.js**
 

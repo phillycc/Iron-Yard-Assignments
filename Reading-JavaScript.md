@@ -10,6 +10,12 @@ if (path.existsSync('loaded.json')) {
 }
 ```
 
+* Conditional if () { block }
+* `path` is an object with method existsSync that passes in a JSON file
+* `fs`is a built-in Node I/O synchronous function that reads the JSON file and assigns the resulting string to `loadedFile` 
+* `JSON.parse()` method parses the `loadedFile` string and assigns the resulting JSON Object to variable `loaded`
+* for-in loop iterates over the JSON Object for all elements that were successfully parsed and assigns Boolean of true to a 1-D array `idBucket`
+
 ```javascript
 for (var key in loaded.success) {
   data = loaded.success[key];

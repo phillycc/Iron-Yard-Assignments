@@ -85,9 +85,9 @@ var settings = {
 ```
 
 * `settings` is an object literal with 3 object properties, all of which contain string names of CSS classes
-* for-in loop with object `headerClass` iterates over an array `headers`
-* Conditional if statement uses dot notation to determine the type of each element in the headers array based on the `headerClass` key
-* for an undefined element in headers, jQuery variable array `$existingHeader` is assigned one or more `$customerHeaders` values that has CSS class value of headerClass per the .filter( ) method
+* for-in loop with object `headerClass` iterates over an obect/array `headers`
+* Conditional if statement uses dot notation to determine the type of each element in the headers object/array based on the `headerClass` key
+* for an undefined element in headers, jQuery variable object/array `$existingHeader` is assigned one or more `$customerHeaders` values that has CSS class value of headerClass per the .filter( ) method
 * if the length of `$existingHeader` array is greater than 0, then the previously undefined headers[headerClass].element is assigned $existingHeader, else jQuery variable `$defaultHeader` is cloned and operated on via a chain of three methods: .removeClass ( ), .addClass( ) and .appendTo( ). These three first remove the default class, then add the headerClass passed in via the for-in loop, and then append the cloned defaultHeader to the originalHeader. The resulting string is than assigned to the requisite key'ed element of the headers array.
 
 ```javascript

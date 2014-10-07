@@ -13,7 +13,7 @@ if (path.existsSync('loaded.json')) {
 * Conditional if () { block }
 * `path` is an object with method existsSync that passes in a JSON file
 * `fs`is a built-in Node I/O synchronous function that reads the JSON file and assigns the resulting string to `loadedFile` 
-* `JSON.parse()` method parses the `loadedFile` string and assigns the resulting JSON Object to variable `loaded`
+* `JSON.parse()` method parses the `loadedFile` JSON and assigns the resulting string to variable `loaded`
 * for-in loop iterates over the JSON Object for all elements that were successfully parsed and assigns Boolean of true to a 1-D array `idBucket`
 
 ```javascript
@@ -24,15 +24,11 @@ for (var key in loaded.success) {
     location: {},
     LegacyData: {}
   };
-  for (var dataKey in data) {
-
-    /**
-     * Converting String fields to Booleans
-     */
-    if (booleans.hasOwnProperty(dataKey)) {
-        data[dataKey] = (data[dataKey] === 'Y' || data[dataKey] === true);
-    }
 ```
+
+* for-in loop with variable `key` iterates over the JSON Object for all elements that were successfully parsed
+* Variable `data` is an array of parsed JSON strings
+* `newData` is an object literal with 3 empty object properties: Address, location, LegacyData  
 
 ```javascript
 var mapped_fields = {
@@ -44,6 +40,7 @@ var mapped_fields = {
     postalCode: true
   },
 ```
+* `mapped_fields` is an object literal with 5 object properties, where the value is a Boolean
 
 **server.js**
 

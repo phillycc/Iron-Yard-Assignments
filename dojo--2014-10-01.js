@@ -46,18 +46,12 @@ var thousands = ["zero", "one thousand", "two thousand", "three thousand",
 
 function numChange(a){
 
-  var cents = "00";
-  temp = a.toString();
-  if(temp.indexOf('.') !== -1)
-  { // Grab all numbers after period
-    cents = temp.substr(temp.indexOf('.'));
-    // Removes the period from the beginning of cents string
-    cents = cents.replace(".", "");
-    // Removes the period and everything to the left of it
-    a = temp.split(".")[0];
-  }
-
-  var value = a.toString().split("");
+  var value = a.toString()
+  value = Number(value).toFixed(2);
+  
+  var cents=value.slice(-2)
+  var dollars = value.slice(0,-3).split("");
+  var centsEnglish = cents + '/100s dollars';
 
     if (a < 20){return(ones[a])}; //for numbers 0-19
 ////////////////////////////////////////////////////////////
@@ -65,7 +59,7 @@ function numChange(a){
       if (a % 10 === 0){
         return(tens[value[0]]);
       }
-      return(tens[value[0]] +" "+ ones[value[1]] +" and "+cents+"/100s")
+      return(tens[value[0]] +" "+ ones[value[1]] +" and "+centsEnglish)
     };
 ////////////////////////////////////////////////////////////
     if (a < 1000){                 //for numbers 100-999
@@ -73,31 +67,39 @@ function numChange(a){
         return(hundreds[value[0]]);
       }
         if (a % 10 === 0){     //numbers between 100-999 and divisible by 10
-        return(hundreds[value[0]]+" "+ tens[value[1]]+" and "+cents+"/100s");
+        return(hundreds[value[0]]+" "+ tens[value[1]]+" and "+centsEnglish);
         }
           if (value[1] < 2) {   //hundreds digits, _10 < x < _20
-          return(hundreds[value[0]] +" "+ teens[value[2]]+" and "+cents+"/100s");
+          return(hundreds[value[0]] +" "+ teens[value[2]]+" and "+centsEnglish);
           }
-      return(hundreds[value[0]] +" "+ tens[value[1]] +" "+ ones[value[2]]+" and "+cents+"/100s")
+      return(hundreds[value[0]] +" "+ tens[value[1]] +" "+ ones[value[2]]+" and "+centsEnglish)
     }
 
   if (a < 10000){
-    if (a % 1000 === 0){return(thousands[value[0]]+" and "+cents+"/100s");}
-      if (a % 100 === 0){return(thousands[value[0]] +" "+ hundreds[value[1]]+" and "+cents+"/100s");}
-        if (a % 10 === 0){return(thousands[value[0]] +" "+ hundreds[value[1]] +" "+ tens[value[2]]+" and "+cents+"/100s");}
-          if (value[2] < 2) {return(thousands[value[0]] +" "+ hundreds[value[1]] +" "+ teens[value[3]]+" and "+cents+"/100s");}
-    return(thousands[value[0]] +" "+ hundreds[value[1]] +" "+ tens[value[2]] +" "+ ones[value[3]]+" and "+cents+"/100s")
+    if (a % 1000 === 0){return(thousands[value[0]]+" and "+centsEnglish);}
+      if (a % 100 === 0){return(thousands[value[0]] +" "+ hundreds[value[1]]+" and "+centsEnglish);}
+        if (a % 10 === 0){return(thousands[value[0]] +" "+ hundreds[value[1]] +" "+ tens[value[2]]+" and "+centsEnglish);}
+          if (value[2] < 2) {return(thousands[value[0]] +" "+ hundreds[value[1]] +" "+ teens[value[3]]+" and "+centsEnglish);}
+    return(thousands[value[0]] +" "+ hundreds[value[1]] +" "+ tens[value[2]] +" "+ ones[value[3]]+" and "+centsEnglish)
   }
 
 }
 
-// testing large quantities of #s at once
-/*var balls=700;
-while (balls<750){
- console.log(numChange(balls));
- balls++}
- */
 
 //////////////////////TEST////////////////////
 
-console.log(numChange(1234.56))
+var testCases = [
+  [0,'zero'],
+  [1,'one'],
+  [2,'two'],
+  [3,'three'],
+  [4,'four']
+]
+
+testCases.forEach(function(testCase)){
+  var actual = numChange(testCase[0]),expected = testCase[1];
+  assert.strictEqual(actual,expected);
+}
+// vars actual and expected are undefined outside of the forEach loop
+
+//console.log(numChange(1234.56))

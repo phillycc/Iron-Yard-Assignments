@@ -144,12 +144,18 @@ function tick(board){
 **/
 function conway(cell, neighbors){
   //initializes counter of liveNeighbors to zero
-  var liveNeighbors=0;
+  //var liveNeighbors=0;
 
   //counts the number of live neighbors
-  neighbors.forEach(function(value){
-    if (value) liveNeighbors++;
-  }):
+  var liveNeighbors = neighbors.filter(function(value){
+    return value;
+  });
+  
+  liveNeighbors = liveNeighbors.length;
+  
+  //neighbors.forEach(function(value){
+  //  if (value) liveNeighbors++;
+  //}):
 
   //applies Conway's rules
   if (cell && liveNeighbors===2) return true; 

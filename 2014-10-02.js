@@ -148,10 +148,11 @@ function conway(cell, neighbors){
   var liveNeighbors=0;
 
   //counts the number of live neighbors
-  for (i = 0; i < neighbors.length; i++) {
-    if (neighbors[i] ===  true)
+  neighbors.forEach(function(value){
+    if (value ===  true)
       liveNeighbors++;
-  }
+  }):
+  
   //checks cell's status and applies Conway's rules
   if (cell===true){
       //RULE 1 - live cell < 2 live neighbors : return false

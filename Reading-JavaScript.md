@@ -1,6 +1,16 @@
 **cleanupLoaded.js**
 
 ```javascript
+if (path.existsSync('loaded.json')) {
+  var loadedFile = fs.readFileSync('loaded.json');
+  var loaded = JSON.parse(loadedFile);
+  for (var key in loaded.success) {
+    idBucket[key] = true;
+  }
+}
+```
+
+```javascript
 for (var key in loaded.success) {
   data = loaded.success[key];
   newData = {

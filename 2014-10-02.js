@@ -118,16 +118,12 @@
 **/
 function tick(board){
   //create placeholder array for the next board
-  arrNextBoard=[];
+  var arrNextBoard= board();
 
-  var iCount=0;
-  board.forEach(function(i){
-    var jCount=0;
-    board.forEach(function(j){
-      arrNextBoard.push(conway(board[iCount][jCount], neighborOf(board, iCount, jCount)));
-      jCount++;
-    });
-    iCount++;
+  board.forEach(function(row, rowIndex){
+     row.forEach(function(cell, colIndex){
+          arrNextBoard[rowIndex][colIndex]=conway(cell, neighborsOf(board, rowIndex, colIndex)));
+      });
   });
 
   return arrNextBoard;
@@ -152,9 +148,7 @@ function conway(cell, neighbors){
 
   //counts the number of live neighbors
   neighbors.forEach(function(value){
-    if (value === true){
-      liveNeighbors++;
-    }
+    if (value) liveNeighbors++;
   }):
 
   //checks cell's status and applies Conway's rules

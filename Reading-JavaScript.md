@@ -40,6 +40,7 @@ function phillyRedirect() {
   };
 };
 ```
+**midnight.js**
 
 ```javascript
 var settings = {
@@ -66,6 +67,25 @@ var settings = {
 };
 ```
 
+```javascript
+// Reset the header status
+        for( ix in headers ) {
+          // from == '' signals that the section is inactive
+          headers[ ix ].from = '';
+          headers[ ix ].progress = 0.0;
+        }
+```
+
+```javascript
+// We need to recalculate all sections and headers on resize.
+      $(window).resize(function(){
+        recalculateSections();
+        updateHeaderHeight();
+
+        recalculateHeaders();
+        updateHeaders();
+      }).trigger('resize');
+```    
 
 **intro.js**
 

@@ -31,11 +31,12 @@ var iCount=0;
 letterNum.forEach(function(i){
   var jCount=0;
     letterNum.forEach(function(j){
-      console.log(i+' '+iCount+' : '+j+' '+jCount);
+      print(i, j, iCount*jCount);
       jCount++;
   });
   iCount++;
 });
+
 
 //for (var j = 1; j <= 10; j++){
 //  for (var i = 0; i < letterNum.length; i++){

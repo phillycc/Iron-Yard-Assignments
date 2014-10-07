@@ -1,4 +1,101 @@
-midnight.jquery.js
+**intro.js**
+
+~~~
+
+```javascript
+  var allIntroSteps = [];
+```
+
+* Variable: `allIntroSteps` (array)
+* Value: empty array
+
+~~~
+
+```javascript
+var temp = {};
+      for (var key in object) {
+          temp[key] = _cloneObject(object[key]);
+      }
+```
+
+* Variable: `temp` (object)
+* for-in loop where key-value pairs of the object are being looped through
+
+~~~
+
+```javascript
+ if (this._options.showButtons === false) {
+        buttonsLayer.style.display = 'none';
+ }
+```
+
+* if showButtons property of the object is false (bolean), then hide DOM element buttonsLayer
+
+~~~
+
+```javascript
+ for (var i = 0, elmsLength = allIntroSteps.length; i < elmsLength; i++) {
+        var currentElement = allIntroSteps[i];
+        var step = parseInt(currentElement.getAttribute('data-step'), 10);
+```
+* for loop - loops through an array of DOM elements
+* Variable: `currentElement` is set to the current DOM element
+* Variable: `step` - parseInt converts the first argument to a string, parses it, and returns an integer 
+
+~~~
+
+```javascript
+  if ((targetOffset.height + targetOffset.top + tooltipHeight) > windowSize.height) {
+      _removeEntry(possiblePositions, "bottom")
+  }
+```
+* if statement that adds height values and compares to the windowsSize height. If sum is greater, removes space below
+
+~~~
+
+```javascript
+  while (true) {
+    if (typeof introItems[nextStep] == 'undefined') {
+        break;
+    } else {
+        nextStep++;
+    }
+  }
+```
+* while loop - loops while condition is true
+* if array element introItems[nextStep] is typeof undefined, then break the loop, else increment nextStep by 1 
+
+~~~
+
+```javascript
+  if (typeof exports === 'object') {
+    // CommonJS
+    factory(exports);
+  } else if (typeof define === 'function' && define.amd) {
+    // AMD. Register as an anonymous module.
+    define(['exports'], factory);
+  } else {
+    // Browser globals
+    factory(root);
+  }
+```
+ 
+* Conditional if/elseif
+* typeof operator - if operand (exports) is an object, then pass the object into the function factory()
+* typeof operator - if operand (define) is a function and that function has an anonymous module, then pass 2 arguments: export object and factory function into the define function
+
+~~~
+
+```javascript
+  introItems.sort(function (a, b) {
+    return a.step - b.step;
+  });
+```
+* `introItems` is an array whose elements are sorted in ascending order via the array sort function
+
+
+
+**midnight.jquery.js**
 
 ~~~
 

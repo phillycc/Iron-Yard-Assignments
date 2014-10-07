@@ -151,26 +151,11 @@ function conway(cell, neighbors){
     if (value) liveNeighbors++;
   }):
 
-  //checks cell's status and applies Conway's rules
-  if (cell===true){
-      //RULE 1 - live cell < 2 live neighbors : return false
-      if (liveNeighbors < 2){
-          return false;
-      //RULE 2 - live cell with 2 or 3 live neighbors : return true
-      } else if (liveNeighbors===2 || liveNeighbors===3){
-          return true;
-      //RULE 3 - live cell > 3 live neighbors : return false
-      } else {
-          return false;
-      }
-  } else {
-      //RULE 4 - dead cell with 3 live neighbors : return true
-      if (liveNeighbors===3){
-          return true;
-      } else {
-          return false;
-      }
-  }
+  //applies Conway's rules
+  if (cell && liveNeighbors===2) return true; 
+  if (liveNeighbors===3) return true; 
+
+  return false;
 }
 /**
  *

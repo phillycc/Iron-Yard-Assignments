@@ -16,7 +16,7 @@ function letToNum(y){
   if (y === "ten"){return 10;}
 }
 
-var letterNum = ['one','two','three','four','five','six','seven','eight','nine','ten'];
+var letterNum = ['zero','one','two','three','four','five','six','seven','eight','nine','ten'];
 
 var multiply = function(a,b){
   a = letToNum(a);
@@ -24,7 +24,7 @@ var multiply = function(a,b){
   return a * b;
 }
 
-describe('mulitply()', function(){
+/*describe('mulitply()', function(){
     it('should multiply "one" and "one"', function(){
         assert.equal(multiply('one','one'),1);
     });
@@ -34,7 +34,26 @@ describe('mulitply()', function(){
     it('should multiply "one" and "three"', function(){
         assert.equal(multiply('one','three'),3);
     });
+    it('should multiply "one" and "four"', function(){
+        assert.equal(multiply('one','four'),4);
+    });
+    it('should multiply "zero" and "zero"', function(){
+        assert.equal(multiply('zero','zero'),0);
+    });
+});*/
+
+describe('mulitply()', function(){
+    letterNum.forEach(function(a, i){
+        letterNum.forEach(function(b, j){
+          it('should multiply ' +a+ ' and '+b, function(){
+              assert.equal(multiply(a,b),i*j);
+          });
+
+          //console.log(a+' '+b+' '+i*j);
+      });
+    });
 });
+
 
 letterNum.forEach(function(a, i){
     letterNum.forEach(function(b, j){

@@ -26,7 +26,10 @@ console.log('it should multiply "' + a + '" and "' + b + '": ',
   multiply(a, b) === c);
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> ad3a32941223d2e38ef74185a6c5367bb373f288
 var iCount=0;
 letterNum.forEach(function(i){
   var jCount=0;
@@ -37,9 +40,12 @@ letterNum.forEach(function(i){
   iCount++;
 });
 
+<<<<<<< HEAD
 
 //for (var j = 1; j <= 10; j++){
 //  for (var i = 0; i < letterNum.length; i++){
 //    print(letterNum[j], letterNum[i], i*j);
 //  }
 //}
+=======
+>>>>>>> ad3a32941223d2e38ef74185a6c5367bb373f288

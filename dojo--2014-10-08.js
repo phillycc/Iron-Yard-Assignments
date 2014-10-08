@@ -26,27 +26,21 @@ var multiply = function(a,b){
 
 suite('mulitply()', function(){
     test('should multiply "one" and "one"', function(){
-        assert.equal(multiply('one','one'),2);
-    });
-});
-
-/*describe('mulitply()', function(){
-    it('should multiply "one" and "one"', function(){
         assert.equal(multiply('one','one'),1);
     });
-    it('should multiply "one" and "two"', function(){
+    test('should multiply "one" and "two"', function(){
         assert.equal(multiply('one','two'),2);
     });
-    it('should multiply "one" and "three"', function(){
+    test('should multiply "one" and "three"', function(){
         assert.equal(multiply('one','three'),3);
     });
-    it('should multiply "one" and "four"', function(){
+    test('should multiply "one" and "four"', function(){
         assert.equal(multiply('one','four'),4);
     });
-    it('should multiply "zero" and "zero"', function(){
+    test('should multiply "zero" and "zero"', function(){
         assert.equal(multiply('zero','zero'),0);
     });
-});*/
+});
 
 /*describe('mulitply()', function(){
     letterNum.forEach(function(a, i){

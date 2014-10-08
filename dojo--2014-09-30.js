@@ -26,6 +26,12 @@ console.log('it should multiply "' + a + '" and "' + b + '": ',
   multiply(a, b) === c);
 }
 
+letterNum.forEach(function(a, i){
+    letterNum.forEach(function(b, j){
+      print(a, b, i*j);
+  });
+});
+
 var iCount=0;
 letterNum.forEach(function(i){
   var jCount=0;

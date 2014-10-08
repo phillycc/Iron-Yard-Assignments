@@ -24,6 +24,8 @@ var multiply = function(a,b){
   return a * b;
 }
 
+
+
 /*describe('mulitply()', function(){
     it('should multiply "one" and "one"', function(){
         assert.equal(multiply('one','one'),1);
@@ -46,7 +48,7 @@ describe('mulitply()', function(){
     letterNum.forEach(function(a, i){
         letterNum.forEach(function(b, j){
           it('should multiply ' +a+ ' and '+b, function(){
-              assert.equal(multiply(a,b),i*j);
+              assert.strictEqual(multiply(a,b),i*j);
           });
 
           //console.log(a+' '+b+' '+i*j);

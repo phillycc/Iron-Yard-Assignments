@@ -25,9 +25,13 @@ var multiply = function(a,b){
 }
 
 describe('mulitply()', function(){
-    it('should multiply "one" through "three"', function(){
+    it('should multiply "one" and "one"', function(){
         assert.equal(multiply('one','one'),1);
+    });
+    it('should multiply "one" and "two"', function(){
         assert.equal(multiply('one','two'),2);
+    });
+    it('should multiply "one" and "three"', function(){
         assert.equal(multiply('one','three'),3);
     });
 });

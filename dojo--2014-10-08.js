@@ -24,7 +24,7 @@ var multiply = function(a,b){
   return a * b;
 }
 
-suite('mulitply()', function(){
+/*suite('mulitply()', function(){
     test('should multiply "one" and "one"', function(){
         assert.equal(multiply('one','one'),1);
     });
@@ -40,19 +40,19 @@ suite('mulitply()', function(){
     test('should multiply "zero" and "zero"', function(){
         assert.equal(multiply('zero','zero'),0);
     });
-});
+});*/
 
-/*describe('mulitply()', function(){
+suite('mulitply()', function(){
     letterNum.forEach(function(a, i){
         letterNum.forEach(function(b, j){
-          it('should multiply ' +a+ ' and '+b, function(){
+          test('should multiply ' +a+ ' and '+b, function(){
               assert.strictEqual(multiply(a,b),i*j);
           });
 
           //console.log(a+' '+b+' '+i*j);
       });
     });
-});*/
+});
 
 
 letterNum.forEach(function(a, i){

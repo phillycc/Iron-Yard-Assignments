@@ -25,8 +25,10 @@ var multiply = function(a,b){
 }
 
 describe('mulitply()', function(){
-    it('should multiply "zero" and "two"', function(){
-        assert.equal(multiply('one','two'), 2);
+    it('should multiply "one" through "three"', function(){
+        assert.equal(multiply('one','one'),1);
+        assert.equal(multiply('one','two'),2);
+        assert.equal(multiply('one','three'),3);
     });
 });
 

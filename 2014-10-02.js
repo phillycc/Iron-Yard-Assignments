@@ -271,6 +271,27 @@ describe('neighborsOf', function(){
                 [ true, false, true ]
             );
         });
+        it('should return 5 cells for the edges', function(){
+            assert.deepEqual(
+                neighborsOf(_board, 0, 1),
+                [ false, false, true, false, false ]
+            );
+
+            assert.deepEqual(
+                neighborsOf(_board, 1, 0),
+                [ false, true, true, false, true ]
+            );
+
+            assert.deepEqual(
+                neighborsOf(_board, 1, 2),
+                [ true, false, true, true, false ]
+            );
+
+            assert.deepEqual(
+                neighborsOf(_board, 2, 1),
+                [ false, false, true, false, false ]
+            );
+        });
     });
 });
 

@@ -122,7 +122,7 @@ function tick(board){
 
   board.forEach(function(row, rowIndex){
      row.forEach(function(cell, colIndex){
-          arrNextBoard[rowIndex][colIndex]=conway(cell, neighborsOf(board, rowIndex, colIndex)));
+          arrNextBoard[rowIndex][colIndex]=conway(cell, neighborsOf(board, rowIndex, colIndex));
       });
   });
 
@@ -150,16 +150,16 @@ function conway(cell, neighbors){
   var liveNeighbors = neighbors.filter(function(value){
     return value;
   });
-  
+
   liveNeighbors = liveNeighbors.length;
-  
+
   //neighbors.forEach(function(value){
   //  if (value) liveNeighbors++;
   //}):
 
   //applies Conway's rules
-  if (cell && liveNeighbors===2) return true; 
-  if (liveNeighbors===3) return true; 
+  if (cell && liveNeighbors===2) return true;
+  if (liveNeighbors===3) return true;
 
   return false;
 }
@@ -234,6 +234,37 @@ function neighborsOf(board,row,col){
 //************ TEST CODE ************//
 
 var assert = require('assert');
+
+describe('neighborsOf', function(){
+    it('should have a `neighborsOf()` function', function(){
+        assert(neighborsOf);
+    });
+    var _board;
+
+    beforeEach(function(){
+        _board = [
+            [ false, true, false ],
+            [ false, true, false ],
+            [ false, true, false ],
+        ];
+    });
+
+    describe('GIVEN a 3x3 board', function(){
+        it('should return three neighbors for the corners', function(){
+            assert.deepEqual(
+                neighborsOf(_board, 0, 0),
+                [ true, false, true ]
+            );
+
+            
+        });
+    });
+});
+
+
+
+
+/*var assert = require('assert');*/
 /**
  * Log `success` if `actual` is STRICTLY equal to `expected`
  *
@@ -241,13 +272,13 @@ var assert = require('assert');
  * @param ANY expected
  * @param String success
  */
-function test(actual, expected, success){
+/*function test(actual, expected, success){
     if (success === undefined) success = actual+' >> '+expected+' pass!';
     assert.strictEqual(actual, expected);
     console.log(success);
-}
+}*/
 
-var testCases = [
+/*var testCases = [
     // CASE 1 - Initially Empty Board
     [
       [ false, false, false ],
@@ -330,7 +361,7 @@ var neighborsTestCases = [
   ],
 ];
 
-console.log('\n\nTESTS: neighborsOf\n');
+//console.log('\n\nTESTS: neighborsOf\n');
 for (var index=0; index<neighborsTestCases.length; index++){
   // test(neighborsOf(neighborsTestCases[index][0],neighborsTestCases[index][1],neighborsTestCases[index][2]).length,neighborsTestCases[index][3]);
 }
@@ -344,4 +375,4 @@ var conwayTestCases = [
 console.log('\n\nTESTS: conway\n');
 for (var index=0; index<conwayTestCases.length; index++){
 //   test(conway(conwayTestCases[index][0],conwayTestCases[index][1],conwayTestCases[index][2]),conwayTestCases[index][3]);
-}
+}*/

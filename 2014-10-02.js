@@ -16,13 +16,16 @@ var assert = require('assert');
  *   +---+---+---+
  *
  * Represented as:
- *
- * board = [
- *   [ false, false, false ],
- *   [ false, false, false ],
- *   [ false, false, false ],
- * ]
- *
+ */
+
+function board(){
+    return [
+        [ false, false, false ],
+        [ false, false, false ],
+        [ false, false, false ],
+    ];
+}
+ /*
  * Where each Boolean value represents the state of a `cell`, either
  * alive (`true`) or dead (`false`). Each cell can be accessed with
  * the index operators (`[n]`), e.g. `board[0][1]`, `board[2][2]`.
@@ -129,6 +132,65 @@ function tick(board){
 
   return arrNextBoard;
 }
+
+//************ TEST CODE: TICK ************//
+
+describe('tick', function(){
+    it('should have a `tick()` function', function(){
+        assert(tick);
+    });
+
+    describe('GIVEN a 3x3 board', function(){
+        var _board;
+
+        beforeEach(function(){
+            _board = board();
+        });
+
+        describe('WHEN the board is empty', function(){
+            it('should remain empty', function(){
+                assert.deepEqual(tick(_board), board());
+            });
+        });
+
+        describe('WHEN the board has fewer than 3 adjacent cells', function(){
+
+            it('should die in 1 tick', function(){
+                _board[0][0] = true;
+                assert.deepEqual(tick(_board), board());
+
+                _board[1][1] = true;
+                assert.deepEqual(tick(_board), board());
+
+                _board[2][2] = true;
+                assert.deepEqual(tick(_board), board());
+            });
+        });
+
+        describe('WHEN the board has 3 adjacent cells in a line', function(){
+            it('should oscilate every tick', function(){
+                _board[0][1] = true;
+                _board[1][1] = true;
+                _board[2][1] = true;
+
+                expected = [
+                    [ false, false, false ],
+                    [ true,  true,  true  ],
+                    [ false, false, false ],
+                ];
+
+                assert.deepEqual(_board, [
+                    [ false, true,  false ],
+                    [ false, true,  false ],
+                    [ false, true,  false ],
+                ]);
+                assert.deepEqual(tick(_board), expected);
+            });
+        });
+    });
+});
+
+
 /**
  *
  * The conway function determines if a cell in

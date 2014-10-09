@@ -185,7 +185,29 @@ describe('generation rule', function(){
     });
 });
 
+describe('underpopulation rule', function(){
+    it('should die if there are fewer than 2 or 3 neighbors', function(){
+        test(conway(true, [ ]), false);
+        test(conway(true, [ true ]), false);
 
+        test(conway(true, [ false, false ]), false);
+        test(conway(true, [ false, false, false ]), false);
+    });
+});
+
+describe('survival rule', function(){
+    it('should survive if there are exactly 2 or 3 neighbors', function(){
+        test(conway(true, [ true, true ]), true);
+        test(conway(true, [ true, true, true ]), true);
+    });
+});
+
+describe('overpopulation rule', function(){
+    it('should die if there are more than 3 neighbors', function(){
+        test(conway(true, [ true, true, true, true ]), false);
+        test(conway(true, [ true, true, true, true, true ]), false);
+    });
+});
 
 /**
  *

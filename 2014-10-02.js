@@ -256,7 +256,20 @@ describe('neighborsOf', function(){
                 [ true, false, true ]
             );
 
-            
+            assert.deepEqual(
+                neighborsOf(_board, 0, 2),
+                [ true, true, false ]
+            );
+
+            assert.deepEqual(
+                neighborsOf(_board, 2, 0),
+                [ false, true, true ]
+            );
+
+            assert.deepEqual(
+                neighborsOf(_board, 2, 2),
+                [ true, false, true ]
+            );
         });
     });
 });

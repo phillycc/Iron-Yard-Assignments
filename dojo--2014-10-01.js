@@ -48,20 +48,20 @@ function numChange(a){
 
   var value = a.toString()
   value = Number(value).toFixed(2);
-  
+
   var cents=value.slice(-2)
   var dollars = value.slice(0,-3).split("");
   var centsEnglish = cents + '/100s dollars';
 
-    if (a < 20){return(ones[a])}; //for numbers 0-19
-////////////////////////////////////////////////////////////
+    if (a < 20){return(ones[a]+" and "+centsEnglish)}; //for numbers 0-19
+
     if (a < 100){                 //for numbers 20-99
       if (a % 10 === 0){
-        return(tens[value[0]]);
+        return(tens[value[0]]+" and "+centsEnglish);
       }
       return(tens[value[0]] +" "+ ones[value[1]] +" and "+centsEnglish)
     };
-////////////////////////////////////////////////////////////
+
     if (a < 1000){                 //for numbers 100-999
       if (a % 100 === 0){
         return(hundreds[value[0]]);
@@ -86,20 +86,31 @@ function numChange(a){
 }
 
 
-//////////////////////TEST////////////////////
+//************** TEST ******************
 
+var assert = require('chai').assert;
+var expect = require('chai').expect;
+var should = require('chai').should();
+
+describe('numChange(), takes a Number as an input and returns a dollars & cents string format', function(){
+    it('should be a type of function named numChange()', function(){
+        assert.typeOf(numChange,'function');
+    });
+    it('should take a Number and return the written English dollar & cents equivalent', function(){
+        assert.equal(numChange(0),'zero and 00/100s dollars');
+        assert.equal(numChange(19),'nineteen and 00/100s dollars');
+        assert.equal(numChange(1234.56),'one thousand two hundred thirty four and 56/100s dollars');
+    });
+});
 var testCases = [
-  [0,'zero'],
-  [1,'one'],
-  [2,'two'],
-  [3,'three'],
-  [4,'four']
+  [19, "nineteen and 00/100 dollars"],
+  [0, "zero and 00/100 dollars"],
+  [1234.56, "one thousand two hundred thirty four and 56/100s dollars"],
 ]
 
-testCases.forEach(function(testCase)){
-  var actual = numChange(testCase[0]),expected = testCase[1];
-  assert.strictEqual(actual,expected);
-}
-// vars actual and expected are undefined outside of the forEach loop
+//testCases.forEach(function(testCase)){
+//  var actual = numChange(testCase[0]),expected = testCase[1];
+//  assert.strictEqual(actual,expected);
+//}
 
 //console.log(numChange(1234.56))

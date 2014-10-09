@@ -1,3 +1,4 @@
+var assert = require('assert');
 /**
  * Conway's Game of Life (LITE)
  *
@@ -163,6 +164,29 @@ function conway(cell, neighbors){
 
   return false;
 }
+//************ TEST CODE: CONWAY ************//
+
+describe('generation rule', function(){
+
+    it('should NOT generate a new cell if there are fewer than 3 neighbors', function(){
+        test(conway(false, [ ]), false);
+        test(conway(false, [ true ]), false);
+        test(conway(false, [ true, true ]), false);
+        test(conway(false, [ false, false, false ]), false);
+    });
+
+    it('should generate a new cell if there are exactly 3 neighbors', function(){
+        test(conway(false, [ true, true, true ]), true);
+    });
+
+    it('should NOT generate a new cell if there are MORE than 3 neighbors', function(){
+        test(conway(false, [ true, true, true, true ]), false);
+        test(conway(false, [ true, true, true, true, true ]), false);
+    });
+});
+
+
+
 /**
  *
  * The neighborsOf function returns a list of all
@@ -233,7 +257,7 @@ function neighborsOf(board,row,col){
 
 //************ TEST CODE ************//
 
-var assert = require('assert');
+
 
 describe('neighborsOf', function(){
     it('should have a `neighborsOf()` function', function(){
@@ -290,6 +314,12 @@ describe('neighborsOf', function(){
             assert.deepEqual(
                 neighborsOf(_board, 2, 1),
                 [ false, false, true, false, false ]
+            );
+        });
+        it('should return all cells for the middle', function(){
+            assert.deepEqual(
+                neighborsOf(_board, 1, 1),
+                [ false, true, false, false, false, false, true, false ]
             );
         });
     });

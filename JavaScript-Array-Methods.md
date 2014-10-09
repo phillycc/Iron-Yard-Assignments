@@ -75,6 +75,7 @@ Joins all elements of an array into a string.
 
 ```javascript
 Array.prototype.slice()
+```
 Extracts a section of an array and returns a new array.
 
 ```javascript
@@ -103,9 +104,8 @@ Returns the first (least) index of an element within the array equal to the spec
 Array.prototype.lastIndexOf()
 ```
 Returns the last (greatest) index of an element within the array equal to the specified value, or -1 if none is found.
-Iteration methods
 
-Several methods take as arguments functions to be called back while processing the array. When these methods are called, the length of the array is sampled, and any element added beyond this length from within the callback is not visited. Other changes to the array (setting the value of or deleting an element) may affect the results of the operation if the method visits the changed element afterwards. While the specific behavior of these methods in such cases is well-defined, you should not rely upon it so as not to confuse others who might read your code. If you must mutate the array, copy into a new array instead.
+Iteration methods - Several methods take as arguments functions to be called back while processing the array. When these methods are called, the length of the array is sampled, and any element added beyond this length from within the callback is not visited. Other changes to the array (setting the value of or deleting an element) may affect the results of the operation if the method visits the changed element afterwards. While the specific behavior of these methods in such cases is well-defined, you should not rely upon it so as not to confuse others who might read your code. If you must mutate the array, copy into a new array instead.
 
 ```javascript
 Array.prototype.forEach()

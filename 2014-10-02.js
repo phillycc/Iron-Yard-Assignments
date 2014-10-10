@@ -353,10 +353,16 @@ describe('neighborsOf', function(){
     });
     describe('GIVEN a 3x3 board', function(){
         it('expect array item to be Boolean', function(){
-          expect(_board[0][0]).to.be.a('boolean');
+           expect(_board[0][0]).to.be.a('boolean');
+        });
+        it('expect array item to be ok', function(){
+           expect(_board[0][1]).to.be.ok;
         });
         it('expect array element to be false', function(){
             expect(_board[0][0]).to.be.false;
+        });
+        it('expect array element NOT to be true', function(){
+            expect(_board[0][0]).to.not.be.true;
         });
         it('expect array row-length to be 3', function(){
             expect(_board).to.have.length(3);

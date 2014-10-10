@@ -1,4 +1,6 @@
-var assert = require('assert');
+var assert = require('chai').assert;
+var expect = require('chai').expect;
+var should = require('chai').should();
 /**
  * Conway's Game of Life (LITE)
  *
@@ -135,7 +137,7 @@ function tick(board){
 
 //************ TEST CODE: TICK ************//
 
-describe('tick', function(){
+/*describe('tick', function(){
     it('should have a `tick()` function', function(){
         assert(tick);
     });
@@ -189,6 +191,7 @@ describe('tick', function(){
         });
     });
 });
+*/
 
 
 /**
@@ -216,10 +219,6 @@ function conway(cell, neighbors){
 
   liveNeighbors = liveNeighbors.length;
 
-  //neighbors.forEach(function(value){
-  //  if (value) liveNeighbors++;
-  //}):
-
   //applies Conway's rules
   if (cell && liveNeighbors===2) return true;
   if (liveNeighbors===3) return true;
@@ -227,20 +226,17 @@ function conway(cell, neighbors){
   return false;
 }
 //************ TEST CODE: CONWAY ************//
-
+/*
 describe('generation rule', function(){
-
     it('should NOT generate a new cell if there are fewer than 3 neighbors', function(){
         test(conway(false, [ ]), false);
         test(conway(false, [ true ]), false);
         test(conway(false, [ true, true ]), false);
         test(conway(false, [ false, false, false ]), false);
     });
-
     it('should generate a new cell if there are exactly 3 neighbors', function(){
         test(conway(false, [ true, true, true ]), true);
     });
-
     it('should NOT generate a new cell if there are MORE than 3 neighbors', function(){
         test(conway(false, [ true, true, true, true ]), false);
         test(conway(false, [ true, true, true, true, true ]), false);
@@ -251,7 +247,6 @@ describe('underpopulation rule', function(){
     it('should die if there are fewer than 2 or 3 neighbors', function(){
         test(conway(true, [ ]), false);
         test(conway(true, [ true ]), false);
-
         test(conway(true, [ false, false ]), false);
         test(conway(true, [ false, false, false ]), false);
     });
@@ -270,7 +265,7 @@ describe('overpopulation rule', function(){
         test(conway(true, [ true, true, true, true, true ]), false);
     });
 });
-
+*/
 /**
  *
  * The neighborsOf function returns a list of all
@@ -341,14 +336,14 @@ function neighborsOf(board,row,col){
 
 //************ TEST CODE ************//
 
-
-
 describe('neighborsOf', function(){
     it('should have a `neighborsOf()` function', function(){
         assert(neighborsOf);
     });
+    it('should be a type of function named neighborsOf()', function(){
+        assert.typeOf(neighborsOf,'function');
+    });
     var _board;
-
     beforeEach(function(){
         _board = [
             [ false, true, false ],
@@ -356,24 +351,32 @@ describe('neighborsOf', function(){
             [ false, true, false ],
         ];
     });
-
     describe('GIVEN a 3x3 board', function(){
+        it('expect array item to be Boolean', function(){
+          expect(_board[0][0]).to.be.a('boolean');
+        });
+        it('expect array element to be false', function(){
+            expect(_board[0][0]).to.be.false;
+        });
+        it('expect array row-length to be 3', function(){
+            expect(_board).to.have.length(3);
+        });
+        it('expect array row-length to be less 5', function(){
+            expect(_board).to.have.length.below(5);
+        });
         it('should return three neighbors for the corners', function(){
             assert.deepEqual(
                 neighborsOf(_board, 0, 0),
                 [ true, false, true ]
             );
-
             assert.deepEqual(
                 neighborsOf(_board, 0, 2),
                 [ true, true, false ]
             );
-
             assert.deepEqual(
                 neighborsOf(_board, 2, 0),
                 [ false, true, true ]
             );
-
             assert.deepEqual(
                 neighborsOf(_board, 2, 2),
                 [ true, false, true ]
@@ -384,17 +387,14 @@ describe('neighborsOf', function(){
                 neighborsOf(_board, 0, 1),
                 [ false, false, true, false, false ]
             );
-
             assert.deepEqual(
                 neighborsOf(_board, 1, 0),
                 [ false, true, true, false, true ]
             );
-
             assert.deepEqual(
                 neighborsOf(_board, 1, 2),
                 [ true, false, true, true, false ]
             );
-
             assert.deepEqual(
                 neighborsOf(_board, 2, 1),
                 [ false, false, true, false, false ]

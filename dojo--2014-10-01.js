@@ -157,8 +157,6 @@ describe('test[ ], is an empty test array', function(){
     });
 });
 
-
-
 var testCases = [
   [19, "nineteen and 00/100 dollars"],
   [0, "zero and 00/100 dollars"],

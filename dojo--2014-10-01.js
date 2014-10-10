@@ -30,9 +30,6 @@ var ones = ["zero", "one", "two", "three", "four", "five", "six",
 "fourteen", "fifteen", "sixteen", "seventeen", "eighteen",
 "nineteen"];
 
-var teens = ["zero", "eleven", "twelve", "thirteen", "fourteen",
-"fifteen", "sixteen", "seventeen", "eighteen", "nineteen"]
-
 var tens = ["zero", "ten", "twenty", "thirty", "forty", "fifty",
 "sixty", "seventy", "eighty", "ninety"];
 
@@ -112,6 +109,24 @@ describe('numChange(), takes a Number as an input and returns a dollars & cents 
         assert.strictEqual(numChange(1234.56),'one thousand two hundred thirty four and 56/100s dollars');
     });
 });
+
+describe('tens[ ], list that stores strings of multiples of 10 in English', function(){
+    it('should be an array', function(){
+        assert.isArray(tens,'array');
+    });
+    it('should be an array that has at least one array item', function(){
+        assert.isNotNull(tens,[ 'zero','ten','twenty','thirty','forty','fifty','sixty','seventy','eighty','ninety' ]);
+    });
+    it('should contain String items', function(){
+        assert.isString(tens[0],'zero');
+    });
+    it('should be an array of multiples of 10 between 0 and 90', function(){
+        assert.deepEqual(tens,[ 'zero','ten','twenty','thirty','forty','fifty','sixty','seventy','eighty','ninety' ]);
+    });
+});
+
+
+
 var testCases = [
   [19, "nineteen and 00/100 dollars"],
   [0, "zero and 00/100 dollars"],

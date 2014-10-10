@@ -226,46 +226,45 @@ function conway(cell, neighbors){
   return false;
 }
 //************ TEST CODE: CONWAY ************//
-/*
+
 describe('generation rule', function(){
     it('should NOT generate a new cell if there are fewer than 3 neighbors', function(){
-        test(conway(false, [ ]), false);
-        test(conway(false, [ true ]), false);
-        test(conway(false, [ true, true ]), false);
-        test(conway(false, [ false, false, false ]), false);
+        expect(conway(false, [ ]), false).to.be.false;
+        expect(conway(false, [ true ]), false).to.be.false;
+        expect(conway(false, [ true, true ]), false).to.be.false;
+        expect(conway(false, [ false, false, false ]), false).to.be.false;
     });
     it('should generate a new cell if there are exactly 3 neighbors', function(){
-        test(conway(false, [ true, true, true ]), true);
+        expect(conway(false, [ true, true, true ]), true).to.be.true;
     });
     it('should NOT generate a new cell if there are MORE than 3 neighbors', function(){
-        test(conway(false, [ true, true, true, true ]), false);
-        test(conway(false, [ true, true, true, true, true ]), false);
+        expect(conway(false, [ true, true, true, true ]), false).to.be.false;
+        expect(conway(false, [ true, true, true, true, true ]), false).to.be.false;
     });
 });
 
 describe('underpopulation rule', function(){
     it('should die if there are fewer than 2 or 3 neighbors', function(){
-        test(conway(true, [ ]), false);
-        test(conway(true, [ true ]), false);
-        test(conway(true, [ false, false ]), false);
-        test(conway(true, [ false, false, false ]), false);
+        expect(conway(true, [ ]), false).to.be.false;
+        expect(conway(true, [ true ]), false).to.be.false;
+        expect(conway(true, [ false, false ]), false).to.be.false;
+        expect(conway(true, [ false, false, false ]), false).to.be.false;
     });
 });
-
-describe('survival rule', function(){
+/*describe('survival rule', function(){
     it('should survive if there are exactly 2 or 3 neighbors', function(){
         test(conway(true, [ true, true ]), true);
         test(conway(true, [ true, true, true ]), true);
     });
-});
+});*/
 
-describe('overpopulation rule', function(){
+/*describe('overpopulation rule', function(){
     it('should die if there are more than 3 neighbors', function(){
         test(conway(true, [ true, true, true, true ]), false);
         test(conway(true, [ true, true, true, true, true ]), false);
     });
-});
-*/
+});*/
+
 /**
  *
  * The neighborsOf function returns a list of all
@@ -364,11 +363,17 @@ describe('neighborsOf', function(){
         it('expect array element NOT to be true', function(){
             expect(_board[0][0]).to.not.be.true;
         });
+        it('array item should be Boolean and equal true', function(){
+            _board[0][1].should.be.a('Boolean').and.equal(true);
+        });
+        it('array row-length should be 3', function(){
+            _board.should.have.length(3);
+        });
         it('expect array row-length to be 3', function(){
             expect(_board).to.have.length(3);
         });
-        it('expect array row-length to be less 5', function(){
-            expect(_board).to.have.length.below(5);
+        it('expect array row 1 equal array row 2', function(){
+            expect(_board[0]).to.eql(_board[1]);
         });
         it('should return three neighbors for the corners', function(){
             assert.deepEqual(
@@ -416,9 +421,6 @@ describe('neighborsOf', function(){
 });
 
 
-
-
-/*var assert = require('assert');*/
 /**
  * Log `success` if `actual` is STRICTLY equal to `expected`
  *

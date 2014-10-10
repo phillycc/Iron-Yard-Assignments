@@ -120,6 +120,12 @@ describe('tens[ ], list that stores strings of multiples of 10 in English', func
     it('should contain String items', function(){
         assert.isString(tens[0],'zero');
     });
+    it('expect array item to be a String', function(){
+        expect(tens[0]).to.be.a('string');
+    });
+    it('expect array to include a String', function(){
+        expect(tens).to.include('ten');
+    });
     it('should be an array of multiples of 10 between 0 and 90', function(){
         assert.deepEqual(tens,[ 'zero','ten','twenty','thirty','forty','fifty','sixty','seventy','eighty','ninety' ]);
     });

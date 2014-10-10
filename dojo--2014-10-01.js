@@ -25,6 +25,8 @@
 * Make up your own, too.
 */
 
+var test = [];
+
 var ones = ["zero", "one", "two", "three", "four", "five", "six",
 "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen",
 "fourteen", "fifteen", "sixteen", "seventeen", "eighteen",
@@ -128,6 +130,21 @@ describe('tens[ ], list that stores strings of multiples of 10 in English', func
     });
     it('should be an array of multiples of 10 between 0 and 90', function(){
         assert.deepEqual(tens,[ 'zero','ten','twenty','thirty','forty','fifty','sixty','seventy','eighty','ninety' ]);
+    });
+    it('expect array item[0] is greater than item[1]', function(){
+        expect(tens[0]).to.be.above(tens[1]);
+    });
+    it('expect array length to be 10', function(){
+        expect(tens).to.have.length(10);
+    });
+    it('expect array length to be less 11', function(){
+        expect(tens).to.have.length.below(11);
+    });
+});
+
+describe('test[ ], is an empty test array', function(){
+    it('expect array to be empty', function(){
+        expect(test).to.be.empty;
     });
 });
 

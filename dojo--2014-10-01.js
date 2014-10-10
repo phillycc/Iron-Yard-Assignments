@@ -101,6 +101,16 @@ describe('numChange(), takes a Number as an input and returns a dollars & cents 
         assert.equal(numChange(19),'nineteen and 00/100s dollars');
         assert.equal(numChange(1234.56),'one thousand two hundred thirty four and 56/100s dollars');
     });
+    it('should take a Number and not return the written English dollar & cents equivalent', function(){
+        assert.notEqual(numChange(0),'zero and 25/100s dollars');
+        assert.notEqual(numChange(19),'ten and 00/100s dollars');
+        assert.notEqual(numChange(1234.56),'one thousand one hundred thirty four and 56/100s dollars');
+    });
+    it('should take a Number and return the strict equivalent written English dollar & cents format', function(){
+        assert.strictEqual(numChange(0),'zero and 00/100s dollars');
+        assert.strictEqual(numChange(19),'nineteen and 00/100s dollars');
+        assert.strictEqual(numChange(1234.56),'one thousand two hundred thirty four and 56/100s dollars');
+    });
 });
 var testCases = [
   [19, "nineteen and 00/100 dollars"],

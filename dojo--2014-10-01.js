@@ -143,6 +143,12 @@ describe('tens[ ], list that stores strings of multiples of 10 in English', func
     it('expect array include subset', function(){
         expect(tens).to.include.members(['zero','twenty']);
     });
+    it('array item should be a string and equal "ten"', function(){
+        tens[1].should.be.a('string').and.equal('ten');
+    });
+    it('should have length 10', function(){
+        tens.should.have.length(10);
+    });
 });
 
 describe('test[ ], is an empty test array', function(){

@@ -251,12 +251,12 @@ describe('underpopulation rule', function(){
         expect(conway(true, [ false, false, false ]), false).to.be.false;
     });
 });
-/*describe('survival rule', function(){
+describe('survival rule', function(){
     it('should survive if there are exactly 2 or 3 neighbors', function(){
-        test(conway(true, [ true, true ]), true);
-        test(conway(true, [ true, true, true ]), true);
+        expect(conway(true, [ true, true ]), true).to.be.true;
+        expect(conway(true, [ true, true, true ]), true).to.be.true;
     });
-});*/
+});
 
 /*describe('overpopulation rule', function(){
     it('should die if there are more than 3 neighbors', function(){

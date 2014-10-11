@@ -98,7 +98,7 @@ arr.unshift(0,3,4);
 This method adds one or more elements to the front of an array and also returns the new length of the array.
 
 
-### Methods that change how an existing array is represented
+### Methods that change how one or more arrays are represented
 
 ```javascript
 var new_array = old_array.concat(value1[, value2[, ...[, valueN]]])
@@ -140,33 +140,57 @@ var citrus = fruits.slice(1, 3);
 The Array.prototype.slice() method extracts a section of an array starting with the element from the index at `begin` and up to but not including the element from the index at `end`. It returns a new array. If `begin` is positive number, it starts at index 0 and extracts to the right. If it is negative, it starts at the end of the array at index (array.length-1) and extracts to the left. 
 
 ```javascript
-Array.prototype.toSource() 
+
+arr.toSource()
+
+var alpha = new Array('a', 'b', 'c');
+alpha.toSource();   
+//returns ['a', 'b', 'c']
 ```
 
-Returns an array literal representing the specified array; you can use this value to create a new array. Overrides the Object.prototype.toSource() method.
+The Array.prototype.toSource() method returns a string, or array literal, representing the source code for instances of Array. The return value cane be used to create a new array as in the example.
 
 ```javascript
-Array.prototype.toString()
+arr.toString()
+
+var monthNames = ['Jan', 'Feb', 'Mar', 'Apr'];
+var myVar = monthNames.toString(); 
+// assigns 'Jan,Feb,Mar,Apr' to myVar.
 ```
 
-Returns a string representing the array and its elements. Overrides the Object.prototype.toString() method.
+The Array.prototype.toString() method returns a string representing the array and its elements as shown in the example. 
 
 ```javascript
-Array.prototype.toLocaleString()
+arr.toLocaleString();
 ```
-Returns a localized string representing the array and its elements. Overrides the Object.prototype.toLocaleString() method.
+The Array.prototype.toLocaleString() method returns a string representing the array and its elements based on the locale of the user. Relevant array elements that vary based one's locale include current time and date. 
 
 ```javascript
-Array.prototype.indexOf()
+arr.indexOf(searchElement[, fromIndex = 0])
+
+var array = [2, 5, 9];
+var index = array.indexOf(2);
+// index is 0
+index = array.indexOf(7);
+// index is -1
+index = array.indexOf(9, 2);
+// index is 2
 ```
-Returns the first (least) index of an element within the array equal to the specified value, or -1 if none is found.
+The Array.prototype.indexOf() method that searches forward looking for the first instance of a `searchElement` in an array and if found, returns the index of the specified element. If the array does not contain that element, a value of -1 is returned. 
 
 ```javascript
-Array.prototype.lastIndexOf()
-```
-Returns the last (greatest) index of an element within the array equal to the specified value, or -1 if none is found.
+arr.lastIndexOf(searchElement[, fromIndex = arr.length])
 
-Iteration methods - Several methods take as arguments functions to be called back while processing the array. When these methods are called, the length of the array is sampled, and any element added beyond this length from within the callback is not visited. Other changes to the array (setting the value of or deleting an element) may affect the results of the operation if the method visits the changed element afterwards. While the specific behavior of these methods in such cases is well-defined, you should not rely upon it so as not to confuse others who might read your code. If you must mutate the array, copy into a new array instead.
+var array = [2, 5, 9, 2];
+var index = array.lastIndexOf(2);
+// index is 3
+index = array.lastIndexOf(7);
+// index is -1
+```
+The Array.prototype.lastIndexOf() method is the opposite of indexOf(). It that searches backwards from the last index value (by defalut) looking for the first instance of a `searchElement` in an array and if found, returns the index of the specified element. If the array does not contain that element, a value of -1 is returned. 
+
+
+### Methods that process arrays through iteration
 
 ```javascript
 Array.prototype.forEach()

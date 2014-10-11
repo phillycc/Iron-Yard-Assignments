@@ -1,3 +1,5 @@
+### Methods that modify arrays
+
 ```javascript
 Array.prototype.copyWithin(target, start[, end = this.length]) 
 
@@ -5,7 +7,7 @@ Array.prototype.copyWithin(target, start[, end = this.length])
 // [4, 5, 3, 4, 5]
 ```
 
-This meethod copies a sequence of array elements starting with `start` index and going to the end of the array unless otherwise specified. It then takes the copied sequence and places those elements starting at the `target` index. In the example, the secquence starts at index 3 and includes index 4 to give 4,5. The copied sequence is then copied within the array starting at index 0, giving the resultant [4,5,3,4,5]
+This method copies a sequence of array elements starting with `start` index and going to the end of the array unless otherwise specified. It then takes the copied sequence and places those elements starting at the `target` index. In the example, the secquence starts at index 3 and includes index 4 to give 4,5. The copied sequence is then copied within the array starting at index 0, giving the resultant [4,5,3,4,5]
 
 ```javascript
 Array.prototype.fill(value[, start = 0[, end = this.length]]) 
@@ -86,36 +88,56 @@ removed = myFish.splice(2, 1, 'trumpet');
 This method can remove elements from an array. In the example, it removes 1 element where `homeMany` equals 1 and it removes that one element from index 2, which in this case is: drum. Splice can also add an element, which in the example it does by adding 'trumpet' at the index when drum was removed.  
 
 ```javascript
-Array.prototype.unshift()
+Array.prototype.unshift(element1[, ...[, elementN]]])
+
+var arr = [1, 2];
+arr.unshift(0,3,4); 
+// arr is [0, 3, 4, 1, 2]
 ```
 
-Adds one or more elements to the front of an array and returns the new length of the array.
-Accessor methods
+This method adds one or more elements to the front of an array and also returns the new length of the array.
 
-These methods do not modify the array and return some representation of the array.
+
+### Methods that change how an existing array is represented
 
 ```javascript
-Array.prototype.concat()
+var new_array = old_array.concat(value1[, value2[, ...[, valueN]]])
+
+var alpha = ['a', 'b', 'c'], numeric = [1, 2, 3];
+var alphaNumeric = alpha.concat(numeric);
+console.log(alphaNumeric); 
+// Result: ['a', 'b', 'c', 1, 2, 3]
 ```
 
-Returns a new array comprised of this array joined with other array(s) and/or value(s).
+The Array.prototype.concat() method joins 2 or more arrays into one array. In the example, numeric is concatenated to the end of the alpha array.
+
 
 ```javascript
-Array.prototype.contains() 
+Array.prototype.contains(searchElement[, fromIndex]) 
+
+[1, 2, 3].contains(2);     
+// true
 ```
 
-Determines whether an array contains a certain element, returning true or false as appropriate.
+This is a search method and determines whether an array contains a certain element, returning true if the element is found.
 
 ```javascript
-Array.prototype.join()
+str = arr.join([separator = ','])
+var a = new Array('Wind', 'Rain', 'Fire');
+var myVar = a.join(' + '); 
+// assigns 'Wind + Rain + Fire' to myVar
 ```
 
-Joins all elements of an array into a string.
+The Array.prototype.join() method joins all elements of an array into a single string and can include an optional separator.
 
 ```javascript
-Array.prototype.slice()
+arr.slice([begin[, end]])
+
+var fruits = ['Banana', 'Orange', 'Lemon', 'Apple', 'Mango'];
+var citrus = fruits.slice(1, 3);
+// citrus contains ['Orange','Lemon']
 ```
-Extracts a section of an array and returns a new array.
+The Array.prototype.slice() method extracts a section of an array starting with the element from the index at `begin` and up to but not including the element from the index at `end`. It returns a new array. If `begin` is positive number, it starts at index 0 and extracts to the right. If it is negative, it starts at the end of the array at index (array.length-1) and extracts to the left. 
 
 ```javascript
 Array.prototype.toSource() 

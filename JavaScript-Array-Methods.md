@@ -193,67 +193,137 @@ The Array.prototype.lastIndexOf() method is the opposite of indexOf(). It that s
 ### Methods that process arrays through iteration
 
 ```javascript
-Array.prototype.forEach()
+arr.forEach(callback[, thisArg])
+
+
+function logArrayElements(element, index, array) {
+  console.log('a[' + index + '] = ' + element);
+}
+
+[2, 5, 9].forEach(logArrayElements);
+// logs:
+// a[0] = 2
+// a[1] = 5
+// a[3] = 9
 ```
 
-Calls a function for each element in the array.
+The Array.prototype.forEach() method loops through calls through each element in an array.
 
 ```javascript
-Array.prototype.entries() 
+arr.entries()
+
+var arr = ['a', 'b', 'c'];
+var eArr = arr.entries();
+console.log(eArr.next().value); 
+// [0, 'a']
 ```
 
-Returns a new Array Iterator object that contains the key/value pairs for each index in the array.
+The Array.prototype.entries() method returns the key/value pairs for each index in the array.
 
 ```javascript
-Array.prototype.every()
+arr.every(callback[, thisArg])
+
+function isBigEnough(element, index, array) {
+  return element >= 10;
+}
+var passed = [12, 5, 8, 130, 44].every(isBigEnough);
+// passed is false
+passed = [12, 54, 18, 130, 44].every(isBigEnough);
+// passed is true
 ```
 
-Returns true if every element in this array satisfies the provided testing function.
+The Array.prototype.every() method returns true if every element in this array satisfies the provided testing function signified in a callback. `every` acts like the "for all" quantifier in mathematics and for an empty array, it returns true. Also, `every` does not mutate the array on which it is called.
 
 ```javascript
-Array.prototype.some()
+arr.some(callback[, thisArg])
+
+function isBigEnough(element, index, array) {
+  return element >= 10;
+}
+var passed = [2, 5, 8, 1, 4].some(isBigEnough);
+// passed is false
+passed = [12, 5, 8, 1, 4].some(isBigEnough);
+// passed is true
 ```
 
-Returns true if at least one element in this array satisfies the provided testing function.
+The Array.prototype.some() method serves the same function as .erry() except that it returns true if at least one element in this array satisfies the provided testing function signified in the callback.
 
 ```javascript
-Array.prototype.filter()
-```
+arr.filter(callback[, thisArg])
 
-Creates a new array with all of the elements of this array for which the provided filtering function returns true.
+function isBigEnough(element) {
+  return element >= 10;
+}
+var filtered = [12, 5, 8, 130, 44].filter(isBigEnough);
+// filtered is [12, 130, 44]
+```
+The Array.prototype.filter() method creates a new array with all of the elements of this array for which the provided filtering function returns true. In the example, all numbers in the array less than 10 are filtered out of the original array.
 
 ```javascript
-Array.prototype.find() 
+arr.find(callback[, thisArg])
+
+function isPrime(element, index, array) {
+  var start = 2;
+  while (start <= Math.sqrt(element)) {
+    if (element % start++ < 1) {
+      return false;
+    }
+  }
+  return element > 1;
+}
+
+console.log([4, 6, 8, 12].find(isPrime)); 
+// undefined, not found
+console.log([4, 5, 8, 12].find(isPrime)); 
+// 5
 ```
 
-Returns the found value in the array, if an element in the array satisfies the provided testing function or undefined if not found.
+The method Array.prototype.find() returns the found value in the array, if an element in the array satisfies the provided testing function signified in the callback. Unlike indexOf(), it does not return the index, but rather the actual value of the array element. If the specified element is not found, the method returns undefined.
 
 ```javascript
-Array.prototype.findIndex()
-```
+arr.findIndex(callback[, thisArg])
 
-Returns the found index in the array, if an element in the array satisfies the provided testing function or -1 if not found.
+```
+The Array.prototype.findIndex() method is identical to .find(), except that it  returns the found index in the array, if an element in the array satisfies the provided testing function. f the specified element is not found, the method returns -1.
 
 ```javascript
-Array.prototype.keys() 
+arr.keys()
+
+var arr = ['a', 'b', 'c'];
+var eArr = arr.keys();
+console.log(eArr.next().value); 
+// 0
+console.log(eArr.next().value); 
+// 1
+console.log(eArr.next().value); 
+// 2
 ```
 
-Returns a new Array Iterator that contains the keys for each index in the array.
+The Array.prototype.keys() method returns a new Array Iterator that contains the keys for each index in the array.
 
 ```javascript
-Array.prototype.map()
-```
+arr.map(callback[, thisArg])
 
-Creates a new array with the results of calling a provided function on every element in this array.
+var numbers = [1, 4, 9];
+var doubles = numbers.map(function(num) {
+  return num * 2;
+});
+// doubles is now [2, 8, 18]. numbers is still [1, 4, 9]
+```
+The Array.prototype.map() creates a new array with the results of calling a provided function on every element in the array.
 
 ```javascript
-Array.prototype.reduce()
+arr.reduce(callback[, initialValue])
+
+[0, 1, 2, 3, 4].reduce(function(previousValue, currentValue, index, array) {
+  return previousValue + currentValue;
+}, 10);
 ```
 
-Apply a function against an accumulator and each value of the array (from left-to-right) as to reduce it to a single value.
+The Array.prototype.reduce() method applies a function against an accumulator and each value of the array (from left-to-right) as to reduce it to a single value. In the example, `previousvalue` starts at 10 and iterates over the array adding each element and carrying a sum.
 
 ```javascript
 Array.prototype.reduceRight()
 ```
 
-Apply a function against an accumulator and each value of the array (from right-to-left) as to reduce it to a single value.
+The Array.prototype.reduceRight() method applies a function against an accumulator and each value of the array (from right-to-left) as to reduce it to a single value.

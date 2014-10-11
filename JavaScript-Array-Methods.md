@@ -1,50 +1,89 @@
 ```javascript
-Array.prototype.copyWithin() 
+Array.prototype.copyWithin(target, start[, end = this.length]) 
+
+[1, 2, 3, 4, 5].copyWithin(0, 3);
+// [4, 5, 3, 4, 5]
 ```
 
-Copies a sequence of array elements within the array.
+This meethod copies a sequence of array elements starting with `start` index and going to the end of the array unless otherwise specified. It then takes the copied sequence and places those elements starting at the `target` index. In the example, the secquence starts at index 3 and includes index 4 to give 4,5. The copied sequence is then copied within the array starting at index 0, giving the resultant [4,5,3,4,5]
 
 ```javascript
-Array.prototype.fill() 
+Array.prototype.fill(value[, start = 0[, end = this.length]]) 
+
+[1, 2, 3].fill(4)               
+// [4, 4, 4]
 ```
 
-Fills all the elements of an array from a start index to an end index with a static value.
+This method fills all the elements of an array from a start index to an end index with a `value`. If no index is provided, it copies over all array elements. 
 
 ```javascript
 Array.prototype.pop()
+
+var myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];
+var popped = myFish.pop();
+console.log(myFish); // ['angel', 'clown', 'mandarin' ] 
+console.log(popped); // 'sturgeon'
 ```
 
-Removes the last element from an array and returns that element.
+This method removes the last element from an array and returns that element. 
 
 ```javascript
-Array.prototype.push()
+Array.prototype.push(element1, ..., elementN)
+
+var sports = ['soccer', 'baseball'];
+var total = sports.push('football', 'swimming');
+console.log(sports); 
+// ['soccer', 'baseball', 'football', 'swimming']
+console.log(total);  
+// 4
 ```
 
-Adds one or more elements to the end of an array and returns the new length of the array.
+This method adds one or more elements to the end of an array, like a stack, and can also returns the new length of the array if prompted.
 
 ```javascript
 Array.prototype.reverse()
+
+var myArray = ['one', 'two', 'three'];
+myArray.reverse(); 
+console.log(myArray) 
+// ['three', 'two', 'one']
 ```
 
-Reverses the order of the elements of an array — the first becomes the last, and the last becomes the first.
+This method reverses the order of the elements of an array.  
 
 ```javascript
 Array.prototype.shift()
+
+var myFish = ['angel', 'clown', 'mandarin', 'surgeon'];
+var shifted = myFish.shift();
+console.log('myFish after: ' + myFish);
+console.log('Removed this element: ' + shifted);
+//myFish after: clown,mandarin,surgeon
+//Removed this element: angel
 ```
 
-Removes the first element from an array and returns that element.
+This method removes the first element (index 0) from an array, like a queue, and returns that element. It is the opposite of `Array.prototype.push`.
 
 ```javascript
-Array.prototype.sort()
+Array.prototype.sort([compareFunction])
+
+var scores = [1, 2, 10, 21]; 
+scores.sort(); 
+// [1, 10, 2, 21]
 ```
 
-Sorts the elements of an array in place and returns the array.
+This method sorts the elements of an array. Without an optional compare value however the array is sorted according to each character's Unicode code point value. In other words, an array of numbers, like those in the example, are converted to strings, where "10" comes before "2" in Unicode order. 
 
 ```javascript
-Array.prototype.splice()
+Array.prototype.splice(index, howMany[, element1[, ...[, elementN]]])
+
+var myFish = ['angel', 'clown', 'drum', 'surgeon'];
+removed = myFish.splice(2, 1, 'trumpet');
+// myFish is ['angel', 'clown', 'trumpet', 'surgeon']
+// removed is ['drum']
 ```
 
-Adds and/or removes elements from an array.
+This method can remove elements from an array. In the example, it removes 1 element where `homeMany` equals 1 and it removes that one element from index 2, which in this case is: drum. Splice can also add an element, which in the example it does by adding 'trumpet' at the index when drum was removed.  
 
 ```javascript
 Array.prototype.unshift()

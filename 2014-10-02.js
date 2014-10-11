@@ -122,24 +122,27 @@ function board(){
  * @return: Array of Array of Boolean
  *
 **/
-function tick(board){
+function tick(before){
   //create placeholder array for the next board
-  var arrNextBoard= board();
-
-  board.forEach(function(row, rowIndex){
-     row.forEach(function(cell, colIndex){
-          arrNextBoard[rowIndex][colIndex]=conway(cell, neighborsOf(board, rowIndex, colIndex));
+  var arrNextBoard=board();
+  before.forEach(function(row, x){
+     row.forEach(function(cell, y){
+          arrNextBoard[x][y]=conway(cell, neighborsOf(before,x,y));
       });
   });
-
+  //console.log(arrNextBoard);
   return arrNextBoard;
 }
 
+
 //************ TEST CODE: TICK ************//
 
-/*describe('tick', function(){
+describe('tick', function(){
     it('should have a `tick()` function', function(){
         assert(tick);
+    });
+    it('should be a type of function named tick()', function(){
+        assert.typeOf(tick,'function');
     });
 
     describe('GIVEN a 3x3 board', function(){
@@ -151,7 +154,7 @@ function tick(board){
 
         describe('WHEN the board is empty', function(){
             it('should remain empty', function(){
-                assert.deepEqual(tick(_board), board());
+                assert.deepEqual(tick(_board),board());
             });
         });
 
@@ -163,36 +166,29 @@ function tick(board){
 
                 _board[1][1] = true;
                 assert.deepEqual(tick(_board), board());
-
-                _board[2][2] = true;
-                assert.deepEqual(tick(_board), board());
             });
         });
 
         describe('WHEN the board has 3 adjacent cells in a line', function(){
-            it('should oscilate every tick', function(){
-                _board[0][1] = true;
-                _board[1][1] = true;
-                _board[2][1] = true;
-
+            var _board;
+            beforeEach(function(){
+                _board = [
+                    [ false, true, false ],
+                    [ false, true, false ],
+                    [ false, true, false ],
+                ];
                 expected = [
                     [ false, false, false ],
                     [ true,  true,  true  ],
                     [ false, false, false ],
                 ];
-
-                assert.deepEqual(_board, [
-                    [ false, true,  false ],
-                    [ false, true,  false ],
-                    [ false, true,  false ],
-                ]);
+            });
+            it('should oscilate every tick', function(){
                 assert.deepEqual(tick(_board), expected);
             });
         });
     });
 });
-*/
-
 
 /**
  *
@@ -209,9 +205,6 @@ function tick(board){
  *
 **/
 function conway(cell, neighbors){
-  //initializes counter of liveNeighbors to zero
-  //var liveNeighbors=0;
-
   //counts the number of live neighbors
   var liveNeighbors = neighbors.filter(function(value){
     return value;
@@ -222,7 +215,6 @@ function conway(cell, neighbors){
   //applies Conway's rules
   if (cell && liveNeighbors===2) return true;
   if (liveNeighbors===3) return true;
-
   return false;
 }
 //************ TEST CODE: CONWAY ************//
@@ -258,12 +250,12 @@ describe('survival rule', function(){
     });
 });
 
-/*describe('overpopulation rule', function(){
+describe('overpopulation rule', function(){
     it('should die if there are more than 3 neighbors', function(){
-        test(conway(true, [ true, true, true, true ]), false);
-        test(conway(true, [ true, true, true, true, true ]), false);
+        expect(conway(true, [ true, true, true, true ]), false).to.be.false;
+        expect(conway(true, [ true, true, true, true, true ]), false).to.be.false;
     });
-});*/
+});
 
 /**
  *
@@ -280,57 +272,42 @@ describe('survival rule', function(){
 **/
 function neighborsOf(board,row,col){
     //return boolean values of nearest neighbors for given col,row
+    var neighbors = [ ];
+
     if (row===0 && col===0){
-        return [
-          board[0][1],board[1][0],board[1][1]
-        ];
+        neighbors.push(board[0][1],board[1][0],board[1][1]);
     }
     if (row===0 && col===1){
-        return [
-          board[0][0],board[1][0],board[1][1],
-          board[0][2],board[1][2]
-        ];
+        neighbors.push(board[0][0],board[1][0],board[1][1],
+          board[0][2],board[1][2]);
     }
     if (row===0 && col===2){
-        return [
-          board[0][1],board[1][1],board[1][2]
-        ];
+        neighbors.push(board[0][1],board[1][1],board[1][2]);
     }
     if (row===1 && col===0){
-        return [
-          board[0][0],board[0][1],board[1][1],
-          board[2][0],board[2][1]
-        ];
+        neighbors.push(board[0][0],board[0][1],board[1][1],
+          board[2][0],board[2][1]);
     }
     if (row===1 && col===1){
-        return [
-          board[0][0],board[0][1],board[0][2],
+        neighbors.push(board[0][0],board[0][1],board[0][2],
           board[1][0],board[1][2],board[2][0],
-          board[2][1],board[2][2]
-        ];
+          board[2][1],board[2][2]);
     }
     if (row===1 && col===2){
-        return [
-          board[0][1],board[0][2],board[1][1],
-          board[2][1],board[2][2]
-        ];
+        neighbors.push(board[0][1],board[0][2],board[1][1],
+          board[2][1],board[2][2]);
     }
     if (row===2 && col===0){
-        return [
-          board[1][0],board[1][1],board[2][1]
-        ];
+        neighbors.push(board[1][0],board[1][1],board[2][1]);
     }
     if (row===2 && col===1){
-        return [
-          board[1][0],board[2][0],board[1][1],
-          board[1][2],board[2][2]
-        ];
+        neighbors.push(board[1][0],board[2][0],board[1][1],
+          board[1][2],board[2][2]);
     }
     if (row===2 && col===2){
-        return [
-          board[1][1],board[1][2],board[2][1]
-        ];
+        neighbors.push(board[1][1],board[1][2],board[2][1]);
     }
+    return neighbors;
 }
 
 //************ TEST CODE ************//
@@ -420,7 +397,6 @@ describe('neighborsOf', function(){
     });
 });
 
-
 /**
  * Log `success` if `actual` is STRICTLY equal to `expected`
  *
@@ -490,45 +466,4 @@ console.log('\n=====Production Tests======')
 for (var index=0; index<testCases.length; index++){
   // console.log('CASE '+(index+1)+':\n'+tick(testCases[index]));
 }
-
-console.log('\n======Function Tests=======')
-
-var neighborsTestCases = [
-  [
-    [
-      [ false, true, false ],
-      [ false, true, false ],
-      [ false, true, false ],
-    ],0,0,3
-  ],
-  [
-    [
-      [ false, true, false ],
-      [ false, true, false ],
-      [ false, true, false ],
-    ],1,0,5
-  ],
-  [
-    [
-      [ false, true, false ],
-      [ false, true, false ],
-      [ false, true, false ],
-    ],1,1,8
-  ],
-];
-
-//console.log('\n\nTESTS: neighborsOf\n');
-for (var index=0; index<neighborsTestCases.length; index++){
-  // test(neighborsOf(neighborsTestCases[index][0],neighborsTestCases[index][1],neighborsTestCases[index][2]).length,neighborsTestCases[index][3]);
-}
-
-var conwayTestCases = [
-  [true, [[ false, true, false, true, false ]],true]
-  [false, [[ false, false, false ]],false]
-  [true, [[ false, true, true, true, true ]],false]
-  [false, [[ false, true, true, true, false ]],true]
-];
-console.log('\n\nTESTS: conway\n');
-for (var index=0; index<conwayTestCases.length; index++){
-//   test(conway(conwayTestCases[index][0],conwayTestCases[index][1],conwayTestCases[index][2]),conwayTestCases[index][3]);
-}*/
+*/

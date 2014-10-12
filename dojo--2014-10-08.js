@@ -1,28 +1,27 @@
 var assert = require('assert');
 
+var words = { zero: 0, one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10 };
 
 
-function letToNum(y){
-  if (y === "zero"){return 0;}
-  if (y === "one"){return 1;}
-  if (y === "two"){return 2;}
-  if (y === "three"){return 3;}
-  if (y === "four"){return 4;}
-  if (y === "five"){return 5;}
-  if (y === "six"){return 6;}
-  if (y === "seven"){return 7;}
-  if (y === "eight"){return 8;}
-  if (y === "nine"){return 9;}
-  if (y === "ten"){return 10;}
+function fromEnglish(word){
+   return words[word];
 }
-
-var letterNum = ['zero','one','two','three','four','five','six','seven','eight','nine','ten'];
 
 var multiply = function(a,b){
-  a = letToNum(a);
-  b = letToNum(b);
+  a = fromEnglish(a);
+  b = fromEnglish(b);
   return a * b;
 }
+
+suite('mulitply()', function(){
+    for (var word1 in words){
+       for (var word2 in words){
+           test('should multiply ' +word1+ ' and '+word2, function(){
+               assert.strictEqual(multiply(word1,word2),words[word1]*words[word2]);
+           });
+       }
+    }
+});
 
 /*suite('mulitply()', function(){
     test('should multiply "one" and "one"', function(){
@@ -41,22 +40,3 @@ var multiply = function(a,b){
         assert.equal(multiply('zero','zero'),0);
     });
 });*/
-
-suite('mulitply()', function(){
-    letterNum.forEach(function(a, i){
-        letterNum.forEach(function(b, j){
-          test('should multiply ' +a+ ' and '+b, function(){
-              assert.strictEqual(multiply(a,b),i*j);
-          });
-
-          //console.log(a+' '+b+' '+i*j);
-      });
-    });
-});
-
-
-letterNum.forEach(function(a, i){
-    letterNum.forEach(function(b, j){
-      //console.log(a+' '+b+' '+i*j);
-  });
-});

@@ -85,7 +85,7 @@ removed = myFish.splice(2, 1, 'trumpet');
 // removed is ['drum']
 ```
 
-This method can remove elements from an array. In the example, it removes 1 element where `homeMany` equals 1 and it removes that one element from index 2, which in this case is: drum. Splice can also add an element, which in the example it does by adding 'trumpet' at the index when drum was removed.  
+This method can remove elements from an array. In the example, it removes 1 element where `howMany` equals 1 and it removes that one element from index 2, which in this case is: drum. Splice can also add an element, which in the example it does by adding 'trumpet' at the index when drum was removed.  
 
 ```javascript
 Array.prototype.unshift(element1[, ...[, elementN]]])
@@ -123,6 +123,7 @@ This is a search method and determines whether an array contains a certain eleme
 
 ```javascript
 str = arr.join([separator = ','])
+
 var a = new Array('Wind', 'Rain', 'Fire');
 var myVar = a.join(' + '); 
 // assigns 'Wind + Rain + Fire' to myVar
@@ -246,7 +247,7 @@ passed = [12, 5, 8, 1, 4].some(isBigEnough);
 // passed is true
 ```
 
-The Array.prototype.some() method serves the same function as .erry() except that it returns true if at least one element in this array satisfies the provided testing function signified in the callback.
+The Array.prototype.some() method serves the same function as .every() except that it returns true if at least one element in this array satisfies the provided testing function signified in the callback.
 
 ```javascript
 arr.filter(callback[, thisArg])
@@ -284,7 +285,7 @@ The method Array.prototype.find() returns the found value in the array, if an el
 arr.findIndex(callback[, thisArg])
 
 ```
-The Array.prototype.findIndex() method is identical to .find(), except that it  returns the found index in the array, if an element in the array satisfies the provided testing function. f the specified element is not found, the method returns -1.
+The Array.prototype.findIndex() method is identical to .find(), except that it  returns the found index in the array, if an element in the array satisfies the provided testing function. If the specified element is not found, the method returns -1.
 
 ```javascript
 arr.keys()
@@ -320,7 +321,7 @@ arr.reduce(callback[, initialValue])
 }, 10);
 ```
 
-The Array.prototype.reduce() method applies a function against an accumulator and each value of the array (from left-to-right) as to reduce it to a single value. In the example, `previousvalue` starts at 10 and iterates over the array adding each element and carrying a sum.
+The Array.prototype.reduce() method applies a function against an accumulator and each value of the array (from left-to-right) as to reduce it to a single value. In the example, `previousValue` starts at 10 and iterates over the array adding each element and carrying a sum.
 
 ```javascript
 Array.prototype.reduceRight()

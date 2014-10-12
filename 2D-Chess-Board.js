@@ -1,3 +1,6 @@
+var assert = require('chai').assert;
+var expect = require('chai').expect;
+var should = require('chai').should();
 
 var board = [
   ['R','N','B','Q','K','B','N','R'],
@@ -10,8 +13,61 @@ var board = [
   ['r','n','b','q','k','b','n','r']
 ];
 
-console.log(board.join('\n') + '\n\n');
+var catMoves = {
+    move1: [4,3,6,3],
+    move2: [3,3,1,3],
+    move3: [5,5,7,6],
+    move4: [2,5,0,6],
+    move5: [5,6,6,6],
+    move6: [2,4,1,4],
+    move7: [6,6,7,5],
+    move8: [1,4,0,5],
+    move9: [4,2,6,2],
+}
 
+function makeMove(coords){
+    var toX = coords.shift();
+    var toY = coords.shift();
+    var fromX = coords.shift();
+    var fromY = coords.shift();
+    board[toX][toY]=board[fromX][fromY];
+    board[fromX][fromY]=' ';
+}
+function printBoard(){
+    console.log(board.join('\n') + '\n\n');
+}
+
+for (var move in catMoves){
+  makeMove(catMoves[move]);
+  printBoard();
+}
+/*
+describe('WHEN White Queen\'s Pawn moves forward 2', function(){
+    it('should be a string and equal "p"', function(){
+        board[6][3].should.be.a('string').and.equal('p');
+    });
+    it('should occupy a new position', function(){
+        expected = [
+                [ 'R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R' ],
+                [ 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P' ],
+                [ ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' ],
+                [ ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' ],
+                [ ' ', ' ', ' ', 'p', ' ', ' ', ' ', ' ' ],
+                [ ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' ],
+                [ 'p', 'p', 'p', ' ', 'p', 'p', 'p', 'p' ],
+                [ 'r', 'n', 'b', 'q', 'k', 'b', 'n', 'r' ]
+            ];
+          assert.deepEqual(movePiece(4,3,6,3), expected);
+    });
+
+    /*
+    it('should vacate it\'s previous position', function(){
+        expect(board[6][3]).to.be.empty;
+    });
+
+});*/
+
+/*
 // Move White Queen's Pawn forward 2
 board[4][3] = board[6][3];
 board[6][3] = ' ';
@@ -56,3 +112,4 @@ console.log(board.join('\n') + '\n\n');
 board[4][2] = board[6][2];
 board[6][2] = ' ';
 console.log(board.join('\n') + '\n\n');
+*/

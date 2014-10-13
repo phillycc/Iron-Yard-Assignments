@@ -271,8 +271,28 @@ describe('overpopulation rule', function(){
  *
 **/
 function neighborsOf(board,row,col){
+    var diffs = [ -1, 0, +1 ],
+        neighbors = [ ];
+
+    diffs.forEach(function(dX){
+        diffs.forEach(function(dY){
+            //skip if board empty
+            if(board.length===0) return;
+            // skip this cell
+            if ( dX === 0 && dY === 0 ) return;
+            //skip if row index does not exist
+            if (((row + dX) < 0) || ((row + dX)>2)) return;
+            //skip if col index does not exist
+            if (((col + dY) < 0) || ((col + dY)>2)) return;
+
+            neighbors.push(board[row + dX][col + dY]);
+        });
+    });
+
+    return neighbors;
+
     //return boolean values of nearest neighbors for given col,row
-    var neighbors = [ ];
+    /*var neighbors = [ ];
 
     if (row===0 && col===0){
         neighbors.push(board[0][1],board[1][0],board[1][1]);
@@ -307,7 +327,7 @@ function neighborsOf(board,row,col){
     if (row===2 && col===2){
         neighbors.push(board[1][1],board[1][2],board[2][1]);
     }
-    return neighbors;
+    return neighbors;*/
 }
 
 //************ TEST CODE ************//
@@ -373,7 +393,7 @@ describe('neighborsOf', function(){
         it('should return 5 cells for the edges', function(){
             assert.deepEqual(
                 neighborsOf(_board, 0, 1),
-                [ false, false, true, false, false ]
+                [ false, false, false, true, false ]
             );
             assert.deepEqual(
                 neighborsOf(_board, 1, 0),
@@ -385,7 +405,7 @@ describe('neighborsOf', function(){
             );
             assert.deepEqual(
                 neighborsOf(_board, 2, 1),
-                [ false, false, true, false, false ]
+                [ false, true, false, false, false ]
             );
         });
         it('should return all cells for the middle', function(){

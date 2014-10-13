@@ -24,6 +24,12 @@ describe('filterEvens(), takes a Number as an input and returns a Number if even
     it('should be a type of function named filterEvens()', function(){
         assert.typeOf(filterEvens,'function');
     });
+    it('should return even number when fed an even number', function(){
+        assert.strictEqual(filterEvens(2),2);
+    });
+    it('should return undefined when fed an odd number', function(){
+        assert.strictEqual(filterEvens(3),undefined);
+    });
 });
 
 //console.log(arrEvens);

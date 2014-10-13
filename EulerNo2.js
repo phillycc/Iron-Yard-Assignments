@@ -41,6 +41,18 @@ describe('filterEvens(), takes a Number as an input and returns a Number if even
     });
 });
 
+describe('sum(), takes an array as input and returns a Number sum',function(){
+    it('should be a type of function named sum',function(){
+        assert.typeOf(sum,'function');
+    });
+    var arrNumbers=[];
+    before(function(){
+       arrNumbers = [1,2,3,4,5];
+    });
+    it('should sum an array of numbers', function() {
+      assert.strictEqual(sum(arrNumbers),15);
+    });
+});
 //console.log(arrEvens);
 //fibonacci: function(limit){ /* . . . */ },
 //filterEvens: function(list){ /* . . . */ },

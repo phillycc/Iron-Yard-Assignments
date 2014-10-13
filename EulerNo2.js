@@ -19,6 +19,15 @@ function filterEvens(element) {
 
 var arrEvens = arrFibonacci.filter(filterEvens);
 
+function sum(arr){
+   var total=0;
+   arr.forEach(function(element){
+      total+=element;
+   });
+   return total;
+}
+
+sum(arrEvens);
 
 describe('filterEvens(), takes a Number as an input and returns a Number if even', function(){
     it('should be a type of function named filterEvens()', function(){

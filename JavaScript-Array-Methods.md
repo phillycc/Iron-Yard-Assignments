@@ -328,3 +328,9 @@ Array.prototype.reduceRight()
 ```
 
 The Array.prototype.reduceRight() method applies a function against an accumulator and each value of the array (from right-to-left) as to reduce it to a single value.
+
+### Generic Methods
+
+These methods pertain to "array-like" objects which can be iterated through with code like that of an array, but the object cannot actually invoke actual array methods, as described above. 
+
+

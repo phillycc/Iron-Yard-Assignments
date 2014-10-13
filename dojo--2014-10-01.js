@@ -29,44 +29,55 @@ function checkWriteOutput(){
   var ones = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"];
   var tens = ["zero", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
   var teens = ["ten","eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"];
-  var hundreds = ["zero", "one hundred", "two hundred", "three hundred", "four hundred", "five hundred", "six hundred", "seven hundred", "eight hundred", "nine hundred"];
-  var thousands = ["zero", "one thousand", "two thousand", "three thousand", "four thousand", "five thousand", "six thousand", "seven thousand", "eight thousand", "nine thousand"];
+  var hundreds = " hundred";
+  var thousands = " thousand";
   return{
     toEnglish: function(amount){
-        var value = amount.toString()
-        value = Number(value).toFixed(2);
-        var cents=value.slice(-2)
-        var dollars = value.slice(0,-3).split("");
-        var centsEnglish = cents + '/100s dollars';
-          if (amount < 20){return(ones[amount]+" and "+centsEnglish)}; //for numbers 0-19
-          if (amount < 100){                 //for numbers 20-99
-            if (amount % 10 === 0){
-              return(tens[value[0]]+" and "+centsEnglish);
-            }
-            return(tens[value[0]] +" "+ ones[value[1]] +" and "+centsEnglish)
-          };
-          if (amount < 1000){ //for numbers 100-999
-            if (amount % 100 === 0){
-              return(hundreds[value[0]]);
-            }
-              if (amount % 10 === 0){ //numbers between 100-999 and divisible by 10
-              return(hundreds[value[0]]+" "+ tens[value[1]]+" and "+centsEnglish);
-              }
-                if (value[1] < 2) { //hundreds digits, _10 < x < _20
-                return(hundreds[value[0]] +" "+ teens[value[2]]+" and "+centsEnglish);
-                }
-            return(hundreds[value[0]] +" "+ tens[value[1]] +" "+ ones[value[2]]+" and "+centsEnglish)
-          }
-        if (amount < 10000){
-          if (amount % 1000 === 0){return(thousands[value[0]]+" and "+centsEnglish);}
-            if (amount % 100 === 0){return(thousands[value[0]] +" "+ hundreds[value[1]]+" and "+centsEnglish);}
-              if (amount % 10 === 0){return(thousands[value[0]] +" "+ hundreds[value[1]] +" "+ tens[value[2]]+" and "+centsEnglish);}
-                if (value[2] < 2) {return(thousands[value[0]] +" "+ hundreds[value[1]] +" "+ teens[value[3]]+" and "+centsEnglish);}
-          return(thousands[value[0]] +" "+ hundreds[value[1]] +" "+ tens[value[2]] +" "+ ones[value[3]]+" and "+centsEnglish)
-        }
-    }
-  }
+        amount = Number(amount).toFixed(2);
+        var checkEnd = ' ' + amount.slice(-2) + '/100 dollars';
+        var dollars = amount.slice(0,-3);
 
+        if (dollars < 20) {
+            return ones[dollars] + checkEnd;
+        }
+        else if (dollars < 100) {
+            if (dollars % 10 === 0) {
+              return tens[dollars[0]] + checkEnd;
+            } else {
+              return tens[dollars[0]] + " " + ones[dollars[1]] + checkEnd;
+            }
+        }
+        else if (dollars < 1000) {
+            if (dollars % 100 === 0) {
+              return ones[dollars[0]] + hundreds + checkEnd;
+            }
+            else if (dollars % 10 === 0) {
+              return ones[dollars[0]] + hundreds + " " + tens[dollars[1]] + checkEnd;
+            }
+            else if (dollars[2] < 2) {
+              return ones[dollars[0]] + hundreds + " "  + teens[dollars[2]] + checkEnd;
+            } else {
+              return ones[dollars[0]] + hundreds + " "  + tens[dollars[1]] + " " + ones[dollars[2]] + checkEnd;
+            }
+        }
+        else if (dollars < 10000) {
+            if (dollars % 1000 === 0) {
+              return ones[dollars[0]] + thousands + checkEnd;
+            }
+            else if (dollars % 100 === 0) {
+              return ones[dollars[0]] + thousands + " "  + ones[dollars[1]] + hundreds + checkEnd;
+            }
+            else if (dollars % 10 === 0) {
+              return ones[dollars[0]] + thousands + " " + ones[dollars[1]] + hundreds + " " + tens[dollars[2]] + checkEnd;
+            }
+            else if (dollars[2] < 2) {
+              return ones[dollars[0]] + thousands + " "  + ones[dollars[1]] + hundreds + " " + teens[dollars[3]] + checkEnd;
+            } else {
+              return ones[dollars[0]] + thousands + " "  + ones[dollars[1]] + hundreds + " "  + tens[dollars[2]] + " " + ones[dollars[3]] + checkEnd;
+            }
+        }
+     },
+  }
 }
 
 
@@ -81,19 +92,19 @@ describe('checkWriteOutput()', function(){
         assert.typeOf(checkWriteOutput,'function');
     });
     it('should take a Number and return the written English dollar & cents equivalent', function(){
-        assert.equal(checkWriteOutput().toEnglish(0),'zero and 00/100s dollars');
-        assert.equal(checkWriteOutput().toEnglish(19),'nineteen and 00/100s dollars');
-        assert.equal(checkWriteOutput().toEnglish(1234.56),'one thousand two hundred thirty four and 56/100s dollars');
+        assert.equal(checkWriteOutput().toEnglish(0),'zero 00/100 dollars');
+        assert.equal(checkWriteOutput().toEnglish(19),'nineteen 00/100 dollars');
+        assert.equal(checkWriteOutput().toEnglish(1234.56),'one thousand two hundred thirty four 56/100 dollars');
     });
     it('should take a Number and not return the written English dollar & cents equivalent', function(){
-        assert.notEqual(checkWriteOutput().toEnglish(0),'zero and 25/100s dollars');
-        assert.notEqual(checkWriteOutput().toEnglish(19),'ten and 00/100s dollars');
-        assert.notEqual(checkWriteOutput().toEnglish(1234.56),'one thousand one hundred thirty four and 56/100s dollars');
+        assert.notEqual(checkWriteOutput().toEnglish(0),'zero 25/100 dollars');
+        assert.notEqual(checkWriteOutput().toEnglish(19),'ten 00/100 dollars');
+        assert.notEqual(checkWriteOutput().toEnglish(1234.56),'one thousand one hundred thirty four 56/100 dollars');
     });
     it('should take a Number and return the strict equivalent written English dollar & cents format', function(){
-        assert.strictEqual(checkWriteOutput().toEnglish(0),'zero and 00/100s dollars');
-        assert.strictEqual(checkWriteOutput().toEnglish(19),'nineteen and 00/100s dollars');
-        assert.strictEqual(checkWriteOutput().toEnglish(1234.56),'one thousand two hundred thirty four and 56/100s dollars');
+        assert.strictEqual(checkWriteOutput().toEnglish(0),'zero 00/100 dollars');
+        assert.strictEqual(checkWriteOutput().toEnglish(19),'nineteen 00/100 dollars');
+        assert.strictEqual(checkWriteOutput().toEnglish(1234.56),'one thousand two hundred thirty four 56/100 dollars');
     });
 });
 
@@ -137,12 +148,13 @@ describe('tens[ ], list that stores strings of multiples of 10 in English', func
     });
 });
 */
+/*
 var testCases = [
   [19, "nineteen and 00/100 dollars"],
   [0, "zero and 00/100 dollars"],
   [1234.56, "one thousand two hundred thirty four and 56/100s dollars"],
 ]
-
+*/
 //testCases.forEach(function(testCase)){
 //  var actual = numChange(testCase[0]),expected = testCase[1];
 //  assert.strictEqual(actual,expected);

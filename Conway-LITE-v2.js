@@ -1,7 +1,7 @@
 var game = {
     board: undefined,
     newBoard: function(){
-        this.board = [
+        return this.board = [
           [ false, true, false ],
           [ false, true, false ],
           [ false, true, false ],
@@ -36,18 +36,13 @@ var game = {
         return neighbors;
     },
     tick: function(){
-        //newBoard();
-        return this.newBoard;
-
-        /*this.board = newBoard();
         var after = this.board;
         this.board.forEach(function(row, x){
            row.forEach(function(cell, y){
-                after[x][y]=rules(cell, neighborsOf(x,y));
+                after[x][y]=game.rules(cell, game.neighborsOf(x,y));
             });
         });
-        this.board = after;
-        display;*/
+        return after;
     },
     /**
      * WARNING: This is VOODOO MAGIC...
@@ -85,3 +80,4 @@ var game = {
         + spacer;
     } // END display
 } // END game
+console.log(game.display(game.tick(game.newBoard())));

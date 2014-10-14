@@ -1,10 +1,10 @@
 var game = {
     board: undefined,
     newBoard: function(){
-        this.board === [
-            [ false, true,  false ],
-            [ false, true,  false ],
-            [ false, true,  false ],
+        this.board = [
+          [ false, true, false ],
+          [ false, true, false ],
+          [ false, true, false ],
         ];
     },
     rules: function(cell, neighbors){
@@ -36,7 +36,10 @@ var game = {
         return neighbors;
     },
     tick: function(){
-        this.board = newBoard();
+        //newBoard();
+        return this.newBoard;
+
+        /*this.board = newBoard();
         var after = this.board;
         this.board.forEach(function(row, x){
            row.forEach(function(cell, y){
@@ -44,7 +47,7 @@ var game = {
             });
         });
         this.board = after;
-        display;
+        display;*/
     },
     /**
      * WARNING: This is VOODOO MAGIC...
@@ -82,5 +85,3 @@ var game = {
         + spacer;
     } // END display
 } // END game
-console.log(game.board);
-console.log(game.tick());

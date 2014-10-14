@@ -12,7 +12,7 @@ if (path.existsSync('loaded.json')) {
 
 * Conditional if statement with { block }
 * `path` is an object with method existsSync that passes in a JSON file
-* `fs`is a built-in Node I/O synchronous function that reads the JSON file and assigns the resulting string to `loadedFile` 
+* `fs`is a built-in Node I/O synchronous function that reads the JSON file and assigns the resulting string to `loadedFile`
 * `JSON.parse()` method parses the `loadedFile` JSON and assigns the resulting string to variable `loaded`
 * for-in loop iterates over the JSON Object for all elements that were successfully parsed and assigns Boolean of true to a 1-D array `idBucket`
 
@@ -54,8 +54,8 @@ function phillyRedirect() {
 };
 ```
 
-* `phillyRedirect` is a function acting as a listener in Node that redirects an http request 
-* it returns a function that passes in an http request/response then uses Node's writeHead( ) funciton to send a response header to http://philly.sheltr.org, when the incoming http request is http://sheltr.org 
+* `phillyRedirect` is a function acting as a listener in Node that redirects an http request
+* it returns a function that passes in an http request/response then uses Node's writeHead( ) funciton to send a response header to http://philly.sheltr.org, when the incoming http request is http://sheltr.org
 
 **midnight.js**
 
@@ -68,7 +68,7 @@ var settings = {
         // The class used by the default header (useful when adding multiple headers with different markup).
         defaultClass: 'default',
       };
-      
+
   (...)
   for( headerClass in headers ) {
           if( typeof headers[headerClass].element === 'undefined' ) {
@@ -98,9 +98,9 @@ var settings = {
           headers[ ix ].progress = 0.0;
         }
 ```
-* for-in loop with variable `ix` iterates over object `headers` and assigns values to 2 properties: from and progress. 
+* for-in loop with variable `ix` iterates over object `headers` and assigns values to 2 properties: from and progress.
 * from is assigned the empty string and progress is assigned a floating point number of 0.0
- 
+
 ```javascript
 // We need to recalculate all sections and headers on resize.
       $(window).resize(function(){
@@ -110,7 +110,7 @@ var settings = {
         recalculateHeaders();
         updateHeaders();
       }).trigger('resize');
-```    
+```
 * window object uses .resize( ) function to resize within the browser window specific page elements based on what is returned from calling 4 named functions
 * Uses the jQuery .trigger( ) function to trigger the resize event once all functions have been called
 
@@ -157,7 +157,7 @@ var temp = {};
 ```
 * for loop - loops through an array of DOM elements
 * Variable: `currentElement` is set to the current DOM element
-* Variable: `step` - parseInt converts the first argument to a string, parses it, and returns an integer 
+* Variable: `step` - parseInt converts the first argument to a string, parses it, and returns an integer
 
 ~~~
 
@@ -180,7 +180,7 @@ var temp = {};
   }
 ```
 * while loop - loops while condition is true
-* if array element introItems[nextStep] is typeof undefined, then break the loop, else increment nextStep by 1 
+* if array element introItems[nextStep] is typeof undefined, then break the loop, else increment nextStep by 1
 
 ~~~
 
@@ -196,7 +196,7 @@ var temp = {};
     factory(root);
   }
 ```
- 
+
 * Conditional if/elseif
 * typeof operator - if operand (exports) is an object, then pass the object into the function factory()
 * typeof operator - if operand (define) is a function and that function has an anonymous module, then pass 2 arguments: export object and factory function into the define function
@@ -219,10 +219,10 @@ var temp = {};
 ```javascript
 var maxHeight = 0;
 ```
- 
+
 * Variable: `maxHeight` (integer)
 * Value: Number 0
- 
+
 ~~~
 
 ```javascript
@@ -230,7 +230,7 @@ var totalProgress = 0.0;
 ```
 
 * Variable: `totalProgress` (floating point)
-* Value: Number 0.0 
+* Value: Number 0.0
 
 ~~~
 
@@ -239,7 +239,7 @@ var lastActiveClass = '';
 ```
 
 * Variable: `lastActiveClass` (string)
-* Value: [empty string] 
+* Value: [empty string]
 
 ~~~
 
@@ -257,7 +257,7 @@ var prefixes = 'transform WebkitTransform MozTransform OTransform msTransform'.s
 for(var i = 0; i < prefixes.length; i++) {
 ```
 
-* Variable: `prefixes` 
+* Variable: `prefixes`
 * Value: comma-delimited list = transform,WebkitTransform,MozTransform,OTransform,msTransform
 * Variable: `i` (integer)
 * Value: Number 0
@@ -269,14 +269,14 @@ var headerHeight = headerInfo.height;
 ```
 
 * Variable: `headerHeight` (integer)
-* Value: fixed height of the header of the active document 
+* Value: fixed height of the header of the active document
 
 ~~~
 
 ```javascript
 maxHeight = (height > maxHeight) ? height : maxHeight;
 ```
- 
+
 * Variable: `maxHeight` (integer)
 * Variable: `height` (integer)
 * Value: `maxHeight` value is computed: If value of height is greater than the value of maxHeight, then set maxHeight = height, else set maxHeight to maxHeight.
@@ -286,8 +286,8 @@ maxHeight = (height > maxHeight) ? height : maxHeight;
 ```javascript
 var sections = [];
 ```
- 
-* Variable: `sections` (array) 
+
+* Variable: `sections` (array)
 * Value: null
 
 ~~~
@@ -295,9 +295,9 @@ var sections = [];
 ```javascript
 var $header = $(this);
 ```
- 
-* Variable: `$header` (object) 
-* Value: a jquery reference to a header element, such as h1, h2, etc. 
+
+* Variable: `$header` (object)
+* Value: a jquery reference to a header element, such as h1, h2, etc.
 
 ~~~
 
@@ -312,3 +312,135 @@ var defaultPaddings = {
 
 * Variable: `defaultPaddings` (object)
 * Value: an object with 4 properties that get the padding of the originalHeader
+
+```javascript
+multiples = [1, 2, 2.5, 5, 10];
+```
+
+* Variable: multiples
+* Value: array [1, 2, 2.5, 5, 10]
+* Integers: 1, 2, 5, 10
+* Floats: 2.5
+
+```javascript
+defaultPrevented = true
+```
+
+* Variable: defaultPrevented
+* Value: Boolean true
+
+```javascript
+updateShadows: function (key, value)
+```
+
+* Variable: updateShadows
+* Value: function
+* Arguments: (key, value)
+
+
+```javascript
+function pick() {
+	var args = arguments,
+		i,
+		arg,
+		length = args.length;
+```
+
+* Variable: pick
+* Value: function ()
+* Variable: args
+* Value: Arguments (i, arg, length = args.length)
+
+
+```javascript
+for (i = 0; i < length; i++) {
+	arg = args[i];
+```
+
+* Loops: for loop
+* Variable: i
+* Operators: =, <, ++
+* (start at 0, end when i < args.length, increment i)
+
+
+```javascript
+interval *= magnitude;
+```
+
+* Variable: interval, magnitude
+* Value: interval = interval * magnitude
+
+```javascript
+if (this instanceof Bro) {
+  this.obj = obj;
+  } else {
+   return new Bro(obj);
+  }
+}
+```
+
+* Conditional: if
+* Condition: instanceof of the Bro object
+* Statement: this.obj = obj;
+* Returns a newly created instance of Bro if one does not already exist
+
+
+```javascript
+var assert = require('assert');
+```
+
+* Variable: assert
+* Value: require('assert')
+* (call 'assert' from library)
+
+```javascript
+if (container.chartistSvg !== undefined)
+```
+* Conditional: if
+* Condition: container.chartistSvg !== (not equal to) undefined
+
+```javascript
+var array = [];
+```
+
+* Variable: array
+* Value: [];
+
+```javascript
+if (dataArray[i][j] > highLow.high) {
+            highLow.high = dataArray[i][j]
+```
+
+* Conditional: if
+* Condition: (dataArray[i][j] > highLow.high)
+* Statement: highLow.high = dataArray[i][j]
+* Multi-dimensional Array: dataArray[i][j]
+
+```javascript
+while (true) {
+        var length = Chartist.projectLength(svg, bounds.step / 2, bounds, options);
+        if (length >= options.axisY.scaleMinSpace) {
+          bounds.step /= 2;
+        } else {
+          break;
+        }
+      }
+```
+
+* Loop: While
+* Condition: true
+* End loop: break if condition evaluates false;
+* Conditional: if
+* Condition: length >= options.axisY.scaleMinSpace
+* bounds.step = bounds.step/2
+
+```javascript
+ if(toTheRight && direction === 'explode' ||
+          !toTheRight && direction === 'implode') {
+          return 'start';
+```
+
+* Conditional: if
+* Conditions: toTheRight && direction === 'explode' || !toTheRight && direction === 'implode'
+* Boolean Logical Operators:! (not) && (and) || (or)
+* Statement: return 'start'

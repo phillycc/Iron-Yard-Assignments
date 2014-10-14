@@ -331,6 +331,6 @@ The Array.prototype.reduceRight() method applies a function against an accumulat
 
 ### Generic Methods
 
-These methods pertain to "array-like" objects which can be iterated through with code like that of an array, but the object cannot actually invoke actual array methods, as described above. 
+These methods pertain to "array-like" objects, such as argument and strings, which have a numeric length property and corresponding non-negative integer properties.
 
-
+They can inherit the methods from Array.prototype: reverse, sort, push, pop, shift, unshift, splice, concat, slice, indexOf, lastIndexOf, forEach, map, reduce, reduceRight, filter, some, and every.

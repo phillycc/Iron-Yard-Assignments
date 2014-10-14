@@ -9,7 +9,7 @@ function board(){
 }
 
 function Game(){
-  this.board = board;
+    this.board = board;
 }
 
 /**
@@ -18,7 +18,7 @@ function Game(){
  * @return Boolean if cell at {x,y} is alive
  */
 Game.prototype.isAlive = function(x, y){
-
+    return true;
 }
 
 /**
@@ -45,7 +45,7 @@ Game.prototype.setDead = function(x, y){
 /**
  * Update the `board` by applying the `rules`
  */
-Game.prototype.rules = funciton(){
+Game.prototype.rules = function(){
 
 }
 

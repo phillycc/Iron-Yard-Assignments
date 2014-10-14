@@ -331,6 +331,9 @@ The Array.prototype.reduceRight() method applies a function against an accumulat
 
 ### Generic Methods
 
-These methods pertain to "array-like" objects, such as argument and strings, which have a numeric length property and corresponding non-negative integer properties.
+These methods pertain to "array-like" objects, such as argument and strings, which have a numeric length property and corresponding non-negative integer properties. They do not inherit from Array.prototype and therefore cannot invoke the array methods (described above) directly, but can be invoked indirectly using the Function.call method.
 
-They can inherit the methods from Array.prototype: reverse, sort, push, pop, shift, unshift, splice, concat, slice, indexOf, lastIndexOf, forEach, map, reduce, reduceRight, filter, some, and every.
+```javascript
+var a = {"0":"a", "1":"b", "2":"c", length:3};  // An array-like object
+Array.prototype.join.call(a, "+")  // => "a+b+c"
+```

@@ -43,7 +43,11 @@ function solution(){
             });
         }
         sum: function(list){
-            return [];
+            var total=0;
+            arr.forEach(function(element){
+               total+=element;
+            });
+            return total;
         }
     }
 }
@@ -86,6 +90,15 @@ describe('Project Euler No. 2', function(){
         it('should have a function for doing this', function(){
             assert.isFunction(S.sum);
             assert.equal(S.sum([ ]), 0);
+        });
+        it('should sum items', function(){
+            assert.equal(S.sum([ 1 ]), 1);
+            assert.equal(S.sum([ 2 ]), 2);
+            assert.equal(S.sum([ 1, 1 ]), 2);
+            assert.equal(S.sum([ 1, 2 ]), 3);
+            assert.equal(S.sum([ 1, 2, 3 ]), 6);
+            assert.equal(S.sum([ 2, 2, 2 ]), 6);
+            assert.equal(S.sum([ 3, 1, 4 ]), 8);
         });
     });
 });

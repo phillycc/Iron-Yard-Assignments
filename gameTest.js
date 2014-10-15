@@ -7,12 +7,12 @@ var Game = require('./game.js');
   describe('Conway LITE: Voodoo Black Magic Edition\n', function(){
       var game = new Game();
 
-      /*describe('Constructor function tick()', function(){
+      /* describe('Constructor function tick()', function(){
           it('should be a type of function\n', function(){
               assert.isFunction(game.tick);
           });
 
-          /*describe('WHEN the board has fewer than 3 adjacent cells', function(){
+          describe('WHEN the board has fewer than 3 adjacent cells', function(){
               it('should die in 1 tick', function(){
                   //game.setAlive(0,0);
                   assert.deepEqual(game.tick(), game.board);
@@ -34,7 +34,7 @@ var Game = require('./game.js');
               });
           });
       });
-
+/*
       describe('Constructor function rules()', function(){
           it('should be a type of function\n', function(){
               assert.isFunction(game.rules);
@@ -214,7 +214,7 @@ var Game = require('./game.js');
 
             game.tick();
 
-            /*assert.isTrue(game.isAlive(0,1));
+            assert.isTrue(game.isAlive(0,1));
             assert.isTrue(game.isAlive(1,1));
             assert.isTrue(game.isAlive(2,1));
 
@@ -226,7 +226,7 @@ var Game = require('./game.js');
               "+---+---+---+\n" +
               "|   | X |   |\n" +
               "+---+---+---+\n"
-            );*/
+            );
         });
     });
 });

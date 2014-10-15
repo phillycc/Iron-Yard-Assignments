@@ -19,7 +19,7 @@ function Game(){
  * @return Boolean if cell at {x,y} is alive
  */
 Game.prototype.isAlive = function(x,y){
-    return (this.board[x][y] ? true : false);
+    return this.board[x][y];
 }
 
 /**
@@ -52,40 +52,36 @@ Game.prototype.setDead = function(x, y){
  * @return Array of values from `board()` that are neighbors of cell at {x,y}
  */
 Game.prototype.neighborsOf = function(x,y){
-    var diffs = [ -1, 0, +1 ],
-    neighbors = [ ];
-    board = this.board;
+    var diffs = [ -1, 0, +1 ];
+    var liveNeigbors = 0;
+    var self = this;
 
     diffs.forEach(function(dX){
         diffs.forEach(function(dY){
-            if (board.length === 0) return;
+            if (self.board.length === 0) return;
             // skip this cell
             if ( dX === 0 && dY === 0 ) return;
             //skip if row index does not exist
             if (((x + dX) < 0) || ((x + dX)>2)) return;
             //skip if col index does not exist
             if (((y + dY) < 0) || ((y + dY)>2)) return;
-            neighbors.push(board[x + dX][y + dY]);
+            if (self.board[x + dX][y + dY]) liveNeigbors++;
         });
     });
-    return neighbors;
+    return liveNeigbors;
 }
 /**
  * Returns state of a cell as alive or dead based
  * on the rules of Conway's Game of Life
  *
  * @param Boolean cell
- * @param Array neighbors
+ * @param Array of Boolean representing neighbors of `cell`
  * @return Boolean state of cell
  */
 Game.prototype.rules = function(cell, neighbors){
-      var liveNeighbors = neighbors.filter(function(value){
-        return value;
-      });
-      liveNeighbors = liveNeighbors.length;
       //apply rules
-      if (cell && liveNeighbors===2) return true;
-      if (liveNeighbors===3) return true;
+      if (cell && neighbors===2) return true;
+      if (neighbors===3) return true;
       return false;
 }
 /**
@@ -93,18 +89,24 @@ Game.prototype.rules = function(cell, neighbors){
  * Returns a 3x3 board after a single tick
  * based on Conway's Game of life.
  *
- * @return Array of Array of Boolean
- *
 **/
 Game.prototype.tick = function(){
-    var nextBoard = board();
-    for (var x = 0; x < this.board.length; x++){
-        for(var y = 0; y < this.board[x].length; y++){
-           nextBoard[x][y]=this.rules(this.board[x][y], this.neighborsOf(x,y));
-        };
-    };
-    this.board = nextBoard;
-    return this.board;
+    var newBoard = board();
+    var self = this;
+
+    /*this.board = newBoard.map(){
+        return row.map(function(cell, y){
+            return self.rules(cell, self.neighborsOf(x,y));
+        });
+    });*/
+
+    this.board.forEach(function(row, x){
+        row.forEach(function(cell,y){
+            var newCell = self.rules(cell, self.neighborsOf(x,y));
+            newBoard[x][y] = newCell;
+        });
+    });
+    this.board = newBoard;
 }
 
 Game.prototype.display = function(){

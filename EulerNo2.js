@@ -20,8 +20,9 @@ function solution(){
          * @return Array of Number in fibonacci sequence up to limit
          */
         fibonacci: function(limit){
-            //var arrFibonacci = [1,2,3,5,8,13,21,34,55,89];
-            return [];
+            var sequence = [ 1, 2, 3 ];
+
+            return sequence;
         }
         filterEvens: function(list){
             //if (element%2===0) return element;
@@ -48,6 +49,11 @@ describe('Project Euler No. 2', function(){
     describe('fibonacci sequence', function(){
         it('should have a function for doing this', function(){
             assert.isFunction(S.fibonacci);
+            assert.deepEqual(S.fibonacci(0), [ ]);
+        });
+        it('should calculate fibonacci numbers for a small sample', function(){
+            assert.deepEqual(S.fibonacci(3), [ 1, 2 ]);
+            ]);
         });
     });
     /*it('should be a type of function named filterEvens()', function(){

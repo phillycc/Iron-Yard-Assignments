@@ -44,10 +44,21 @@ function sum(arr){
    return total;
 }
 
-sum(arrEvens);
+//sum(arrEvens);
 
-describe('filterEvens(), takes a Number as an input and returns a Number if even', function(){
-    it('should be a type of function named filterEvens()', function(){
+describe('Project Euler No. 2', function(){
+    var S; // or var S = solution();
+
+    beforeEach(function(){
+        S = solution();
+    });
+
+    describe('fibonacci sequence', function(){
+        it('should have a function for doing this', function(){
+            assert.isFunction(S.fibonacci);
+        });
+    });
+    /*it('should be a type of function named filterEvens()', function(){
         assert.typeOf(filterEvens,'function');
     });
     it('should return even number when fed an even number', function(){
@@ -55,10 +66,10 @@ describe('filterEvens(), takes a Number as an input and returns a Number if even
     });
     it('should return undefined when fed an odd number', function(){
         assert.strictEqual(filterEvens(3),undefined);
-    });
+    });*/
 });
 
-describe('sum(), takes an array as input and returns a Number sum',function(){
+/*describe('sum(), takes an array as input and returns a Number sum',function(){
     it('should be a type of function named sum',function(){
         assert.typeOf(sum,'function');
     });
@@ -69,7 +80,7 @@ describe('sum(), takes an array as input and returns a Number sum',function(){
     it('should sum an array of numbers', function() {
       assert.strictEqual(sum(arrNumbers),15);
     });
-});
+});*/
 //console.log(arrEvens);
 //fibonacci: function(limit){ /* . . . */ },
 //filterEvens: function(list){ /* . . . */ },

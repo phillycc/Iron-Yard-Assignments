@@ -2,14 +2,14 @@ module.exports = Game;
 
 function board(){
   return [
-    [ true, false, false ],
+    [ false, false, false ],
     [ false, false, false ],
     [ false, false, false ],
   ];
 }
 
 function Game(){
-    this.board = board;
+    this.board = board();
 }
 
 /**
@@ -17,19 +17,19 @@ function Game(){
  * @param Number y coordinate
  * @return Boolean if cell at {x,y} is alive
  */
-Game.prototype.isAlive = function(x, y){
-    return (this.board()[0][0] ? true : false);
+Game.prototype.isAlive = function(x,y){
+    return (this.board[x][y] ? true : false);
 }
 
 /**
- * Make the cell at {x,y} "alive", whatever that means...
+ * Make the cell at {x,y} "alive"
  *
  * @param Number x coordinate
  * @param Number y coordinate
  * @return undefined
  */
-Game.prototype.setAlive = function(x, y){
-
+Game.prototype.setAlive = function(x,y){
+    this.board[x][y] = true;
 }
 
 /**
@@ -39,7 +39,7 @@ Game.prototype.setAlive = function(x, y){
  * @return undefined
  */
 Game.prototype.setDead = function(x, y){
-
+    this.board[x][y] = false;
 }
 
 /**

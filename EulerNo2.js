@@ -43,7 +43,7 @@ function solution(){
             });
         }
         sum: function(list){
-            return []];
+            return [];
         }
     }
 }

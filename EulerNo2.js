@@ -20,8 +20,15 @@ function solution(){
          * @return Array of Number in fibonacci sequence up to limit
          */
         fibonacci: function(limit){
-            var sequence = [ 1, 2, 3 ];
+            var prev = 1, curr = 2, temp;
+            var sequence = [ 1, 2 ];
+            while ( prev + curr < limit ){
+                temp = prev + curr;
+                prev = curr;
+                curr = temp;
 
+                sequence.push(temp);
+            }
             return sequence;
         }
         filterEvens: function(list){
@@ -53,7 +60,9 @@ describe('Project Euler No. 2', function(){
         });
         it('should calculate fibonacci numbers for a small sample', function(){
             assert.deepEqual(S.fibonacci(3), [ 1, 2 ]);
-            ]);
+            assert.deepEqual(S.fibonacci(5), [ 1, 2, 3 ]);
+            assert.deepEqual(S.fibonacci(10), [ 1, 2, 3, 5, 8 ]);
+            assert.deepEqual(S.fibonacci(20), [ 1, 2, 3, 5, 8, 13]);
         });
     });
     /*it('should be a type of function named filterEvens()', function(){

@@ -90,12 +90,10 @@ Game.prototype.rules = function(cell, neighbors){
 }
 /**
  *
- * The tick function is passed a 3x3 board,
- * applies Conway's Game of Life rules, and
- * returns a 3x3 board after a single tick.
+ * Returns a 3x3 board after a single tick
+ * based on Conway's Game of life.
  *
- * Function Definition: tick()
- * @return: Array of Array of Boolean
+ * @return Array of Array of Boolean
  *
 **/
 Game.prototype.tick = function(){

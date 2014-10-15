@@ -81,31 +81,19 @@ describe('Project Euler No. 2', function(){
         it('should filter out evens', function(){
             assert.deepEqual(S.filterEvens([ 1 ]), [ ]);
             assert.deepEqual(S.filterEvens([ 2 ]), [ 2 ]);
+            assert.deepEqual(S.filterEvens([ 1, 2 ]), [ 2 ]);
+            assert.deepEqual(S.filterEvens([ 1, 2, 3 ]), [ 2 ]);
         });
     });
-    /*it('should be a type of function named filterEvens()', function(){
-        assert.typeOf(filterEvens,'function');
+
+    describe('sum values in a list', function(){
+        it('should have a function for doing this', function(){
+            assert.isFunction(S.sum);
+            assert.equal(S.sum([ ]), 0);
+        });
     });
-    it('should return even number when fed an even number', function(){
-        assert.strictEqual(filterEvens(2),2);
-    });
-    it('should return undefined when fed an odd number', function(){
-        assert.strictEqual(filterEvens(3),undefined);
-    });*/
 });
 
-/*describe('sum(), takes an array as input and returns a Number sum',function(){
-    it('should be a type of function named sum',function(){
-        assert.typeOf(sum,'function');
-    });
-    var arrNumbers=[];
-    before(function(){
-       arrNumbers = [1,2,3,4,5];
-    });
-    it('should sum an array of numbers', function() {
-      assert.strictEqual(sum(arrNumbers),15);
-    });
-});*/
 //console.log(arrEvens);
 //fibonacci: function(limit){ /* . . . */ },
 //filterEvens: function(list){ /* . . . */ },

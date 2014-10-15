@@ -96,9 +96,13 @@ describe('Project Euler No. 2', function(){
             assert.equal(S.sum([ 2 ]), 2);
             assert.equal(S.sum([ 1, 1 ]), 2);
             assert.equal(S.sum([ 1, 2 ]), 3);
-            assert.equal(S.sum([ 1, 2, 3 ]), 6);
-            assert.equal(S.sum([ 2, 2, 2 ]), 6);
             assert.equal(S.sum([ 3, 1, 4 ]), 8);
+        });
+    });
+
+    describe('solveFor', function(){
+        it('should have a function for doing this', function(){
+            assert.isFunction(S.solveFor);
         });
     });
 });

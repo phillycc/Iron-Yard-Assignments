@@ -1,8 +1,8 @@
 module.exports = Game;
 
 function board(){
-  [
-    [ false, false, false ],
+  return [
+    [ true, false, false ],
     [ false, false, false ],
     [ false, false, false ],
   ];
@@ -18,7 +18,7 @@ function Game(){
  * @return Boolean if cell at {x,y} is alive
  */
 Game.prototype.isAlive = function(x, y){
-    return true;
+    return (this.board()[0][0] ? true : false);
 }
 
 /**

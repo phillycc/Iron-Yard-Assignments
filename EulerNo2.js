@@ -107,7 +107,7 @@ describe('Project Euler No. 2', function(){
 
         it('should be able to solve simple examples', function(){
             assert.equal(S.solveFor(0), 0);
-
+            assert.equal(S.solveFor(3), 2); // FAIL!
         });
     });
 });

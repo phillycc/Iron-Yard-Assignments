@@ -13,7 +13,7 @@ var should = require('chai').should();
 function solution(){
     return {
         solveFor: function(limit){
-
+            return 0;
         },
         /**
          * @param Number limit
@@ -103,6 +103,11 @@ describe('Project Euler No. 2', function(){
     describe('solveFor', function(){
         it('should have a function for doing this', function(){
             assert.isFunction(S.solveFor);
+        });
+
+        it('should be able to solve simple examples', function(){
+            assert.equal(S.solveFor(0), 0);
+
         });
     });
 });

@@ -38,7 +38,9 @@ function solution(){
             return sequence;
         }
         filterEvens: function(list){
-            //if (element%2===0) return element;
+            return list.filter (function(){
+                return ( item % 2 === 0);
+            });
         }
         sum: function(list){
             /*var total=0;
@@ -69,6 +71,16 @@ describe('Project Euler No. 2', function(){
             assert.deepEqual(S.fibonacci(5), [ 1, 2, 3 ]);
             assert.deepEqual(S.fibonacci(10), [ 1, 2, 3, 5, 8 ]);
             assert.deepEqual(S.fibonacci(20), [ 1, 2, 3, 5, 8, 13]);
+        });
+    });
+
+    describe('filterEvens', function(){
+        it('should have a function for doing this', function(){
+            assert.isFunction(S.filterEvens);
+        });
+        it('should filter out evens', function(){
+            assert.deepEqual(S.filterEvens([ 1 ]), [ ]);
+            assert.deepEqual(S.filterEvens([ 2 ]), [ 2 ]);
         });
     });
     /*it('should be a type of function named filterEvens()', function(){

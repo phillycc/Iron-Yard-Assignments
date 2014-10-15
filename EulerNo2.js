@@ -22,6 +22,12 @@ function solution(){
         fibonacci: function(limit){
             var prev = 1, curr = 2, temp;
             var sequence = [ 1, 2 ];
+
+            //Check for minimum sequence
+            if ( limit < 3 ){
+                return [ ];
+            }
+
             while ( prev + curr < limit ){
                 temp = prev + curr;
                 prev = curr;

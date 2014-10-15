@@ -211,12 +211,12 @@ var Game = require('./game.js');
               "|   |   |   |\n" +
               "+---+---+---+\n"
             );
-            /*
+
             game.tick();
 
-            game.isTrue(game.isAlive(0,1));
-            game.isTrue(game.isAlive(1,1));
-            game.isTrue(game.isAlive(2,1));
+            /*assert.isTrue(game.isAlive(0,1));
+            assert.isTrue(game.isAlive(1,1));
+            assert.isTrue(game.isAlive(2,1));
 
             assert.equal(game.display(),
               "+---+---+---+\n" +

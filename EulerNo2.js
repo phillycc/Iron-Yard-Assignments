@@ -15,33 +15,25 @@ function solution(){
         solveFor: function(limit){
 
         },
+        /**
+         * @param Number limit
+         * @return Array of Number in fibonacci sequence up to limit
+         */
         fibonacci: function(limit){
-
+            //var arrFibonacci = [1,2,3,5,8,13,21,34,55,89];
+            return [];
         }
         filterEvens: function(list){
-
+            //if (element%2===0) return element;
         }
         sum: function(list){
-
+            /*var total=0;
+            arr.forEach(function(element){
+               total+=element;
+            });
+            return total;*/
         }
     }
-}
-
- var arrFibonacci = [1,2,3,5,8,13,21,34,55,89];
-
-
-function filterEvens(element) {
-  if (element%2===0) return element;
-}
-
-var arrEvens = arrFibonacci.filter(filterEvens);
-
-function sum(arr){
-   var total=0;
-   arr.forEach(function(element){
-      total+=element;
-   });
-   return total;
 }
 
 //sum(arrEvens);

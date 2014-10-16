@@ -8,7 +8,17 @@ module.exports = Chess, Position, Piece;
  * @return
  */
 function Chess(){
-    return true;
+    var board = [
+      ['R','N','B','Q','K','B','N','R'],
+      ['P','P','P','P','P','P','P','P'],
+      [' ',' ',' ',' ',' ',' ',' ',' '],
+      [' ',' ',' ',' ',' ',' ',' ',' '],
+      [' ',' ',' ',' ',' ',' ',' ',' '],
+      [' ',' ',' ',' ',' ',' ',' ',' '],
+      ['p','p','p','p','p','p','p','p'],
+      ['r','n','b','q','k','b','n','r']
+    ];
+
 }
 /**
  *
@@ -111,21 +121,14 @@ Piece.prototype.setPosition(){
  * @param
  * @return String representation of Piece
  */
-Piece.prototype.toString(){
+Piece.prototype.toString(thisPiece){
+    //"Q" === String(new Piece("Queen", "white"))
+
+    if (thisPiece===Q) 
 
 }
 
 
-var board = [
-  ['R','N','B','Q','K','B','N','R'],
-  ['P','P','P','P','P','P','P','P'],
-  [' ',' ',' ',' ',' ',' ',' ',' '],
-  [' ',' ',' ',' ',' ',' ',' ',' '],
-  [' ',' ',' ',' ',' ',' ',' ',' '],
-  [' ',' ',' ',' ',' ',' ',' ',' '],
-  ['p','p','p','p','p','p','p','p'],
-  ['r','n','b','q','k','b','n','r']
-];
 
 var catMoves = {
     move1: [4,3,6,3],

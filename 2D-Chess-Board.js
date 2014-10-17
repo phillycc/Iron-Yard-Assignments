@@ -171,8 +171,6 @@ describe('WHEN White Left Bishop\'s Pawn moves forward 2\n', function(){
     });
 });
 
-
-
 /*
 // Move White Queen's Pawn forward 2
 board[4][3] = board[6][3];

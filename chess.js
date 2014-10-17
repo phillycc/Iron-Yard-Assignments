@@ -8,7 +8,9 @@ module.exports = Chess, Position, Piece;
  * @return
  */
 function Chess(){
-    var board = [
+    //Build starting board using Position and all Piece constructors
+
+    /*var board = [
       ['R','N','B','Q','K','B','N','R'],
       ['P','P','P','P','P','P','P','P'],
       [' ',' ',' ',' ',' ',' ',' ',' '],
@@ -17,7 +19,10 @@ function Chess(){
       [' ',' ',' ',' ',' ',' ',' ',' '],
       ['p','p','p','p','p','p','p','p'],
       ['r','n','b','q','k','b','n','r']
-    ];
+    ];*/
+
+    //Make move - Chess.move - which calls Chess.opening
+    //Display move - Chess.display
 
 }
 /**
@@ -38,8 +43,10 @@ Chess.prototype.getPlayer(){
  * @return
  */
 Chess.prototype.move(){
+     // Inputs: fromPos(x,y), toPos(x,y) - calls Chess.opening
+     // Need current player making this move: Chess.getPlayer
+     // Need piece type to be moved: Piece.getName
 
-}
 /**
  * Advance the board to Catalan Opening, Closed Variation
  *
@@ -48,8 +55,10 @@ Chess.prototype.move(){
  * @return
  */
 Chess.prototype.opening(){
-
+    // Contains the order and type of moves per Catalan
+    // Calls new Position
 }
+
 /**
  *
  * @param
@@ -124,7 +133,6 @@ Piece.prototype.setPosition(){
 Piece.prototype.toString(thisPiece){
     //"Q" === String(new Piece("Queen", "white"))
 
-    if (thisPiece===Q) 
 
 }
 

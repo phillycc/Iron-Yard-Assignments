@@ -543,3 +543,81 @@ while (true) {
 * Conditions: toTheRight && direction === 'explode' || !toTheRight && direction === 'implode'
 * Boolean Logical Operators:! (not) && (and) || (or)
 * Statement: return 'start'
+
+### 41
+
+```javascript
+//the parent's constructor function is stored
+Person.prototype.init = function(name) {
+    this.name = name;
+}
+```
+
+### 42
+
+```javascript
+Employee.prototype = new Person();
+```
+
+### 43
+
+```javascript
+Employee.prototype.constructor = Employee;
+```
+
+### 44
+
+```javascript
+Employee.constructor = Person.prototype.constructor;
+```
+
+### 45
+
+```javascript
+Manager.prototype = new Employee;
+```
+
+### 46
+
+```javascript
+var Person = Class({
+    initialize: function(name, age) {
+        this.name = name;
+        this.age  = age;
+    },
+    toString: function() {
+        return "My name is "+this.name+" and I am "+this.age+" years old.";
+    }
+});
+```
+
+### 47
+
+```javascript
+var alice = new Person('Alice', 26);
+```
+
+### 48
+
+```javascript
+// extend Parent’s prototype to define a 'sayHello' method
+Parent.prototype.sayHello = function(){
+    console.log('Hello');
+};
+```
+
+### 49
+
+```javascript
+// extend Child's prototype to define an 'otherVar' property...
+Child.prototype.otherVar = 'otherValue';
+```
+
+### 50
+
+```javascript
+// ... but then set the Child's prototype to the Parent prototype
+// (whose prototype doesn’t have any 'otherVar' property defined,
+//  so the Child prototype no longer has ‘otherVar’ defined!)
+Child.prototype = Object.create(Parent.prototype);
+```

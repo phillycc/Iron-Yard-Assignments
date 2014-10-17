@@ -1,4 +1,79 @@
-**cleanupLoaded.js**
+### 1
+
+```javascript
+if (typeof args[i] === 'string') {
+```
+
+Symbol: if
+Type: Keyword
+Name: "if"
+Meaning: Conditional
+
+Symbol: typeof
+Type: Operator
+Name: "typeof"
+Meaning: returns the type of a variable or expression
+
+Symbol: args
+Type: Operand
+Name: "array args"
+Meaning: Name of array
+
+Symbol: [ ]
+Type: Literal
+Name: Array
+Meaning: Array
+
+Symbol: i
+Type: index number
+Name: array index
+Meaning: position of an element in an array
+
+Symbol: ===
+Type: Operator
+Name: "semicolon", "statement operator"
+Meaning: End the statement
+Operands: args[i] === 'string'
+
+Symbol: 'string'
+Type: Type Literal
+Name: "string string"
+Meaning: Create a literal String value containing "string"
+
+### 2
+
+```javascript
+var valid = SYMBOLS + '12345678/';
+```
+
+Symbol: var
+Type: Keyword
+Name: "var"
+Meaning: Create an identifier
+Operands: valid
+
+Symbol: valid
+Type: Identifier
+Name: "variable valid"
+Meaning: Variable to hold a value.
+
+Symbol: =
+Type: Operator
+Name: "is assigned"
+Meaning: Store the value to the right in the identifier on the left
+Operands: valid, SYMBOLS
+
+Symbol: SYMBOLS, '12345678/'
+Type: Type Literals
+Name: "string SYMBOLS", "string 12345678/"
+Meaning: Create a reference SYMBOL to a String value; Create a literal String value 12345678/
+
+Symbol: +
+Type: Operator
+Name: concatenation operator
+Meaning: Adds two or more string variables together
+
+### 3
 
 ```javascript
 if (path.existsSync('loaded.json')) {
@@ -16,6 +91,8 @@ if (path.existsSync('loaded.json')) {
 * `JSON.parse()` method parses the `loadedFile` JSON and assigns the resulting string to variable `loaded`
 * for-in loop iterates over the JSON Object for all elements that were successfully parsed and assigns Boolean of true to a 1-D array `idBucket`
 
+### 4
+
 ```javascript
 for (var key in loaded.success) {
   data = loaded.success[key];
@@ -30,6 +107,8 @@ for (var key in loaded.success) {
 * Variable `data` is an object/array of parsed JSON strings
 * `newData` is an object literal with 3 empty object properties: Address, location, LegacyData  
 
+### 5
+
 ```javascript
 var mapped_fields = {
   Address: {
@@ -42,7 +121,7 @@ var mapped_fields = {
 ```
 * `mapped_fields` is an object literal with 5 object properties, where the value is a Boolean
 
-**server.js**
+### 6
 
 ```javascript
 // temporary redirect from sheltr.org to philly.sheltr.org
@@ -57,7 +136,7 @@ function phillyRedirect() {
 * `phillyRedirect` is a function acting as a listener in Node that redirects an http request
 * it returns a function that passes in an http request/response then uses Node's writeHead( ) funciton to send a response header to http://philly.sheltr.org, when the incoming http request is http://sheltr.org
 
-**midnight.js**
+### 7
 
 ```javascript
 var settings = {
@@ -90,6 +169,8 @@ var settings = {
 * for an undefined element in headers, jQuery variable object/array `$existingHeader` is assigned one or more `$customerHeaders` values that has CSS class value of headerClass per the .filter( ) method
 * if the length of `$existingHeader` array is greater than 0, then the previously undefined headers[headerClass].element is assigned $existingHeader, else jQuery variable `$defaultHeader` is cloned and operated on via a chain of three methods: .removeClass ( ), .addClass( ) and .appendTo( ). These three first remove the default class, then add the headerClass passed in via the for-in loop, and then append the cloned defaultHeader to the originalHeader. The resulting string is than assigned to the requisite key'ed element of the headers array.
 
+### 8
+
 ```javascript
 // Reset the header status
         for( ix in headers ) {
@@ -100,6 +181,8 @@ var settings = {
 ```
 * for-in loop with variable `ix` iterates over object `headers` and assigns values to 2 properties: from and progress.
 * from is assigned the empty string and progress is assigned a floating point number of 0.0
+
+### 9
 
 ```javascript
 // We need to recalculate all sections and headers on resize.
@@ -114,10 +197,7 @@ var settings = {
 * window object uses .resize( ) function to resize within the browser window specific page elements based on what is returned from calling 4 named functions
 * Uses the jQuery .trigger( ) function to trigger the resize event once all functions have been called
 
-
-**intro.js**
-
-~~~
+### 10
 
 ```javascript
   var allIntroSteps = [];
@@ -126,7 +206,7 @@ var settings = {
 * Variable: `allIntroSteps` (array)
 * Value: empty array
 
-~~~
+### 11
 
 ```javascript
 var temp = {};
@@ -138,7 +218,7 @@ var temp = {};
 * Variable: `temp` (object)
 * for-in loop where key-value pairs of the object are being looped through
 
-~~~
+### 12
 
 ```javascript
  if (this._options.showButtons === false) {
@@ -148,7 +228,7 @@ var temp = {};
 
 * if showButtons property of the object is false (bolean), then hide DOM element buttonsLayer
 
-~~~
+### 13
 
 ```javascript
  for (var i = 0, elmsLength = allIntroSteps.length; i < elmsLength; i++) {
@@ -159,7 +239,7 @@ var temp = {};
 * Variable: `currentElement` is set to the current DOM element
 * Variable: `step` - parseInt converts the first argument to a string, parses it, and returns an integer
 
-~~~
+### 14
 
 ```javascript
   if ((targetOffset.height + targetOffset.top + tooltipHeight) > windowSize.height) {
@@ -168,7 +248,7 @@ var temp = {};
 ```
 * if statement that adds height values and compares to the windowsSize height. If sum is greater, removes space below
 
-~~~
+### 15
 
 ```javascript
   while (true) {
@@ -182,7 +262,7 @@ var temp = {};
 * while loop - loops while condition is true
 * if array element introItems[nextStep] is typeof undefined, then break the loop, else increment nextStep by 1
 
-~~~
+### 16
 
 ```javascript
   if (typeof exports === 'object') {
@@ -201,20 +281,17 @@ var temp = {};
 * typeof operator - if operand (exports) is an object, then pass the object into the function factory()
 * typeof operator - if operand (define) is a function and that function has an anonymous module, then pass 2 arguments: export object and factory function into the define function
 
-~~~
+### 17
 
 ```javascript
   introItems.sort(function (a, b) {
     return a.step - b.step;
   });
+
 ```
 * `introItems` is an array whose elements are sorted in ascending order via the array sort function
 
-
-
-**midnight.jquery.js**
-
-~~~
+### 18
 
 ```javascript
 var maxHeight = 0;
@@ -223,7 +300,7 @@ var maxHeight = 0;
 * Variable: `maxHeight` (integer)
 * Value: Number 0
 
-~~~
+### 19
 
 ```javascript
 var totalProgress = 0.0;
@@ -232,7 +309,7 @@ var totalProgress = 0.0;
 * Variable: `totalProgress` (floating point)
 * Value: Number 0.0
 
-~~~
+### 20
 
 ```javascript
 var lastActiveClass = '';
@@ -241,7 +318,7 @@ var lastActiveClass = '';
 * Variable: `lastActiveClass` (string)
 * Value: [empty string]
 
-~~~
+### 21
 
 ```javascript
 var hasAnyClass = false;
@@ -250,7 +327,7 @@ var hasAnyClass = false;
 * Variable: `hasAnyClass` (boolean)
 * Value: 0
 
-~~~
+### 22
 
 ```javascript
 var prefixes = 'transform WebkitTransform MozTransform OTransform msTransform'.split(' ');
@@ -262,7 +339,7 @@ for(var i = 0; i < prefixes.length; i++) {
 * Variable: `i` (integer)
 * Value: Number 0
 
-~~~
+### 23
 
 ```javascript
 var headerHeight = headerInfo.height;
@@ -271,7 +348,7 @@ var headerHeight = headerInfo.height;
 * Variable: `headerHeight` (integer)
 * Value: fixed height of the header of the active document
 
-~~~
+### 24
 
 ```javascript
 maxHeight = (height > maxHeight) ? height : maxHeight;
@@ -281,7 +358,7 @@ maxHeight = (height > maxHeight) ? height : maxHeight;
 * Variable: `height` (integer)
 * Value: `maxHeight` value is computed: If value of height is greater than the value of maxHeight, then set maxHeight = height, else set maxHeight to maxHeight.
 
-~~~
+### 25
 
 ```javascript
 var sections = [];
@@ -290,7 +367,7 @@ var sections = [];
 * Variable: `sections` (array)
 * Value: null
 
-~~~
+### 26
 
 ```javascript
 var $header = $(this);
@@ -299,7 +376,7 @@ var $header = $(this);
 * Variable: `$header` (object)
 * Value: a jquery reference to a header element, such as h1, h2, etc.
 
-~~~
+### 27
 
 ```javascript
 var defaultPaddings = {
@@ -313,6 +390,8 @@ var defaultPaddings = {
 * Variable: `defaultPaddings` (object)
 * Value: an object with 4 properties that get the padding of the originalHeader
 
+### 28
+
 ```javascript
 multiples = [1, 2, 2.5, 5, 10];
 ```
@@ -322,12 +401,16 @@ multiples = [1, 2, 2.5, 5, 10];
 * Integers: 1, 2, 5, 10
 * Floats: 2.5
 
+### 29
+
 ```javascript
 defaultPrevented = true
 ```
 
 * Variable: defaultPrevented
 * Value: Boolean true
+
+### 30
 
 ```javascript
 updateShadows: function (key, value)
@@ -337,6 +420,7 @@ updateShadows: function (key, value)
 * Value: function
 * Arguments: (key, value)
 
+### 31
 
 ```javascript
 function pick() {
@@ -351,6 +435,7 @@ function pick() {
 * Variable: args
 * Value: Arguments (i, arg, length = args.length)
 
+### 32
 
 ```javascript
 for (i = 0; i < length; i++) {
@@ -362,6 +447,7 @@ for (i = 0; i < length; i++) {
 * Operators: =, <, ++
 * (start at 0, end when i < args.length, increment i)
 
+### 33
 
 ```javascript
 interval *= magnitude;
@@ -369,6 +455,8 @@ interval *= magnitude;
 
 * Variable: interval, magnitude
 * Value: interval = interval * magnitude
+
+### 34
 
 ```javascript
 if (this instanceof Bro) {
@@ -384,6 +472,7 @@ if (this instanceof Bro) {
 * Statement: this.obj = obj;
 * Returns a newly created instance of Bro if one does not already exist
 
+### 35
 
 ```javascript
 var assert = require('assert');
@@ -393,11 +482,15 @@ var assert = require('assert');
 * Value: require('assert')
 * (call 'assert' from library)
 
+### 36
+
 ```javascript
 if (container.chartistSvg !== undefined)
 ```
 * Conditional: if
 * Condition: container.chartistSvg !== (not equal to) undefined
+
+### 37
 
 ```javascript
 var array = [];
@@ -405,6 +498,8 @@ var array = [];
 
 * Variable: array
 * Value: [];
+
+### 38
 
 ```javascript
 if (dataArray[i][j] > highLow.high) {
@@ -415,6 +510,8 @@ if (dataArray[i][j] > highLow.high) {
 * Condition: (dataArray[i][j] > highLow.high)
 * Statement: highLow.high = dataArray[i][j]
 * Multi-dimensional Array: dataArray[i][j]
+
+### 39
 
 ```javascript
 while (true) {
@@ -433,6 +530,8 @@ while (true) {
 * Conditional: if
 * Condition: length >= options.axisY.scaleMinSpace
 * bounds.step = bounds.step/2
+
+### 40
 
 ```javascript
  if(toTheRight && direction === 'explode' ||

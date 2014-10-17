@@ -8,9 +8,9 @@ module.exports = Chess, Position, Piece;
  * @return
  */
 function Chess(){
-    //Build starting board using Position and all Piece constructors
+    //Build starting board using Position and Piece constructors
 
-    /*var board = [
+    var board = [
       ['R','N','B','Q','K','B','N','R'],
       ['P','P','P','P','P','P','P','P'],
       [' ',' ',' ',' ',' ',' ',' ',' '],
@@ -19,7 +19,37 @@ function Chess(){
       [' ',' ',' ',' ',' ',' ',' ',' '],
       ['p','p','p','p','p','p','p','p'],
       ['r','n','b','q','k','b','n','r']
-    ];*/
+    ];
+
+    var pointValues = { Pawn : 1, Knight : 3, Bishop : 3, Rook : 5, Queen : 9 };
+
+    var p = new Piece("Pawn", "white");
+    var P = new Piece("Pawn", "black");
+    var n = new Piece("Knight", "white");
+    var N = new Piece("Knight", "black");
+    var b = new Piece("Bishop", "white");
+    var B = new Piece("Bishop", "black");
+    var r = new Piece("Rook", "white");
+    var R = new Piece("Rook", "black");
+    var q = new Piece("Queen", "white");
+    var Q = new Piece("Queen", "black");
+    var k = new Piece("King", "white");
+    var K = new Piece("King", "black");
+
+    var startBoard = {
+       R: R.setPosition([[0,0],[0,7]]),
+       N: [[0,1],[0,6]],
+       B: [[0,2],[0,5]],
+       Q: [[0,3]],
+       K: [[0,4]],
+       P: [[1,0],[1,1],[1,2],[1,3],[1,4],[1,5],[1,6],[1,7]],
+       r: [[7,0],[7,7]],
+       n: [[7,1],[7,6]],
+       b: [[7,2],[7,5]],
+       q: [[7,3]],
+       k: [[7,4]],
+       p: [[6,0],[6,1],[6,2],[6,3],[6,4],[6,5],[6,6],[6,7]],
+    }
 
     //Make move - Chess.move - which calls Chess.opening
     //Display move - Chess.display
@@ -70,6 +100,7 @@ Chess.prototype.display(){
 
 }
 
+
 /**
  * Represent a position on a chessboard with coordinates
  *
@@ -78,7 +109,9 @@ Chess.prototype.display(){
  * @return
  */
 function Position(x,y){
-    return true;
+
+
+
 }
 
 /**
@@ -89,9 +122,8 @@ function Position(x,y){
  * @return
  */
 function Piece(name,color){
-
-
-    return true;
+    this.name = name;
+    this.color color;
 }
 /**
  *
@@ -101,7 +133,7 @@ function Piece(name,color){
  * @return String name of Piece, e.g. 'Queen', 'Pawn'
  */
 Piece.prototype.getName(){
-
+    return this.name;
 }
 /**
  *
@@ -111,7 +143,7 @@ Piece.prototype.getName(){
  * @return String player 'black' or 'white'
  */
 Piece.prototype.getColor(){
-
+    return this.color;
 }
 /**
  * Set Piece to position on board
@@ -131,8 +163,10 @@ Piece.prototype.setPosition(){
  * @return String representation of Piece
  */
 Piece.prototype.toString(thisPiece){
-    //"Q" === String(new Piece("Queen", "white"))
 
+    if (this.Q.getColor === "white"){
+      if (this.Q.getName === "Queen") return 'Q';
+    }
 
 }
 

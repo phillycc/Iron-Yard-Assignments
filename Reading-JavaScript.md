@@ -4,17 +4,17 @@
 if (typeof args[i] === 'string') {
 ```
 
-Symbol: if
-Type: Keyword
-Name: "if"
-Meaning: Conditional
+* Symbol: if
+* Type: Keyword
+* Name: "if"
+* Meaning: Conditional
 
-Symbol: typeof
-Type: Operator
-Name: "typeof"
-Meaning: returns the type of a variable or expression
+* Symbol: typeof
+* Type: Operator
+* Name: "typeof"
+* Meaning: returns the type of a variable or expression
 
-Symbol: args
+* Symbol: args
 Type: Operand
 Name: "array args"
 Meaning: Name of array

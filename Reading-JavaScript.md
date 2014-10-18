@@ -15,30 +15,30 @@ if (typeof args[i] === 'string') {
 * Meaning: returns the type of a variable or expression
 
 * Symbol: args
-Type: Operand
-Name: "array args"
-Meaning: Name of array
+* Type: Operand
+* Name: "array args"
+* Meaning: Name of array
 
-Symbol: [ ]
-Type: Literal
-Name: Array
-Meaning: Array
+* Symbol: [ ]
+* Type: Literal
+* Name: Array
+* Meaning: Array
 
-Symbol: i
-Type: index number
-Name: array index
-Meaning: position of an element in an array
+* Symbol: i
+* Type: index number
+* Name: array index
+* Meaning: position of an element in an array
 
-Symbol: ===
-Type: Operator
-Name: "semicolon", "statement operator"
-Meaning: End the statement
-Operands: args[i] === 'string'
+* Symbol: ===
+* Type: Operator
+* Name: "semicolon", "statement operator"
+* Meaning: End the statement
+* Operands: args[i] === 'string'
 
-Symbol: 'string'
-Type: Type Literal
-Name: "string string"
-Meaning: Create a literal String value containing "string"
+* Symbol: 'string'
+* Type: Type Literal
+* Name: "string string"
+* Meaning: Create a literal String value containing "string"
 
 ### 2
 
@@ -46,32 +46,32 @@ Meaning: Create a literal String value containing "string"
 var valid = SYMBOLS + '12345678/';
 ```
 
-Symbol: var
-Type: Keyword
-Name: "var"
-Meaning: Create an identifier
-Operands: valid
+* Symbol: var
+* Type: Keyword
+* Name: "var"
+* Meaning: Create an identifier
+* Operands: valid
 
-Symbol: valid
-Type: Identifier
-Name: "variable valid"
-Meaning: Variable to hold a value.
+* Symbol: valid
+* Type: Identifier
+* Name: "variable valid"
+* Meaning: Variable to hold a value.
 
-Symbol: =
-Type: Operator
-Name: "is assigned"
-Meaning: Store the value to the right in the identifier on the left
-Operands: valid, SYMBOLS
+* Symbol: =
+* Type: Operator
+* Name: "is assigned"
+* Meaning: Store the value to the right in the identifier on the left
+* Operands: valid, SYMBOLS
 
-Symbol: SYMBOLS, '12345678/'
-Type: Type Literals
-Name: "string SYMBOLS", "string 12345678/"
-Meaning: Create a reference SYMBOL to a String value; Create a literal String value 12345678/
+* Symbol: SYMBOLS, '12345678/'
+* Type: Type Literals
+* Name: "string SYMBOLS", "string 12345678/"
+* Meaning: Create a reference SYMBOL to a String value; Create a literal String value 12345678/
 
-Symbol: +
-Type: Operator
-Name: concatenation operator
-Meaning: Adds two or more string variables together
+* Symbol: +
+* Type: Operator
+* Name: concatenation operator
+* Meaning: Adds two or more string variables together
 
 ### 3
 
@@ -552,6 +552,11 @@ Person.prototype.init = function(name) {
     this.name = name;
 }
 ```
+* Symbol: =
+* Type: Operator
+* Name: "is assigned"
+* Meaning: Assigns an anonymous function on the right to the identifier on the left
+*
 
 ### 42
 
@@ -559,11 +564,21 @@ Person.prototype.init = function(name) {
 Employee.prototype = new Person();
 ```
 
+* Symbol: =
+* Type: Operator
+* Name: "is assigned"
+* Meaning: Assigns an instance of the Person object on the right to the Employee constructor on the left
+
 ### 43
 
 ```javascript
 Employee.prototype.constructor = Employee;
 ```
+* Symbol: =
+* Type: Operator
+* Name: "is assigned"
+* Meaning: Assigns an Employee object on the right to the Employee object constructor on the right
+
 
 ### 44
 
@@ -571,31 +586,53 @@ Employee.prototype.constructor = Employee;
 Employee.constructor = Person.prototype.constructor;
 ```
 
+* Symbol: =
+* Type: Operator
+* Name: "is assigned"
+* Meaning: Assigns the Person constructor on the right to the Employee constructor on the left
+
 ### 45
 
 ```javascript
 Manager.prototype = new Employee;
 ```
+* Symbol: =
+* Type: Operator
+* Name: "is assigned"
+* Meaning: Assigns an instance of the Employee on the right to the Manager constructor on the left
 
 ### 46
 
 ```javascript
-var Person = Class({
-    initialize: function(name, age) {
-        this.name = name;
-        this.age  = age;
-    },
-    toString: function() {
-        return "My name is "+this.name+" and I am "+this.age+" years old.";
-    }
-});
+Rectangle.prototype.area = function () {
+  return this.x * this.y;
+}
 ```
+* Symbol: =
+* Type: Operator
+* Name: "is assigned"
+* Meaning: Assigns an anonymous function on the right to the `area` method in the Rectangle constructor on the left
 
 ### 47
 
 ```javascript
 var alice = new Person('Alice', 26);
 ```
+* Symbol: var
+* Type: Keyword
+* Name: "var"
+* Meaning: Create an identifier
+* Operands: alice
+
+* Symbol: alice
+* Type: Identifier
+* Name: "variable alice"
+* Meaning: Variable to hold a value.
+
+* Symbol: =
+* Type: Operator
+* Name: "is assigned"
+* Meaning: Assigns an instance of the Person object to the operand `alice` on the left
 
 ### 48
 
@@ -606,12 +643,22 @@ Parent.prototype.sayHello = function(){
 };
 ```
 
+* Symbol: =
+* Type: Operator
+* Name: "is assigned"
+* Meaning: Assigns an anonymous function on the right to the `sayHello` method in the Parent constructor on the left  
+
 ### 49
 
 ```javascript
 // extend Child's prototype to define an 'otherVar' property...
 Child.prototype.otherVar = 'otherValue';
 ```
+
+* Symbol: =
+* Type: Operator
+* Name: "is assigned"
+* Meaning: Assigns the value of a string on the right to the `otherVar` property of the Child constructor
 
 ### 50
 
@@ -621,3 +668,8 @@ Child.prototype.otherVar = 'otherValue';
 //  so the Child prototype no longer has ‘otherVar’ defined!)
 Child.prototype = Object.create(Parent.prototype);
 ```
+
+* Symbol: =
+* Type: Operator
+* Name: "is assigned"
+* Meaning:

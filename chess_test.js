@@ -1,11 +1,16 @@
-var Chess = require('./chess.js');
-var Piece = require('./piece.js');
-var Position = require('./position.js');
+var chess = require('./chess.js');
 
 var assert = require('chai').assert;
 var expect = require('chai').expect;
 
+
 describe('Chess', function(){
+    it('should be a type of function named Chess\n', function(){
+        assert.isFunction(chess.getPlayer);
+    });
+});
+
+/*describe('Chess', function(){
     var chess = new Chess();
     it('should be a type of function named Chess\n', function(){
         assert.isFunction(Chess);
@@ -35,8 +40,8 @@ describe('Chess', function(){
         });
     });
 });
-
-
+*/
+/*
 describe('Position', function(){
     it('should be a type of function named Position\n', function(){
         assert.isFunction(Position);
@@ -73,7 +78,7 @@ describe('Piece', function(){
         });
     });
 });
-
+*/
 
 
 

@@ -547,16 +547,70 @@ while (true) {
 ### 41
 
 ```javascript
-//the parent's constructor function is stored
 Person.prototype.init = function(name) {
     this.name = name;
 }
 ```
+
+* Symbol: 'Person'
+* Type: constructor
+* Name: "Person object constructor"
+* Meaning: Represents an object/function/constructor named Person
+
+* Symbol: 'prototype'
+* Type: Keyword
+* Name: "prototype property"
+* Meaning: prototype property enables `this` to access the current instance
+
+* Symbol: 'init'
+* Type: Type literal
+* Name: "method init"
+* Meaning: init is defined on the prototype giving `this` access to all instances of Person
+
 * Symbol: =
 * Type: Operator
 * Name: "is assigned"
-* Meaning: Assigns an anonymous function on the right to the identifier on the left
-*
+* Meaning: Assigns an anonymous function on the right to the prototype method on the left
+
+* Symbol: function
+* Type: Keyword
+* Name: "function"
+* Meaning: Identifies a function
+
+* Symbol: ()
+* Type: parentheses
+* Name: "parentheses"
+* Meaning: Signifies a function which accepts inputs
+
+* Symbol: 'name'
+* Type: Type literal
+* Name: "string"
+* Meaning: Represents a paramater that is passed into the function and then operated upon
+
+* Symbol: {}
+* Type: braces
+* Name: "curly braces"
+* Meaning: Signifies all code that is local to the function
+
+* Symbol: 'this'
+* Type: Keyword
+* Name: "this"
+* Meaning: The value of `this` inside the function is based on parent scope of the calling function
+
+* Symbol: .
+* Type: Identifier
+* Name: "Dot"
+* Meaning: Dot notation identifies precedence inside objects
+
+* Symbol: 'name'
+* Type: Type literal
+* Name: "this dot name"
+* Meaning: Represents the value of name held by the object or calling function  
+
+* Symbol: =
+* Type: Operator
+* Name: "is assigned"
+* Meaning: Assigns the value of the name input on the right to the variable of calling function/object
 
 ### 42
 
@@ -564,20 +618,66 @@ Person.prototype.init = function(name) {
 Employee.prototype = new Person();
 ```
 
+* Symbol: 'Employee'
+* Type: constructor
+* Name: "Employee object constructor"
+* Meaning: Represents an object/function/constructor named Employee
+
+* Symbol: 'prototype'
+* Type: Keyword
+* Name: "prototype property"
+* Meaning: prototype property enables `this` to access the current instance
+
 * Symbol: =
 * Type: Operator
 * Name: "is assigned"
-* Meaning: Assigns an instance of the Person object on the right to the Employee constructor on the left
+* Meaning: Assigns constructor's prototype property to prototype property of an Employee object/function/constructor
+
+* Symbol: new
+* Type: Keyword
+* Name: "new"
+* Meaning: Instantiates (constructs) a new object of Person
+
+* Symbol: Person
+* Type: Constructor
+* Name: "Person constructor"
+* Meaning: Name of constructor object
+
+* Symbol: ()
+* Type: parentheses
+* Name: "parentheses"
+* Meaning: Signifies a function and is optional in this example
 
 ### 43
 
 ```javascript
 Employee.prototype.constructor = Employee;
 ```
+
+* Symbol: 'Employee'
+* Type: constructor
+* Name: "Employee object constructor"
+* Meaning: Represents an object/function/constructor named Employee
+
+* Symbol: 'prototype'
+* Type: Keyword
+* Name: "prototype property"
+* Meaning: prototype property enables `this` to access the current instance
+
+* Symbol: 'constructor'
+* Type: Type literal
+* Name: "method constructor"
+* Meaning: constructor is defined on the prototype giving `this` access to all instances of Employee
+
 * Symbol: =
 * Type: Operator
 * Name: "is assigned"
-* Meaning: Assigns an Employee object on the right to the Employee object constructor on the right
+* Meaning: Assigns constructor method on the prototype property to the Employee object/function/constructor
+
+* Symbol: 'Employee'
+* Type: constructor
+* Name: "Employee object constructor"
+* Meaning: Represents the original Employee object/function/constructor
 
 
 ### 44
@@ -585,21 +685,67 @@ Employee.prototype.constructor = Employee;
 ```javascript
 Employee.constructor = Person.prototype.constructor;
 ```
+* Symbol: 'Employee'
+* Type: constructor
+* Name: "Employee object constructor"
+* Meaning: Represents an object/function/constructor named Employee
+
+* Symbol: 'constructor'
+* Type: Type literal
+* Name: "method constructor"
+* Meaning: constructor is an "own" method of Employee
 
 * Symbol: =
 * Type: Operator
 * Name: "is assigned"
-* Meaning: Assigns the Person constructor on the right to the Employee constructor on the left
+* Meaning: Assigns the Employee constructor method on the right to Person prototype property constructor method
+
+* Symbol: 'Person'
+* Type: constructor
+* Name: "Employee object constructor"
+* Meaning: Represents an object/function/constructor named Person
+
+* Symbol: 'prototype'
+* Type: Keyword
+* Name: "prototype property"
+* Meaning: prototype property enables `this` to access the current instance
+
+* Symbol: 'constructor'
+* Type: Type literal
+* Name: "method constructor"
+* Meaning: constructor is defined on the prototype giving `this` access to all instances of Person
+
 
 ### 45
 
 ```javascript
 Manager.prototype = new Employee;
 ```
+
+* Symbol: 'Manager'
+* Type: constructor
+* Name: "Manager object constructor"
+* Meaning: Represents an object/function/constructor named Manager
+
+* Symbol: 'prototype'
+* Type: Keyword
+* Name: "prototype property"
+* Meaning: prototype property enables `this` to access the current instance
+
 * Symbol: =
 * Type: Operator
 * Name: "is assigned"
-* Meaning: Assigns an instance of the Employee on the right to the Manager constructor on the left
+* Meaning: Assigns constructor's prototype property to prototype property of an Employee object/function/constructor
+
+* Symbol: new
+* Type: Keyword
+* Name: "new"
+* Meaning: Instantiates (constructs) a new object of Employee
+
+* Symbol: Employee
+* Type: Constructor
+* Name: "Employee constructor"
+* Meaning: Name of constructor object
 
 ### 46
 
@@ -608,10 +754,55 @@ Rectangle.prototype.area = function () {
   return this.x * this.y;
 }
 ```
+* Symbol: 'Rectangle'
+* Type: constructor
+* Name: "Rectangle object constructor"
+* Meaning: Represents an object/function/constructor named Rectangle
+
+* Symbol: 'prototype'
+* Type: Keyword
+* Name: "prototype property"
+* Meaning: prototype property enables `this` to access the current instance
+
+* Symbol: 'area'
+* Type: Type literal
+* Name: "method area"
+* Meaning: area is defined on the prototype giving `this` access to all instances of Rectangle
+
 * Symbol: =
 * Type: Operator
 * Name: "is assigned"
-* Meaning: Assigns an anonymous function on the right to the `area` method in the Rectangle constructor on the left
+* Meaning: Assigns an anonymous function on the right to the prototype method on the left
+
+* Symbol: function
+* Type: Keyword
+* Name: "function"
+* Meaning: Identifies a function
+
+* Symbol: ()
+* Type: parentheses
+* Name: "parentheses"
+* Meaning: Signifies a function which accepts inputs
+
+* Symbol: {}
+* Type: braces
+* Name: "curly braces"
+* Meaning: Signifies all code that is local to the function
+
+* Symbol: 'this'
+* Type: Keyword
+* Name: "this"
+* Meaning: The value of `this` inside the function is based on parent scope of the calling function
+
+* Symbol: .
+* Type: Identifier
+* Name: "Dot"
+* Meaning: Dot notation identifies precedence inside objects
+
+* Symbol: 'x', 'y'
+* Type: Type literal
+* Name: "this dot x" and "this dot y"
+* Meaning: Represent the values of x and y stored in variables x and y  
 
 ### 47
 
@@ -627,12 +818,37 @@ var alice = new Person('Alice', 26);
 * Symbol: alice
 * Type: Identifier
 * Name: "variable alice"
-* Meaning: Variable to hold a value.
+* Meaning: Variable to hold a value
 
 * Symbol: =
 * Type: Operator
 * Name: "is assigned"
-* Meaning: Assigns an instance of the Person object to the operand `alice` on the left
+* Meaning: Assigns an instance of Person object and stores a reference to it in a variable
+
+* Symbol: new
+* Type: Keyword
+* Name: "new"
+* Meaning: Instantiates (constructs) a new object of Person
+
+* Symbol: Person
+* Type: Constructor
+* Name: "Person constructor"
+* Meaning: Name of constructor object
+
+* Symbol: ()
+* Type: parentheses
+* Name: "parentheses"
+* Meaning: Signifies a function
+
+* Symbol: 'Alice'
+* Type: Type literal
+* Name: "string"
+* Meaning: First of two inputs passed into Person contructor
+
+* Symbol: 26
+* Type: Number
+* Name: "twenty-six"
+* Meaning: Second of two inputs passed into Person contructor
 
 ### 48
 
@@ -642,11 +858,55 @@ Parent.prototype.sayHello = function(){
     console.log('Hello');
 };
 ```
+* Symbol: 'Parent'
+* Type: constructor
+* Name: "Parent object constructor"
+* Meaning: Represents an object/function/constructor named Parent
+
+* Symbol: 'prototype'
+* Type: Keyword
+* Name: "prototype property"
+* Meaning: prototype property enables `this` to access the current instance
+
+* Symbol: 'sayHello'
+* Type: Type literal
+* Name: "method sayHello"
+* Meaning: init is defined on the prototype giving `this` access to all instances of Parent
 
 * Symbol: =
 * Type: Operator
 * Name: "is assigned"
-* Meaning: Assigns an anonymous function on the right to the `sayHello` method in the Parent constructor on the left  
+* Meaning: Assigns an anonymous function on the right to the prototype method on the left
+
+* Symbol: function
+* Type: Keyword
+* Name: "function"
+* Meaning: Identifies a function
+
+* Symbol: ()
+* Type: parentheses
+* Name: "parentheses"
+* Meaning: Signifies a function which accepts inputs
+
+* Symbol: {}
+* Type: braces
+* Name: "curly braces"
+* Meaning: Signifies all code that is local to the function
+
+* Symbol: console
+* Type: Object
+* Name: "console"
+* Meaning: Refers to interface for testing javascript code
+
+* Symbol: .
+* Type: Identifier
+* Name: "Dot"
+* Meaning: Dot notation identifies precedence inside objects
+
+* Symbol: log
+* Type: Method of console
+* Name: "console dot log"
+* Meaning: Displays output of javascript code inside a console (browser, terminal)
 
 ### 49
 
@@ -655,21 +915,73 @@ Parent.prototype.sayHello = function(){
 Child.prototype.otherVar = 'otherValue';
 ```
 
+* Symbol: 'Child'
+* Type: constructor
+* Name: "Child object constructor"
+* Meaning: Represents an object/function/constructor named Child
+
+* Symbol: 'prototype'
+* Type: Keyword
+* Name: "prototype property"
+* Meaning: prototype property enables `this` to access the current instance
+
+* Symbol: otherVar
+* Type: Type literal
+* Name: "method otherVar"
+* Meaning: otherVar is defined on the prototype giving `this` access to all instances of Child
+
 * Symbol: =
 * Type: Operator
 * Name: "is assigned"
-* Meaning: Assigns the value of a string on the right to the `otherVar` property of the Child constructor
+* Meaning: Assigns a string value on the right to the prototype method on the left
+
+* Symbol: 'otherValue'
+* Type: Type literal
+* Name: "string"
+* Meaning: An alphanumeric value
 
 ### 50
 
 ```javascript
-// ... but then set the Child's prototype to the Parent prototype
-// (whose prototype doesn’t have any 'otherVar' property defined,
-//  so the Child prototype no longer has ‘otherVar’ defined!)
 Child.prototype = Object.create(Parent.prototype);
 ```
+
+* Symbol: 'Child'
+* Type: constructor
+* Name: "Child object constructor"
+* Meaning: Represents an object/function/constructor named Child
+
+* Symbol: 'prototype'
+* Type: Keyword
+* Name: "prototype property"
+* Meaning: prototype property enables `this` to access the current instance
 
 * Symbol: =
 * Type: Operator
 * Name: "is assigned"
-* Meaning:
+* Meaning: Assigns Parent's prototype property to prototype property of Child
+
+* Symbol: 'Object'
+* Type: Built-in type
+* Name: "Object"
+* Meaning: Object
+
+* Symbol: 'create'
+* Type: Function literal
+* Name: "create"
+* Meaning: A method of Object that creates what is passed into it
+
+* Symbol: ()
+* Type: parentheses
+* Name: "parentheses"
+* Meaning: Signifies a function which accepts inputs
+
+* Symbol: 'Parent'
+* Type: constructor
+* Name: "Parent object constructor"
+* Meaning: Represents an object/function/constructor named Parent
+
+* Symbol: 'prototype'
+* Type: Keyword
+* Name: "prototype property"
+* Meaning: prototype property enables `this` to access the current instance

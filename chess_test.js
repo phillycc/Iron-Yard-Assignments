@@ -1,10 +1,91 @@
+var Chess = require('./chess.js');
+var Piece = require('./piece.js');
+var Position = require('./position.js');
+
 var assert = require('chai').assert;
 var expect = require('chai').expect;
-var should = require('chai').should();
 
-var Chess = require('./chess.js');
-var Position = require('./chess.js');
-var Piece = require('./chess.js');
+describe('Chess', function(){
+    var chess = new Chess();
+    it('should be a type of function named Chess\n', function(){
+        assert.isFunction(Chess);
+    });
+
+    describe('getPlayer()', function(){
+        it('should be a type of function named getPlayer', function(){
+            assert.isFunction(chess.getPlayer);
+        });
+    });
+
+    describe('move()', function(){
+        it('should be a type of function named move', function(){
+            assert.isFunction(chess.move);
+        });
+    });
+
+    describe('opening()', function(){
+        it('should be a type of function named opening', function(){
+            assert.isFunction(chess.opening);
+        });
+    });
+
+    describe('display()', function(){
+        it('should be a type of function named display', function(){
+            assert.isFunction(chess.display);
+        });
+    });
+});
+
+
+describe('Position', function(){
+    it('should be a type of function named Position\n', function(){
+        assert.isFunction(Position);
+    });
+});
+
+describe('Piece', function(){
+    var piece = new Piece();
+    it('should be a type of function named Piece\n', function(){
+        assert.isFunction(Piece);
+    });
+
+    describe('getName()', function(){
+        it('should be a type of function named getName', function(){
+            assert.isFunction(piece.getName);
+        });
+    });
+
+    describe('getColor()', function(){
+        it('should be a type of function named getColor', function(){
+            assert.isFunction(piece.getColor);
+        });
+    });
+
+    describe('setPosition()', function(){
+        it('should be a type of function named setPosition', function(){
+            assert.isFunction(piece.setPosition);
+        });
+    });
+
+    describe('toString()', function(){
+        it('should be a type of function named toString', function(){
+            assert.isFunction(piece.toString);
+        });
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*

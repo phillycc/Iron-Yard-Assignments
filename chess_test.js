@@ -1,16 +1,12 @@
-var chess = require('./chess.js');
+var Chess = require('./chess.js');
+//var Piece = require('./chess.js');
+//var Position = require('./chess.js');
 
 var assert = require('chai').assert;
 var expect = require('chai').expect;
 
 
 describe('Chess', function(){
-    it('should be a type of function named Chess\n', function(){
-        assert.isFunction(chess.getPlayer);
-    });
-});
-
-/*describe('Chess', function(){
     var chess = new Chess();
     it('should be a type of function named Chess\n', function(){
         assert.isFunction(Chess);
@@ -40,16 +36,19 @@ describe('Chess', function(){
         });
     });
 });
-*/
+
 /*
 describe('Position', function(){
     it('should be a type of function named Position\n', function(){
         assert.isFunction(Position);
     });
 });
+*/
 
+/*
 describe('Piece', function(){
-    var piece = new Piece();
+    var piece = new Piece('Queen','white');
+    console.log(piece.getName('Queen'));
     it('should be a type of function named Piece\n', function(){
         assert.isFunction(Piece);
     });
@@ -58,11 +57,29 @@ describe('Piece', function(){
         it('should be a type of function named getName', function(){
             assert.isFunction(piece.getName);
         });
+        it('should return a string', function(){
+            expect(piece.getName()).to.be.a('string');
+        });
+        it('should return the piece\'s name', function(){
+            assert.strictEqual(piece.getName(),'Queen');
+        });
     });
 
     describe('getColor()', function(){
         it('should be a type of function named getColor', function(){
             assert.isFunction(piece.getColor);
+        });
+        it('should return a string', function(){
+            expect(piece.getColor()).to.be.a('string');
+        });
+        it('should return the piece\'s color', function(){
+            assert.strictEqual(piece.getColor(),'white');
+        });
+    });
+
+    describe('toString()', function(){
+        it('should be a type of function named toString', function(){
+            assert.isFunction(piece.toString);
         });
     });
 
@@ -72,13 +89,9 @@ describe('Piece', function(){
         });
     });
 
-    describe('toString()', function(){
-        it('should be a type of function named toString', function(){
-            assert.isFunction(piece.toString);
-        });
-    });
 });
 */
+
 
 
 

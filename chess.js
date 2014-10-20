@@ -29,7 +29,7 @@ function Chess(){
               //rooks
               if ((dY===0) || (dY===7)){
                  var pieceName = 'R'+dX+dY;
-                 self.pieceName = new Piece('Rook', 'black');
+                 self.arrPieces.push(self.pieceName = new Piece('Rook', 'black');
               }
               //knights
               if ((dY===1) || (dY===6)){

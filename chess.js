@@ -1,6 +1,9 @@
-/*module.exports = Piece;*/
-module.exports = Chess;
-/*module.exports = Position;*/
+//module.exports.Chess = {'Chess': Chess, 'Position' : Position, 'Piece' : Piece};
+
+module.exports.Position = Position;
+module.exports.Piece = Piece;
+module.exports.Chess = Chess;
+
 //--------------------------------------------------
 //              Chess()
 //--------------------------------------------------
@@ -16,14 +19,14 @@ module.exports = Chess;
 function Chess(){
 
   this.arrPieces = [];
-  var self = this;
+  self = this;
 
   //Construct intial board
   var diffs = [0,+1,+2,+3,+4,+5,+6,+7];
   diffs.forEach(function(dX) {
       diffs.forEach(function(dY) {
           //empty squares
-          if ((dX > 2) && (dX < 5)) return;
+          if ((dX > 1) && (dX < 6)) return;
           //black backline
           if (dX===0){
               //rooks
@@ -57,12 +60,14 @@ function Chess(){
           //black pawns
           if (dX===1){
               var pieceName = 'P'+dX+dY;
+              //console.log(pieceName);
               self.arrPieces.push(self.pieceName = new Piece('Pawn', 'black'));
           }
 
           //white pawns
           if (dX===6){
               var pieceName = 'p'+dX+dY;
+              //console.log(pieceName);
               self.arrPieces.push(self.pieceName = new Piece('Pawn', 'white'));
           }
 
@@ -97,12 +102,6 @@ function Chess(){
           self.pieceName.setPosition([dX,dY]);
       });
   });
-
-  self.arrPieces.forEach(function(value, index){
-      console.log(value, self.arrPieces[index].position[0]);
-  });
-
-
 }
 
 //--------------------------------------------------
@@ -118,7 +117,7 @@ function Chess(){
  * current player
  */
 Chess.prototype.getPlayer = function(){
-
+  return (item === item.toLowerCase()) ? 'white' : 'black';
 }
 
 //--------------------------------------------------
@@ -158,7 +157,7 @@ Chess.prototype.opening = function(){
     this.move([7,6],[5,5]);
 }
 //--------------------------------------------------
-//              Chess.dsiplay()
+//              Chess.display()
 //--------------------------------------------------
 /**
  *
@@ -185,21 +184,26 @@ Chess.prototype.display = function(){
 
     var board = Array.matrix(8,8,0);
 
-    // Write code to cycle through arrPieces and put into Array.matrix
+    self.arrPieces.forEach(function(value,index){
+      var x = self.arrPieces[index].position[0];
+      var y = self.arrPieces[index].position[1];
+      board[x][y] = self.arrPieces[index].letter;
+    })
 
     var spacer = '+---+---+---+---+---+---+---+---+\n';
-
     return spacer +
-    // Apply `renderRow` to each `row` in `board`...
-    this.board.map(function renderRow(row){
-        return '| ' +
-            // Apply `renderCell` to each `cell` in `row`...
-            row.map(function renderCell(cell){
-                // return 'X' if `cell` is TRUTHY otherwise return ' '
-                return cell && 'X' || ' ';
-            }).join(' | ') // Place ' | ' between each `cell`...
-        + ' |\n';
-    }).join(spacer) // Place `spacer` between each `row`...
+        board.map(function renderRow(row){
+          return '| ' +
+              row.map(function renderPosition(position){
+                    if(position === 0){
+                      return ' ';
+                    }
+                    else{
+                      return position;
+                    }
+              }).join(' | ')
+          + ' |\n';
+        }).join(spacer)
     + spacer;
 }
 
@@ -210,23 +214,19 @@ Chess.prototype.display = function(){
  * Represent a chesspiece on the board with name and
  * color and appropriate starting position
  *
- * @param
- * @param
- * @return
+ * @param String name
+ * @param String color
  */
 function Piece(name,color){
     this.name = name;
     this.color = color;
+    this.letter = this.toString();
 }
 
 //--------------------------------------------------
 //              Piece.getName()
 //--------------------------------------------------
 /**
- *
- * @param
- * @param
- * @param
  * @return String name of Piece, e.g. 'Queen', 'Pawn'
  */
 Piece.prototype.getName = function(){
@@ -237,10 +237,6 @@ Piece.prototype.getName = function(){
 //              Piece.getColor()
 //--------------------------------------------------
 /**
- *
- * @param
- * @param
- * @param
  * @return String player 'black' or 'white'
  */
 Piece.prototype.getColor = function(){
@@ -304,7 +300,6 @@ Piece.prototype.toString = function(){
  * @return
  */
 function Position(x,y){
-  this.x = x;
-  this.y = y;
   return [x,y];
+  //return {'x':x,'y':y};
 }

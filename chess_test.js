@@ -7,70 +7,74 @@ var Position = require('./chess.js').Position;
 var assert = require('chai').assert;
 var expect = require('chai').expect;
 
-
-/*
 describe('Position', function(){
     it('should be a type of function named Position', function(){
         assert.isFunction(Position);
     });
     it('should have an x and y coordinate',function(){
-        var aPosition = new Position(2,3);
-        assert.strictEqual(aPosition[0], 2);
-        assert.strictEqual(aPosition[1], 3);
-        assert.deepEqual(aPosition,[2,3]);
+        var bPosition = new Position(2,3);
+        assert.strictEqual(bPosition[0], 2);
+        assert.strictEqual(bPosition[1], 3);
+        assert.deepEqual(bPosition,[2,3]);
     });
 });
-*/
-/*
-var piece = new Piece('Queen','white');
 
+
+var Q = new Piece('Queen','white');
+//Q.setPosition([0,3]);
+//console.log(Q.position[0],Q.position[1]);
 describe('Piece', function(){
 
-    it('should be a type of function named Piece\n', function(){
+    it('should be a type of function named Piece', function(){
         assert.isFunction(Piece);
     });
 
     describe('getName()', function(){
         it('should be a type of function named getName', function(){
-            assert.isFunction(piece.getName);
+            assert.isFunction(Q.getName);
         });
         it('should return a string', function(){
-            expect(piece.getName()).to.be.a('string');
+            expect(Q.getName()).to.be.a('string');
         });
-        it('should return the piece\'s name', function(){
-            assert.strictEqual(piece.getName(),'Queen');
+        it('should return a chess piece\'s name', function(){
+            assert.strictEqual(Q.getName(),'Queen');
         });
     });
 
     describe('getColor()', function(){
         it('should be a type of function named getColor', function(){
-            assert.isFunction(piece.getColor);
+            assert.isFunction(Q.getColor);
         });
         it('should return a string', function(){
-            expect(piece.getColor()).to.be.a('string');
+            expect(Q.getColor()).to.be.a('string');
         });
-        it('should return the piece\'s color', function(){
-            assert.strictEqual(piece.getColor(),'white');
+        it('should return a chess piece\'s color', function(){
+            assert.strictEqual(Q.getColor(),'white');
         });
     });
 
     describe('toString()', function(){
         it('should be a type of function named toString', function(){
-            assert.isFunction(piece.toString);
+            assert.isFunction(Q.toString);
+        });
+        it('should return one-letter label for chess piece', function(){
+            assert.equal(Q.toString(),'q');
         });
     });
 
     describe('setPosition()', function(){
         it('should be a type of function named setPosition', function(){
-            assert.isFunction(piece.setPosition);
+            assert.isFunction(Q.setPosition);
+        });
+        it('should set x,y coordinates for given chess piece', function(){
+            Q.setPosition([0,3]);
+            assert.deepEqual([Q.position[0],Q.position[1]],[0,3]);
         });
     });
 
 });
-*/
-var chess = new Chess();
-//console.log(chess.display());
 
+var chess = new Chess();
 describe('Chess', function(){
     it('should be a type of function named Chess', function(){
         assert.isFunction(Chess);
@@ -84,36 +88,25 @@ describe('Chess', function(){
     it('should return piece postion', function(){
       assert.deepEqual(chess.arrPieces[0].position, [0,0]);
     });
-    it('should display the initial board',function(){
-      assert.equal(chess.display(),
-      "+---+---+---+---+---+---+---+---+\n"+
-      "| R | N | B | Q | K | B | N | R |\n"+
-      "+---+---+---+---+---+---+---+---+\n"+
-      "| P | P | P | P | P | P | P | P |\n"+
-      "+---+---+---+---+---+---+---+---+\n"+
-      "|   |   |   |   |   |   |   |   |\n"+
-      "+---+---+---+---+---+---+---+---+\n"+
-      "|   |   |   |   |   |   |   |   |\n"+
-      "+---+---+---+---+---+---+---+---+\n"+
-      "|   |   |   |   |   |   |   |   |\n"+
-      "+---+---+---+---+---+---+---+---+\n"+
-      "|   |   |   |   |   |   |   |   |\n"+
-      "+---+---+---+---+---+---+---+---+\n"+
-      "| p | p | p | p | p | p | p | p |\n"+
-      "+---+---+---+---+---+---+---+---+\n"+
-      "| r | n | b | q | k | b | n | r |\n"+
-      "+---+---+---+---+---+---+---+---+\n");
-    });
 
     describe('getPlayer()', function(){
         it('should be a type of function named getPlayer', function(){
             assert.isFunction(chess.getPlayer);
+        });
+        it('should return player color based on board piece',function(){
+            assert.equal(chess.getPlayer('r'),"white");
+            assert.equal(chess.getPlayer('R'),"black");
         });
     });
 
     describe('move()', function(){
         it('should be a type of function named move', function(){
             assert.isFunction(chess.move);
+        });
+        it('should move piece to destination x,y coordinate', function(){
+            //Catalan opening move (white)
+            chess.move([6,3],[4,3]);
+            assert.deepEqual(chess.arrPieces[19].position,[4,3]);
         });
     });
 
@@ -127,5 +120,25 @@ describe('Chess', function(){
         it('should be a type of function named display', function(){
             assert.isFunction(chess.display);
         });
-    });
+        /*it('should display final move for Catalan',function(){
+            assert.equal(chess.display(),
+            "+---+---+---+---+---+---+---+---+\n"+
+            "| R | N | B | Q | K |   |   | R |\n"+
+            "+---+---+---+---+---+---+---+---+\n"+
+            "| P | P | P |   | B | P | P | P |\n"+
+            "+---+---+---+---+---+---+---+---+\n"+
+            "|   |   |   |   | P | N |   |   |\n"+
+            "+---+---+---+---+---+---+---+---+\n"+
+            "|   |   |   | P |   |   |   |   |\n"+
+            "+---+---+---+---+---+---+---+---+\n"+
+            "|   |   | p | p |   |   |   |   |\n"+
+            "+---+---+---+---+---+---+---+---+\n"+
+            "|   |   |   |   |   | n | p |   |\n"+
+            "+---+---+---+---+---+---+---+---+\n"+
+            "| p | p |   |   | p | p | b | p |\n"+
+            "+---+---+---+---+---+---+---+---+\n"+
+            "| r | n | b | q | k |   |   | r |\n"+
+            "+---+---+---+---+---+---+---+---+\n");
+          });*/
+      });
 });

@@ -116,7 +116,7 @@ function Chess(){
  * @return String either "white" or "black" representing
  * current player
  */
-Chess.prototype.getPlayer = function(){
+Chess.prototype.getPlayer = function(item){
   return (item === item.toLowerCase()) ? 'white' : 'black';
 }
 
@@ -132,7 +132,13 @@ Chess.prototype.getPlayer = function(){
  */
 Chess.prototype.move = function(piece, destination){
 
-
+    self.arrPieces.forEach(function(value,index){
+      if ((self.arrPieces[index].position[0]===piece[0])
+        && (self.arrPieces[index].position[1]===piece[1])){
+          self.arrPieces[index].position = destination;
+          console.log(Chess.prototype.display());
+      }
+    });
 }
 
 //--------------------------------------------------
@@ -141,9 +147,6 @@ Chess.prototype.move = function(piece, destination){
 /**
  * Advance the board to Catalan Opening, Closed Variation
  *
- * @param
- * @param
- * @return
  */
 Chess.prototype.opening = function(){
     this.move([6,3],[4,3]);
@@ -295,11 +298,10 @@ Piece.prototype.toString = function(){
 /**
  * Represent a position on a chessboard with coordinates
  *
- * @param
- * @param
- * @return
+ * @param Number x coordinate
+ * @param Number y coordinate
+ * @return Array of x,y coordinates
  */
 function Position(x,y){
   return [x,y];
-  //return {'x':x,'y':y};
 }

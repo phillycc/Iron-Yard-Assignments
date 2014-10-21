@@ -20,11 +20,12 @@ describe('Position', function(){
 });
 
 
-var Q = new Piece('Queen','white');
-//Q.setPosition([0,3]);
-//console.log(Q.position[0],Q.position[1]);
-describe('Piece', function(){
 
+//Q.setPosition([0,3]);
+//console.log(Q);
+
+describe('Piece', function(){
+    var Q = new Piece('Queen','white', 9);
     it('should be a type of function named Piece', function(){
         assert.isFunction(Piece);
     });
@@ -50,6 +51,18 @@ describe('Piece', function(){
         });
         it('should return a chess piece\'s color', function(){
             assert.strictEqual(Q.getColor(),'white');
+        });
+    });
+
+    describe('setPointValue()', function(){
+        it('should be a type of function named setPointValue', function(){
+            assert.isFunction(Q.setPointValue);
+        });
+        it('should return a number', function(){
+            expect(Q.setPointValue()).to.be.a('number');
+        });
+        it('should return a chess piece\'s point value', function(){
+            assert.strictEqual(Q.setPointValue(), 9);
         });
     });
 

@@ -19,7 +19,12 @@ module.exports.Chess = Chess;
 function Chess(){
 
   this.arrPieces = [];
+  this.WhitePts = 0;
+  this.BlackPts = 0;
   self = this;
+
+  this.Moves = 1;
+  points = { Pawn: 1, Knight: 3, Bishop: 3, Rook: 5, Queen: 9 }
 
   //Construct intial board
   var diffs = [0,+1,+2,+3,+4,+5,+6,+7];
@@ -32,28 +37,29 @@ function Chess(){
               //rooks
               if ((dY===0) || (dY===7)){
                  var pieceName = 'R'+dX+dY;
-                 self.arrPieces.push(self.pieceName = new Piece('Rook', 'black'));
+                 self.arrPieces.push(self.pieceName = new Piece('Rook', 'black', points['Rook']));
               }
               //knights
               if ((dY===1) || (dY===6)){
                 var pieceName = 'N'+dX+dY;
-                self.arrPieces.push(self.pieceName = new Piece('Knight', 'black'));
+                self.arrPieces.push(self.pieceName = new Piece('Knight', 'black', points['Knight']));
               }
               //bishops
               if ((dY===2) || (dY===5)){
                 var pieceName = 'B'+dX+dY;
-                self.arrPieces.push(self.pieceName = new Piece('Bishop', 'black'));
+                self.arrPieces.push(self.pieceName = new Piece('Bishop', 'black', points['Bishop']));
               }
               //queen
               if (dY===3){
                 var pieceName = 'Q'+dX+dY;
-                self.arrPieces.push(self.pieceName = new Piece('Queen', 'black'));
+                console.log("here");
 
+                self.arrPieces.push(self.pieceName = new Piece('Queen', 'black', points['Queen']));
               }
               //king
               if (dY===4){
                 var pieceName = 'K'+dX+dY;
-                self.arrPieces.push(self.pieceName = new Piece('King', 'black'));
+                self.arrPieces.push(self.pieceName = new Piece('King', 'black', 0));
               }
           }
 
@@ -61,14 +67,14 @@ function Chess(){
           if (dX===1){
               var pieceName = 'P'+dX+dY;
               //console.log(pieceName);
-              self.arrPieces.push(self.pieceName = new Piece('Pawn', 'black'));
+              self.arrPieces.push(self.pieceName = new Piece('Pawn', 'black', points['Pawn']));
           }
 
           //white pawns
           if (dX===6){
               var pieceName = 'p'+dX+dY;
               //console.log(pieceName);
-              self.arrPieces.push(self.pieceName = new Piece('Pawn', 'white'));
+              self.arrPieces.push(self.pieceName = new Piece('Pawn', 'white', points['Pawn']));
           }
 
           //white backline
@@ -76,33 +82,36 @@ function Chess(){
               //rooks
               if ((dY===0) || (dY===7)){
                  var pieceName = 'r'+dX+dY;
-                 self.arrPieces.push(self.pieceName = new Piece('Rook', 'white'));
+                 self.arrPieces.push(self.pieceName = new Piece('Rook', 'white', points['Rook']));
               }
               //knights
               if ((dY===1) || (dY===6)){
                 var pieceName = 'n'+dX+dY;
-                self.arrPieces.push(self.pieceName = new Piece('Knight', 'white'));
+                self.arrPieces.push(self.pieceName = new Piece('Knight', 'white', points['Knight']));
               }
               //bishops
               if ((dY===2) || (dY===5)){
                 var pieceName = 'b'+dX+dY;
-                self.arrPieces.push(self.pieceName = new Piece('Bishop', 'white'));
+                self.arrPieces.push(self.pieceName = new Piece('Bishop', 'white', points['Bishop']));
               }
               //queen
               if (dY===3){
                 var pieceName = 'q'+dX+dY;
-                self.arrPieces.push(self.pieceName = new Piece('Queen', 'white'));
+                self.arrPieces.push(self.pieceName = new Piece('Queen', 'white', points['Queen']));
               }
               //king
               if (dY===4){
                 var pieceName = 'k'+dX+dY;
-                self.arrPieces.push(self.pieceName = new Piece('King', 'white'));
+                self.arrPieces.push(self.pieceName = new Piece('King', 'white', 0));
               }
           }
           self.pieceName.setPosition([dX,dY]);
       });
   });
+
 }
+
+
 
 //--------------------------------------------------
 //              Chess.getPlayer()
@@ -132,14 +141,28 @@ Chess.prototype.getPlayer = function(item){
  */
 Chess.prototype.move = function(piece, destination){
 
+
     self.arrPieces.forEach(function(value,index){
+
+
+        console.log(self.arrPieces[index].color, self.arrPieces[index].pointValue);
+
+      /*if(self.arrPieces[index].color === 'white'){
+         self.WhitePts += self.arrPieces[index].pointValue;
+      } else {
+         self.BlackPts += self.arrPieces[index].pointValue;
+      }*/
+
       if ((self.arrPieces[index].position[0]===piece[0])
         && (self.arrPieces[index].position[1]===piece[1])){
           self.arrPieces[index].position = destination;
           console.log(Chess.prototype.display());
       }
+      //self.Moves++;
+      //console.log('White - '+self.WhitePts' : Black - '+self.BlackPts);
     });
 }
+
 
 //--------------------------------------------------
 //              Chess.opening()
@@ -149,15 +172,15 @@ Chess.prototype.move = function(piece, destination){
  *
  */
 Chess.prototype.opening = function(){
-    this.move([6,3],[4,3]);
-    this.move([0,6],[2,5]);
-    this.move([6,2],[4,2]);
-    this.move([1,4],[2,4]);
-    this.move([6,6],[5,6]);
-    this.move([1,3],[3,3]);
-    this.move([7,5],[6,6]);
-    this.move([0,5],[1,4]);
-    this.move([7,6],[5,5]);
+    this.move([6,3],[4,3]); //white move
+    /*this.move([0,6],[2,5]); //black move
+    this.move([6,2],[4,2]); //white move
+    this.move([1,4],[2,4]); //black move
+    this.move([6,6],[5,6]); //white move
+    this.move([1,3],[3,3]); //black move
+    this.move([7,5],[6,6]); //white move
+    this.move([0,5],[1,4]); //black move
+    this.move([7,6],[5,5]); //white move*/
 }
 //--------------------------------------------------
 //              Chess.display()
@@ -220,9 +243,10 @@ Chess.prototype.display = function(){
  * @param String name
  * @param String color
  */
-function Piece(name,color){
+function Piece(name,color,pointValue){
     this.name = name;
     this.color = color;
+    this.pointValue = pointValue;
     this.letter = this.toString();
 }
 
@@ -240,10 +264,20 @@ Piece.prototype.getName = function(){
 //              Piece.getColor()
 //--------------------------------------------------
 /**
- * @return String player 'black' or 'white'
+ * @return String color of Piece, e.g. 'black' or 'white'
  */
 Piece.prototype.getColor = function(){
     return this.color;
+}
+
+//--------------------------------------------------
+//              Piece.setPointValue()
+//--------------------------------------------------
+/**
+ * @param Number point value of Piece
+ */
+Piece.prototype.setPointValue = function(){
+    return this.pointValue;
 }
 
 //--------------------------------------------------

@@ -1,7 +1,7 @@
 
-## Block-Level
+#### Block-Level
 
-### <address>
+### < address >
 
 * Meaning - Identifies the contact information for the author or owner of a document or article.  It's placement inside an HTML document determines if the content inside of <address> is for an entire web document (where parent = body-tag) or for an article (where parent = article-tag).
 
@@ -34,7 +34,7 @@ Examples:
 </address>
 
 ```
-### <article>
+### < article >
 
 * Meaning - Specifies independent, self-contained content, meaning it should make sense on it's own, like a blog post, news story, or comment.
 
@@ -72,7 +72,7 @@ Examples:
    </a>
 </article>
 ```
-### <audio>
+### < audio >
 
 * Meaning - Defines sound, but more specifically a music file or other audio streams. The 3 supported file formats for the <audio> element are MP3, Wav, and Ogg:
 
@@ -98,7 +98,7 @@ Examples:
 </audio>
 
 ```
-### <blockquote>
+### < blockquote >
 
 * Meaning - Specifies a section that is quoted from another source. It is usally indented on the left and right.
 
@@ -136,7 +136,7 @@ Examples:
   </footer>
 </blockquote>
 ```
-### <canvas>
+### < canvas >
 
 * Meaning - Used to dynamically draw graphics via scripting (usually JavaScript), although the tag itself is only a container for graphics.
 
@@ -163,7 +163,7 @@ Examples:
 
 <canvas id="myCanvas" width="200" height="200"></canvas>
 ```
-### <div>
+### < div >
 
 * Meaning - Defines a division or a section in an HTML document by grouping block-level elements for the purpose of formating them with CSS.
 
@@ -184,7 +184,7 @@ Examples:
 
 ```
 
-### <figure>
+### < figure >
 
 * Meaning - Specifies self-contained content, such as illustrations, diagrams, photos, code listings.
 
@@ -209,7 +209,7 @@ Examples:
 
 <figure id="red-figure"> <img class='imagem_artigo' src="Red.png" alt="Figure 1: A red color image"> </figure>
 ```
-### <header>
+### < header >
 
 * Meaning - Identifies a header block for a document or section, used commonly as a container for introductory content or set of navigational links.
 
@@ -236,7 +236,7 @@ Examples:
    <p class="tagline">A lot of effort went into making this effortless.</p>
 </div>
 ```
-### <footer>
+### < footer >
 
 * Meaning - Identifies a footer block for a document or section, used commonly to contain contact information, copyright information, etc.
 
@@ -258,7 +258,7 @@ Examples:
 
 <footer>Copyright 2013</footer>
 ```
-### <nav>
+### < nav >
 
 * Meaning - Specifies a set of navigation links that usually persist on every page of a website.
 
@@ -287,23 +287,9 @@ Examples:
 </nav>
 ```
 
-## Inline Elements
+#### Inline Elements
 
-### <code>
-
-* Meaning -
-
-```html
-Examples:
-
-1.()
-
-2.()
-
-3.()
-```
-
-### <strong>
+### < code >
 
 * Meaning -
 
@@ -316,7 +302,21 @@ Examples:
 
 3.()
 ```
-### <img>
+
+### < strong >
+
+* Meaning -
+
+```html
+Examples:
+
+1.()
+
+2.()
+
+3.()
+```
+### < img >
 
 * Meaning -
 
@@ -329,7 +329,7 @@ Examples:
 
 3.()
 ```
-### <map>
+### < map >
 
 * Meaning -
 
@@ -342,7 +342,7 @@ Examples:
 
 3.()
 ```
-### <kbd>
+### < kbd >
 
 * Meaning -
 
@@ -355,7 +355,7 @@ Examples:
 
 3.()
 ```
-### <object>
+### < object >
 
 * Meaning -
 
@@ -370,7 +370,7 @@ Examples:
 
 ```
 
-### <button>
+### < button >
 
 * Meaning -
 
@@ -383,7 +383,7 @@ Examples:
 
 3. ()
 ```
-### <select>
+### < select >
 
 * Meaning -
 
@@ -396,7 +396,7 @@ Examples:
 
 3.()
 ```
-### <textarea>
+### < textarea >
 
 * Meaning -
 
@@ -409,7 +409,7 @@ Examples:
 
 3.()
 ```
-### <input>
+### < input >
 
 * Meaning -
 

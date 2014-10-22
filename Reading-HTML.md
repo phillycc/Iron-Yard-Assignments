@@ -291,30 +291,40 @@ Examples:
 
 ### < code >
 
-* Meaning -
+* Meaning - Represents a fragment of computer code text.
 
 ```html
 Examples:
 
-1.()
+1.(http://www.quackit.com/html_5/tags/html_code_tag.cfm)
 
-2.()
+To create a new array, type the following: <code>var faq = new Array(3)</code>
+
+2.(http://www.w3schools.com/tags/tag_code.asp)
+
+ <code>A piece of computer code</code>
 
 3.()
 ```
 
 ### < strong >
 
-* Meaning -
+* Meaning - Gives text strong importance, and is typically displayed in bold.
 
 ```html
 Examples:
 
-1.()
+1.(http://www.quackit.com/html_5/tags/html_strong_tag.cfm)
 
-2.()
+This is <strong>important</strong>. It <strong>really is important. <strong>And this is even more important!</strong></strong>
+
+2.(http://www.html-5-tutorial.com/strong-and-b-elements.htm)
+
+<strong>This bold text</strong> is in strong tags.
 
 3.()
+<li><strong>4 GB installed RAM</strong> (1333 MHz DDR3; supports up to 8 GB)</li>  
+    </ul>
 ```
 ### < img >
 

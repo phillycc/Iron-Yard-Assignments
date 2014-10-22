@@ -304,7 +304,10 @@ To create a new array, type the following: <code>var faq = new Array(3)</code>
 
  <code>A piece of computer code</code>
 
-3.()
+3.(http://www.w3.org/html/wg/drafts/html/master/text-level-semantics.html#the-code-element)
+
+<p>When you call the <code>activate()</code> method on the
+<code>robotSnowman</code> object, the eyes glow.</p>
 ```
 
 ### < strong >
@@ -322,113 +325,205 @@ This is <strong>important</strong>. It <strong>really is important. <strong>And 
 
 <strong>This bold text</strong> is in strong tags.
 
-3.()
-<li><strong>4 GB installed RAM</strong> (1333 MHz DDR3; supports up to 8 GB)</li>  
-    </ul>
+3.(http://www.w3.org/html/wg/drafts/html/master/text-level-semantics.html#the-strong-element)
+
+<<h1><strong>Flowers, Bees, and Honey</strong> and other things I don't understand</h1>
 ```
 ### < img >
 
-* Meaning -
+* Meaning - Defines an image in an HTML page, and requires two attributes: src and alt.
 
 ```html
 Examples:
 
-1. ()
+1. (view-source:http://theironyard.com/locations/orlando/)
 
-2. ()
+<img src="/images/iron-yard-logo.svg" style="preserveAspectRatio=MinYMin slice"/>
 
-3.()
+2. (http://www.cnn.com/)
+
+<img src="http://i.cdn.turner.com/cnn/.e/img/3.0/1px.gif" alt="" border="0"/>
+
+3. (http://espn.go.com/nfl/)
+
+<img src="http://ad.Doubleclick.net/ad/espn.us.com.nfl/nflindex;pgtyp=nflindex;sp=nfl;sz=150x45,1x1;" border="0" alt="">
 ```
 ### < map >
 
-* Meaning -
+* Meaning - Defines a client-side image-map with clickable areas that contains a number of <area> elements.
 
 ```html
 Examples:
 
-1. ()
+1. (http://www.w3schools.com/tags/tag_map.asp)
 
-2. ()
+<img src="planets.gif" width="145" height="126" alt="Planets" usemap="#planetmap">
 
-3.()
+<map name="planetmap">
+  <area shape="rect" coords="0,0,82,126" href="sun.htm" alt="Sun">
+  <area shape="circle" coords="90,58,3" href="mercur.htm" alt="Mercury">
+  <area shape="circle" coords="124,58,8" href="venus.htm" alt="Venus">
+</map>
+
+2. (http://mrbool.com/working-with-html5-map-tag/25537)
+
+<img src="Color.png" width="200" height="200" alt="Colors" usemap="#Colormap" />
+  <map name="Colormap"> <area shape="rect" coords="0,0,200,100" alt="Red Color" href="Red.htm" />
+  <area shape="rect" coords="0,100,200,200" alt="Yellow color" href="Yellow.htm" />
+</map>
+
+3. (http://www.quackit.com/html_5/tags/html_map_tag.cfm)
+
+<img src ="/pix/mueller_hut/mueller_hut_t.jpg" width="225" height="151" border="0" usemap ="#muellermap" />
+
+<map id ="muellermap" name="muellermap">
+  <area shape ="rect" coords ="90,80,120,151"
+  href ="javascript:alert('Me');"
+  alt="Me" />
+  <area shape ="poly" coords ="55,55,120,80,90,80,90,100,70,100,20,80,55,55"
+  href ="http://en.wikipedia.org/wiki/Mount_Cook" target="_blank"
+  alt="Mount Cook" />
+  <area shape ="poly" coords ="145,80,145,100,215,90,215,80,180,60,145,80"
+  href ="http://www.natural-environment.com/places/mueller_hut.php" target="_blank"
+  alt="Mueller Hut" />
+</map>
+
 ```
 ### < kbd >
 
-* Meaning -
+* Meaning - Defines a keyboard input.
 
 ```html
 Examples:
 
-1. ()
+1. (http://www.w3schools.com/tags/tag_kbd.asp)
 
-2. ()
+<kbd>Keyboard input</kbd>
 
-3.()
+2. (http://www.quackit.com/html_5/tags/html_kbd_tag.cfm)
+
+Type <kbd>www.quackit.com</kbd> into your browser address bar.
+
+3.(http://www.w3.org/html/wg/drafts/html/master/text-level-semantics.html#the-kbd-element)
+
+ <kbd><kbd><samp>File</samp></kbd>|<kbd><samp>Eat Apple...</samp></kbd></kbd>
 ```
 ### < object >
 
-* Meaning -
+* Meaning - Defines an embedded object (such as audio, video, Java applets, ActiveX, PDF, and Flash) within an HTML document.
 
 ```html
 Examples:
 
-1. ()
+1. (http://www.w3schools.com/tags/tag_object.asp)
 
-2. ()
+<object width="400" height="400" data="helloworld.swf"></object>
 
-3.()
+2. (http://www.quackit.com/html_5/tags/html_object_tag.cfm)
 
+<object type="video/quicktime" data="/web_design/paris_vegas.mov" width="350" height="95"></object>
+
+3.(http://msdn.microsoft.com/en-us/magazine/hh561710.aspx)
+
+<h1>Using the Object tag to play media using the Flash plug-in</h1>
+<object type="application/x-shockwave-flash" data="player.swf" width="290" height="24">
+    <param name="movie" value="player.swf">
+</object>
 ```
 
 ### < button >
 
-* Meaning -
+* Meaning - Defines a clickable button that can be formatted with text or images.
 
 ```html
 Examples:
 
-1. ()
+1. (http://www.w3schools.com/tags/tag_button.asp)
 
-2. ()
+<button type="button">Click Me!</button>
 
-3. ()
+2. (http://css-tricks.com/use-button-element/)
+
+<form action="/" method="post">
+  <button>Submit</button>
+</form>
+
+3. (http://www.quackit.com/html_5/tags/html_button_tag.cfm)
+
+<button onclick="JavaScript:alert('Well done!')">Click Me!</button>
 ```
 ### < select >
 
-* Meaning -
+* Meaning - Creates a drop-down list and used in conjunction with option tag.
 
 ```html
 Examples:
 
-1. ()
+1. (http://www.quackit.com/html_5/tags/html_select_tag.cfm)
 
-2. ()
+<select>
+    <option value ="sydney">Sydney</option>
+    <option value ="melbourne">Melbourne</option>
+    <option value ="cromwell" selected>Cromwell</option>
+    <option value ="queenstown">Queenstown</option>
+</select>
 
-3.()
+2. (http://www.erafrance.com/annonce-immobiliere/I7703-p1342/Maison-7-Pieces-A-vendre-LESIGNY&acm=I7703)
+
+<select name="selectedLanguage" onchange="this.form.submit();"  style="font-size: 10px;margin:0;padding:0;">
+....
+</select>
+
+3.(http://www.erasuisse.ch/index.cfm?fuseaction=cforms.estimationForm)
+
+<select name="regionName" id="regionName" class="form-control">
+		<option class="selectOptions" value="">Please select</option>
+		<option class="selectOptions" value="19">Aargau</option> <option class="selectOptions" value="15">Appenzell A.Rh.</option>
+...
+</select>
 ```
 ### < textarea >
 
-* Meaning -
+* Meaning - Defines a multi-line text input control that can hold an unlimited number of characters.
 
 ```html
 Examples:
 
-1. ()
+1. (http://ww.supershuttle.com/CustomerSurvey.aspx)
 
-2. ()
+<textarea name="dnn$ctr1285$ViewSuperShuttle_CustomerSurvey$txtServiceComments" rows="3" cols="77" id="dnn_ctr1285_ViewSuperShuttle_CustomerSurvey_txtServiceComments">
+</textarea>
 
-3.()
+2. (http://www.heritageparktoa.com/?page_id=36)
+
+<textarea name="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" aria-required="true" aria-invalid="false"></textarea>
+
+3.(http://www.erasuisse.ch/index.cfm?fuseaction=cforms.estimationForm)
+
+<textarea name="inquiry" id="inquiry"></textarea>
 ```
 ### < input >
 
-* Meaning -
+* Meaning - Specifies an input field where the user can enter data and is used within a <form> element to declare input controls.
 
 ```html
 Examples:
 
-1. ()
+1. (http://diveintohtml5.info/forms.html)
 
-2. ()
+<form>
+  <input name="q" placeholder="Go to a Website">
+  <input type="submit" value="Search">
+</form>
 
-3.()
+2. (http://www.w3schools.com/html/html5_form_input_types.asp)
+
+<form>
+  Quantity (between 1 and 5):
+  <input type="number" name="quantity" min="1" max="5">
+</form>
+
+3. (http://www.heritageparktoa.com/?page_id=36)
+
+<input type="tel" name="your-phone" value="" size="20" maxlength="12" class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-tel" aria-invalid="false" />
 ```

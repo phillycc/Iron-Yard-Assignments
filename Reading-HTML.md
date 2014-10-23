@@ -527,3 +527,63 @@ Examples:
 
 <input type="tel" name="your-phone" value="" size="20" maxlength="12" class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-tel" aria-invalid="false" />
 ```
+
+### < form >
+
+* Meaning
+
+```html
+Examples:
+
+1. ()
+
+2. ()
+
+3. ()
+
+```
+
+### < menu >
+
+* Meaning
+
+```html
+Examples:
+
+1. ()
+
+2. ()
+
+3. ()
+
+```
+
+### < label >
+
+* Meaning
+
+```html
+Examples:
+
+1. ()
+
+2. ()
+
+3. ()
+
+```
+
+### < option >
+
+* Meaning
+
+```html
+Examples:
+
+1. ()
+
+2. ()
+
+3. ()
+
+```

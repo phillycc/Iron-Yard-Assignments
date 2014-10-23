@@ -1,4 +1,61 @@
 ```html
+float
+
+float: left
+float: right
+float: none
+
+#sidebar {
+  float: right;
+}
+```
+Specifies whether or not an element should be placed along the left or right side of its container, where text and inline elements will wrap around it. One caveat is that absolutely positioned elements ignore the float property.
+
+```html
+clear
+
+clear: none
+clear: left
+clear: right
+clear: both
+
+<div style="clear:both">
+```
+Makes the element drop below any floated elements that precede it in the document. Can also use clear:left or clear:right to make it drop below only those elements that have been floated left or right.
+
+
+```html
+position
+
+position: static
+position: relative
+position: absolute
+position: fixed
+position: sticky
+```
+
+
+```html
+rgb()
+
+rgb(255,0,51)
+rgb(100%,0%,20%)
+```
+
+
+```html
+line-height
+
+```
+
+```html
+display
+
+
+```
+
+
+```html
 color
 ```
 Sets the foreground color of an element's text content, and its decorations.

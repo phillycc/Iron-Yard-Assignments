@@ -98,8 +98,92 @@ aside {
 	font-family: sans-serif;
 }
 
+aside h1 {
+	margin-top:25px;
+	margin-bottom:30px;"
+}
+
+aside h1 a {
+	text-decoration:none;
+	font-size:14pt;
+	text-transform:uppercase;
+}
+
+aside h1 a:visited {
+	color:#666;
+}
+
+aside p.txtSummary {
+	margin-bottom:20px;
+	font-size:14pt;
+	font-family:'serif';
+	color:grey;
+}
+
+aside p.lblSearch {
+	margin-bottom:20px;
+	color:grey;
+	font-size:12px;
+	font-weight:bold;
+}
+
+aside hr {
+	width:68%;
+	margin-left:0;
+	text-align:left;
+	margin-bottom:30px;
+	color:grey;
+}
+
+article h1 {
+	margin-bottom:30px;
+	margin-top:10px;
+}
+
+article address {
+	font-style:italic;
+	font-size:20px;
+	font-color:#666666;
+	margin-bottom:20px;
+	color:grey;
+}
+
+article h1 a {
+	color:#39474e;
+	font-size:30pt;
+	font-weight:bold;
+	font-family:'sans-serif';
+	line-height:1.4;
+	font-family:sans-serif;
+	text-decoration:none;
+}
+
+article p {
+	margin-bottom:20px;
+	font-size:20px;
+	line-height:25px;
+	color:grey;
+}
+
+#share a {
+	color: grey;
+	text-decoration:none;
+	border:1px solid grey;
+	padding:5px;
+	display:inline;
+}
+
 #share {
   float: left;
   width: 580px;
-  margin-bottom: 10%;
+  margin-bottom:20px;
+	margin-top:40px;
+	color:grey;"
+}
+
+#txtTime {
+	style="text-decoration:none;
+	color:grey;
+	float:right;
+	border:none;
 }

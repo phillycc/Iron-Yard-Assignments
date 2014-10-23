@@ -11,8 +11,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -31,7 +31,7 @@ header {
 }
 
 h1 .headline {
-	color: #39474e; 
+	color: #39474e;
 }
 
 #topNav {
@@ -83,11 +83,19 @@ h1 .headline {
 section {
     width: 50%;
     margin: auto;
-	float: right;
-	margin-right: 15%;
+		float: right;
+		margin-right: 15%;
 }
+
 aside {
-    float: left;
+  float: left;
 	width: 20%;
 	margin-left: 15%;
+	font-family: sans-serif;
+}
+
+#share {
+  float: left;
+  width: 580px;
+  margin-bottom: 10%;
 }

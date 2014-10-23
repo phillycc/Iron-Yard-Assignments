@@ -30,6 +30,10 @@ header {
     height: 399px;
 }
 
+body{
+	font-family: serif;
+}
+
 h1 .headline {
 	color: #39474e;
 }

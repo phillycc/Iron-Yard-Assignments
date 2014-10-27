@@ -119,6 +119,7 @@ ul {
   padding: 0;
   list-style:none;
   position: relative;
+	z-index: -1;
 }
 ul::before {
   content: '';
@@ -129,6 +130,7 @@ ul::before {
   background: #58ff6e;
   left: 20%;
   margin-left: -10px;
+	z-index: -1;
 }
 .icon {
   margin-top: -65px;

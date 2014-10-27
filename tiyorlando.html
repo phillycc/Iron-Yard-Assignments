@@ -2,6 +2,20 @@
 	<head>
 		<title></title>
 		<link href="styles.css" rel="stylesheet" media="screen"/>
+		<script type="text/javascript">
+			window.onload = function(){
+					var start = new Date(2014,9,22);
+					var end = new Date();
+					var elapsed = (end.getTime() - start.getTime())/3600000;
+					var units = ' hours';
+					elapsed = Math.floor(elapsed);
+					if (elapsed > 23) {
+							elapsed = Math.floor(elapsed/24);
+							units = ' days';
+					}
+					document.getElementById("elapsed").innerHTML = elapsed + units;
+			}
+		</script>
 	</head>
 	<body>
 		<header>
@@ -36,7 +50,7 @@
 		        <a href="#">&#9829;</a>
 		        <a href="#">&#10226;</a>
 		        <a href="#">&#10506;</a>
-						<a id="txtTime" href="http://orlando.theironyard.com/post/100672003784/successful-orlando-tech-meetup-at-the-iron-yard">2 hours ago</a>
+						<a id="txtTime" href="http://orlando.theironyard.com/post/100672003784/successful-orlando-tech-meetup-at-the-iron-yard"><span id="elapsed"></elapsed></a>
 	      </nav>
 		  </article>
 		</section>

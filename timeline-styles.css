@@ -50,7 +50,7 @@ aside {
   margin-left: 8%;
   float:left;
 }
-aside h2 {
+aside h3 {
   margin-top: 0;
   font-size: 40px;
   font-style: normal;
@@ -58,23 +58,16 @@ aside h2 {
 aside p {
   margin-bottom: 0;
   text-align: right;
-  margin-right: 40%;
+  margin-right: 78px;
   color: #d3d3d3;
 }
-.oddAside {
-  color: #58ff6e;
-}
-.evenAside {
-  color: #47cc58;
-}
-
 section {
   width: 60%;
   margin-left: 25%;
   margin-top: 2%;
   padding: 1% 4% 4% 4%;
 }
-section h1 {
+section h4 {
   border-bottom: 1px solid #fff;
   padding-bottom: 2%;
   padding-top: ;
@@ -94,24 +87,38 @@ section::before {
   padding: 0;
   margin-top: -200px;
 }
-.oddSection{
-  background-color: #58ff6e;
+
+li:nth-child(odd) section{
+	background-color: #58ff6e;
 }
-.oddSection::before{
-  color: #58ff6e;
+li:nth-child(even) section{
+	background-color: #47cc58;
 }
-.evenSection{
-  background-color: #47cc58;
+li:nth-child(odd) section::before{
+	color: #58ff6e;
 }
-.evenSection::before{
-  color: #47cc58;
+li:nth-child(even) section::before{
+	color: #47cc58;
 }
+
+li:nth-child(odd) aside h3{
+	color: #58ff6e;
+}
+li:nth-child(even) aside h3{
+	color: #47cc58;
+}
+.oddAside {
+	color: #58ff6e;
+}
+.evenAside {
+	color: #47cc58;
+}
+
 ul {
   margin: 30px 0 0 0;
   padding: 0;
   list-style:none;
   position: relative;
-	z-index: 1;
 }
 ul::before {
   content: '';
@@ -122,7 +129,6 @@ ul::before {
   background: #58ff6e;
   left: 20%;
   margin-left: -10px;
-	z-index: 2;
 }
 .icon {
   margin-top: -65px;
@@ -135,20 +141,16 @@ ul::before {
   border: 8px solid #58ff6e;
   float: right;
   font-size: 12pt;
-	z-index: 3;
 }
 .fa.fa-mobile {
   margin: 7.5% 25%;
   color: white;
-	z-index: 4;
 }
 .fa.fa-desktop {
   margin: 26% 18%;
   color: white;
-	z-index: 4;
 }
 .fa.fa-hand-o-right {
   margin: 20% 21%;
   color: white;
-	z-index: 4;
 }

@@ -31,6 +31,16 @@ footer, header, hgroup, menu, nav, section {
 body {
   font-family: 'Open Sans', sans-serif;
 }
+header{
+  height: 75px;
+}
+header p{
+  margin-top: 20px;
+  margin-left: 8%;
+  font-size: 28pt;
+  font-weight: 700;
+  color: #47cc58;
+}
 #container {
   margin: 0 25px;
   padding: 0 10px;
@@ -56,4 +66,70 @@ aside p {
 }
 .evenAside {
   color: #47cc58;
+}
+
+section {
+  width: 60%;
+  margin-left: 25%;
+  margin-top: 2%;
+  padding: 1% 4% 4% 4%;
+}
+section h1 {
+  border-bottom: 1px solid #fff;
+  padding-bottom: 2%;
+  padding-top: ;
+  color: #fff;
+  font-size: 30px;
+  margin-bottom: 3%;
+}
+section p{
+  color: #fff;
+  font-size: 20px;
+}
+section::before {
+  content: '\25c0';
+  width: 10px;
+  font-size: 40px;
+  margin-left: -82px;
+  padding: 0;
+  margin-top: -200px;
+}
+.oddSection{
+  background-color: #58ff6e;
+}
+.oddSection::before{
+  color: #58ff6e;
+}
+.evenSection{
+  background-color: #47cc58;
+}
+.evenSection::before{
+  color: #47cc58;
+}
+ul {
+  margin: 30px 0 0 0;
+  padding: 0;
+  list-style:none;
+  position: relative;
+}
+ul::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1%;
+  background: #58ff6e;
+  left: 20%;
+  margin-left: -10px;
+}
+.icon {
+  margin-top: 0;
+  width: 40pt;
+  height: 40pt;
+  border-radius: 50%;
+  background-color: #47cc58;
+  text-align: center;
+  border: 8px solid #58ff6e;
+  float: right;
+  font-size: 12pt;
 }

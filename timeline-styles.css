@@ -111,6 +111,7 @@ ul {
   padding: 0;
   list-style:none;
   position: relative;
+	z-index: 1;
 }
 ul::before {
   content: '';
@@ -121,9 +122,11 @@ ul::before {
   background: #58ff6e;
   left: 20%;
   margin-left: -10px;
+	z-index: 2;
 }
 .icon {
-  margin-top: 0;
+  margin-top: -65px;
+	margin-left: 106px;
   width: 40pt;
   height: 40pt;
   border-radius: 50%;
@@ -132,4 +135,20 @@ ul::before {
   border: 8px solid #58ff6e;
   float: right;
   font-size: 12pt;
+	z-index: 3;
+}
+.fa.fa-mobile {
+  margin: 7.5% 25%;
+  color: white;
+	z-index: 4;
+}
+.fa.fa-desktop {
+  margin: 26% 18%;
+  color: white;
+	z-index: 4;
+}
+.fa.fa-hand-o-right {
+  margin: 20% 21%;
+  color: white;
+	z-index: 4;
 }

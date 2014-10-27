@@ -8,7 +8,7 @@ body {
 header{
   height: 75px;
 }
-header p{
+header h1{
   margin-top: 20px;
   margin-left: 8%;
   font-size: 28pt;
@@ -57,25 +57,25 @@ ul li a:before {
   padding-bottom:20px;
   color: #999;
 }
-section h1{
+section h3{
   border-bottom:1px solid #d3d3d3;
   margin-top:50px;
   padding-bottom:20px;
 }
-section h1 a{
+section h3 a{
   font-weight:100;
   font-size: 30pt;
   color: #47cc58;
   text-decoration:none;
 }
-section h1 a:before{
+section h3 a:before{
   content: "\2192";
   margin-right:20px;
   padding-bottom:20px;
   border-bottom:1px solid #d3d3d3;
   color: #d3d3d3;
 }
-section h1 a:hover:before{
+section h3 a:hover:before{
   content: "\2198";
   margin-right:20px;
   padding-bottom:20px;
@@ -85,17 +85,17 @@ section h1 a:hover:before{
 .subMenu{
    margin-left:30px;
 }
-h3 a{
+h4 a{
   color: #47cc58;
   text-decoration: none;
 }
-h3 a:before{
+h4 a:before{
   content: "\2192";
   margin-right:20px;
   color: #d3d3d3;
   text-decoration:none;
 }
-h3 a:hover:before{
+h4 a:hover:before{
   content: "\2198";
   margin-right:20px;
   padding-bottom:20px;

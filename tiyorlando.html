@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<title></title>
+		<link href="styles.css" rel="stylesheet" media="screen"/>
+		<script type="text/javascript">
+			window.onload = function(){
+					var start = new Date(2014,9,22);
+					var end = new Date();
+					var elapsed = (end.getTime() - start.getTime())/3600000;
+					var units = ' hours';
+					elapsed = Math.floor(elapsed);
+					if (elapsed > 23) {
+							elapsed = Math.floor(elapsed/24);
+							units = ' days';
+					}
+					document.getElementById("elapsed").innerHTML = elapsed + units;
+			}
+		</script>
+	</head>
+	<body>
+		<header>
+				<nav id="topNav">
+						<a href="https://www.tumblr.com/register/follow/tiyorlando">
+						<img src="http://33.media.tumblr.com/avatar_31b8d8bf579d_64.png" width="25" height="25" style="display: inline-block;"></a>
+						<a id="navFollow" href="https://www.tumblr.com/register/follow/tiyorlando"> + Follow tiyorlando</a>
+						<a id="navDash" href="https://www.tumblr.com/?referring_blog=tiyorlando">tumblr.</a>
+				</nav>
+		</header>
+		<nav id="logo"><a href="http://theironyard.com"><img src="http://static.tumblr.com/37ca133c1a84d5b7856c51a7682df3e9/w5gxxfv/6j4n8vkw8/tumblr_static_20mtuue2w17o0sksogs0c44cw.png"></a></nav>
+		<aside>
+			  <h1><a href="http://orlando.theironyard.com">The Iron Yard &nbsp;|<br/>Orlando</a></h1>
+			  <p class="txtSummary">Happenings and updates<br/>from The Iron Yard<br/>in Orlando, FL.</p>
+			  <hr>
+			  <p class="lblSearch">SEARCH</p>
+			  <form>
+					<input type="text" size="30">
+			  </form>
+		</aside>
+		<section>
+		  <article>
+				<h1><a href="http://orlando.theironyard.com/post/100672003784/successful-orlando-tech-meetup-at-the-iron-yard">Successful Orlando Tech Meetup at The Iron Yard!</a></h1>
+
+				<address>By Susanna Miller, Campus Director</address>
+
+				<p>A great turnout on Friday at The Iron Yard Orlando to hear Matt Wallaert - kudos to the Orlando Tech Association for putting the event together! There were 65 attendees, and a fantastics Q&A afterwards. Looking forward to future events and collaboration with the Orlando Tech Association!</p>
+
+				<p><img src="http://media.tumblr.com/e2250665076068f4f6a856187e14a00e/tumblr_inline_nduqyizSQT1t311sy.jpg"></p>
+
+				<nav id="share">
+		        <a href="#">&#9829;</a>
+		        <a href="#">&#10226;</a>
+		        <a href="#">&#10506;</a>
+						<a id="txtTime" href="http://orlando.theironyard.com/post/100672003784/successful-orlando-tech-meetup-at-the-iron-yard"><span id="elapsed"></span></a>
+	      </nav>
+		  </article>
+		</section>
+  </body>
+</html>

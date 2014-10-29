@@ -1,0 +1,28 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #999;
+}
+ul {
+  list-style-type: none;
+  margin: 0; padding: 0;
+}
+
+ul li {
+  border-bottom: 3pt solid #47a3da;
+  margin: 0; padding: 0;
+  padding: 2ex 0; padding-left: 3em;
+  font-weight: 700;
+  font-size: 13pt;
+}
+
+.open {
+  background-color: #47a3da;
+}
+
+.open h3 {
+  color: #afdefa;
+}
+
+.menuItems li {
+  color: #fff;
+}

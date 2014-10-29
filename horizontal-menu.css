@@ -1,28 +1,47 @@
-body {
+html, body {
   font-family: 'Open Sans', sans-serif;
   color: #999;
+}
+h1,h2,h3,h4,h5,h6 {
+  margin: 0; padding: 0;
+  color: inherit;
+  font-size: 13pt;
 }
 ul {
   list-style-type: none;
   margin: 0; padding: 0;
 }
-
+li {
+  padding: .5ex 0;
+}
 ul li {
-  border-bottom: 3pt solid #47a3da;
   margin: 0; padding: 0;
-  padding: 2ex 0; padding-left: 3em;
   font-weight: 700;
-  font-size: 13pt;
+  font-size: 11pt;
 }
-
-.open {
-  background-color: #47a3da;
+.menu ul{
+  margin: 1ex 0;
 }
-
-.open h3 {
+.menu > li {
+  margin: 0;
+  padding: 2ex 0; padding-left: 3em;
+  border-bottom: 3pt solid #47a3da;
+}
+.menu h4 {
+  font-size: 120%;
+  font-weight: 100;
   color: #afdefa;
+  line-height: 3ex;
 }
+.open {
+  background: #47a3da;
+  color: #fff;
+}
+.open h3 {
+  color: #fff;
+  margin-bottom: 3ex;
 
+}
 .menuItems li {
   color: #fff;
 }

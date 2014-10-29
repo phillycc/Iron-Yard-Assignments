@@ -5,17 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css">
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400,600'  type='text/css'>
-    <link rel='stylesheet' href='http://cdn.jsdelivr.net/typeplate/1.1.2/typeplate.min.css'>
+    <link rel='stylesheet' href='typeplate.css'>
     <link rel="stylesheet" href="horizontal-menu.css">
   </head>
   <body>
       <ul class="menu">
-          <li>Products</li>
-          <li>Downloads</li>
-          <li>Applications</li>
-          <li>Projects</li>
-          <li>Freeware</li>
+          <li class="open">
+            <h3>Products</h3>
+              <div class="subMenu">
+                <h4>Learning &amp; Games</h4>
+                <ul>
+                    <li>Catch the Bullet</li>
+                    <li>Snoopydoo</li>
+                    <li>Fallen Angel</li>
+                    <li>Sui Maker</li>
+                    <li>Wave Master</li>
+                    <li>Golf Pro</li>
+                </ul>
+                <h4>Utilities</h4>
+                <ul>
+                    <li>Gadget Finder</li>
+                    <li>Green Tree Express</li>
+                    <li>Green Treen Pro</li>
+                    <li>Wobbler 3.0</li>
+                    <li>Coolkid</li>
+                </ul>
+                <h4>Education</h4>
+                <ul>
+                    <li>Learn Thai</li>
+                    <li>Math Genuis</li>
+                    <li>Chemokid</li>
+                </ul>
+                <h4>Professionals</h4>
+                <ul>
+                    <li>Succes 1.0</li>
+                    <li>Moneymaker</li>
+                </ul>
+              </div>
+          </li>
+          <li><h3>Downloads</h3></li>
+          <li><h3>Applications</h3></li>
+          <li><h3>Projects</h3></li>
+          <li><h3>Freeware</h3></li>
       </ul>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
       <script src="horizontal-menu.js"></script>
+      <script>
+        var navItems = document.getElementsByTagName('h3');
+        _.each(navItems, function(navItem){
+          // attach the event handler...
+          navItem.onclick = clickNavItem;
+        });
+      </script>
+
+
   </body>
 </html>

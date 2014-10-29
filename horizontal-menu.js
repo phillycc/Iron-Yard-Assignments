@@ -8,12 +8,12 @@
  * @return undefined
  */
 function clickNavItem(event){
-   if (isClosed(navItem.parentElement)){
+   if (isClosed(this.parentElement)){
      makeEverythingClosed(navItems);
-     makeItOpen(navItem.parentElement);
+     makeItOpen(this.parentElement);
      //otherwise if this navItem is open
-   } else if (isOpen(navItem.parentElement)){
-     makeItClosed(navItem.parentElement);
+   } else if (isOpen(this.parentElement)){
+     makeItClosed(this.parentElement);
    }
 };
 
@@ -43,6 +43,6 @@ function makeItClosed(element){
 
 function makeEverythingClosed(elements){
   _.each(elements, function(element){
-    element.className = '';
+    element.parentElement.className = '';
   });
 }

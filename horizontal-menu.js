@@ -8,41 +8,55 @@
  * @return undefined
  */
 function clickNavItem(event){
+
    if (isClosed(this.parentElement)){
-     makeEverythingClosed(navItems);
+     // Closes all of the parent elements (li) of the H3s (could use map, too)
+     makeEverythingClosed(_.pluck(navItems, 'parentElement'));
      makeItOpen(this.parentElement);
-     //otherwise if this navItem is open
    } else if (isOpen(this.parentElement)){
      makeItClosed(this.parentElement);
    }
 };
 
 /**
- * @param HTMLElement element
+ * @param HTMLElement htmlElement
  * @return Boolean if `element` is "open"
  */
-function isOpen(element){
-  return (element.className === 'open') ? true : false;
+function isOpen(htmlElement){
+  return (htmlElement.className === 'open');
 }
 
 /**
- * @param HTMLElement element
+ * @param HTMLElement htmlElement
  * @return Boolean if `element` is "closed"
  */
-function isClosed(element){
-  return (element.className === '') ? true : false;
+function isClosed(htmlElement){
+  return !isOpen(htmlElement);
 }
 
-function makeItOpen(element){
-  element.className = 'open';
+/**
+ * @param HTMLElement htmlElement
+ * @return undefined
+ */
+function makeItOpen(htmlElement){
+  htmlElement.className = 'open';
 }
 
-function makeItClosed(element){
-  element.className = '';
+/**
+ * @param HTMLElement htmlElement
+ * @return undefined
+ */
+function makeItClosed(htmlElement){
+  htmlElement.className = '';
 }
 
+/**
+ * @param Collection elements
+ * @return undefined
+ */
 function makeEverythingClosed(elements){
-  _.each(elements, function(element){
-    element.parentElement.className = '';
-  });
+  return _.each(elements, makeItClosed);
+  //_.each(elements, function(element){
+  //  makeItClosed(element.parentElement);
+  //});
 }

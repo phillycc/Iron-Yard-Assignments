@@ -27,6 +27,11 @@ ul li {
   padding: 2ex 0; padding-left: 3em;
   border-bottom: 3pt solid #47a3da;
 }
+.menu > li:after {
+  content "";
+  display: block;
+  clear: both;
+}
 .menu > li .submenu {
   display: none;
 }
@@ -50,4 +55,28 @@ ul li {
 }
 .menuItems li {
   color: #fff;
+}
+.clearfix {
+  clear: both;
+}
+
+@media (min-width: 600px){
+  .submenu > * {
+    float: left;
+  }
+}
+
+@media (min-width: 800px){
+  ul {
+    position: relative;
+  }
+  ul.menu > li {
+    float: left;
+  }
+  .submenu {
+    background-color: inherit;
+    position: absolute;
+    left: 0; right: 0;
+    top: 8ex;
+  }
 }

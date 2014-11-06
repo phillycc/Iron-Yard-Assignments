@@ -1,0 +1,82 @@
+html, body {
+  font-family: 'Open Sans', sans-serif;
+  color: #999;
+}
+h1,h2,h3,h4,h5,h6 {
+  margin: 0; padding: 0;
+  color: inherit;
+  font-size: 13pt;
+}
+ul {
+  list-style-type: none;
+  margin: 0; padding: 0;
+}
+li {
+  padding: .5ex 0;
+}
+ul li {
+  margin: 0; padding: 0;
+  font-weight: 700;
+  font-size: 11pt;
+}
+.menu ul{
+  margin: 1ex 0;
+}
+.menu > li {
+  margin: 0;
+  padding: 2ex 0; padding-left: 3em;
+  border-bottom: 3pt solid #47a3da;
+}
+.menu > li:after {
+  content "";
+  display: block;
+  clear: both;
+}
+.menu > li .submenu {
+  display: none;
+}
+.menu > li.open .submenu {
+  display: block;
+}
+.menu h4 {
+  font-size: 120%;
+  font-weight: 100;
+  color: #afdefa;
+  line-height: 3ex;
+}
+.open {
+  background: #47a3da;
+  color: #fff;
+}
+.open h3 {
+  color: #fff;
+  margin-bottom: 3ex;
+
+}
+.menuItems li {
+  color: #fff;
+}
+.clearfix {
+  clear: both;
+}
+
+@media (min-width: 600px){
+  .submenu > * {
+    float: left;
+  }
+}
+
+@media (min-width: 800px){
+  ul {
+    position: relative;
+  }
+  ul.menu > li {
+    float: left;
+  }
+  .submenu {
+    background-color: inherit;
+    position: absolute;
+    left: 0; right: 0;
+    top: 8ex;
+  }
+}

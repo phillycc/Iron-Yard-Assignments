@@ -1,0 +1,85 @@
+body, html {
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: Arimo, serif;
+  color: #47a3da;
+}
+#container {
+    width: 80%; margin: auto;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.accordion {
+  padding-left: 0;
+}
+.accordion h3 {
+  margin: 0 0 0.3em;
+  padding: 1em 0 0.5em;
+  border-bottom: 1px solid #ddd;
+  font-size: 2em;
+  font-weight: 200;
+}
+
+.accordion h3:before,
+.accordion h4:before {
+  padding-right: .5em;
+}
+
+.accordion h3:before {
+  content: '\02192';
+}
+.accordion h3:hover:before {
+  content: '\02198';
+}
+
+.accordion h4 {
+  font-size: 1.1em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding-top: 0.5em;
+  margin-botom: 0.5em;
+}
+
+.accordion h4:before {
+  content: '\2A01';
+  color: #d3d3d3;
+}
+.accordion h4:hover:before {
+  content: '\2A01';
+  color: #47a3da;
+}
+
+.accordion li > :first-child ~ * {
+  display: none;
+}
+.accordion li.accordion-open > :first-child ~ * {
+  display: block;
+}
+
+.accordion li p {
+  color: #a8a8a8;
+  font-size: 1.25em;
+  font-weight: 100;
+  line-height: 1.5;
+  padding: 0.2em 0 0.7em 0;
+  margin: 0;
+}
+
+@media (max-width: 512px) {
+  .accordion h3 {
+    font-size: 1.5em;
+    font-weight: 100;
+  }
+  .accordion li p {
+    font-size: 1em;
+    font-weight: 100;
+  }
+  .accordion h4 {
+    font-size: 0.9em;
+  }
+}

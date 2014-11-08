@@ -1,0 +1,13 @@
+body > .container > * {outline: 1px solid red;}
+
+body {
+  font-family: {Helvetica, Arial, Verdana, Sans-Serif;}
+}
+
+.bio > li {
+  display: list-item;
+}
+
+.stats > li {
+  display: inline;
+}

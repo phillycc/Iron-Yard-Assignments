@@ -11,3 +11,28 @@ body {
 .stats > li {
   display: inline;
 }
+
+#btnFollow {
+  margin-top: -5ex;
+}
+
+#panelRepos, #panelActivity {
+  border-color: #fff;
+}
+
+#subNavRepos {
+  background-color: #fff;
+  border-top-color: transparent;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-right-color: transparent;
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-left-color: transparent;
+  border-left-style: solid;
+  border-left-width: 1px;
+}
+
+#repositories .row {
+  margin:0;
+}

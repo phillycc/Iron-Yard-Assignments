@@ -4,16 +4,85 @@ body {
   font-family: {Helvetica, Arial, Verdana, Sans-Serif;}
 }
 
+/******* Navigtion Styles ************/
+
+.octicon-logo-github {
+  color:#000;
+}
+
+#navLinks li > a {
+  font-weight: bold;
+  color:#000;
+}
+
+input[type=text] {
+  display: block;
+  padding:0;
+  line-height:12px;
+  width: 100%;
+  font-family: sans-serif;
+  font-size: 12px;
+  appearance: none;
+  box-shadow: none;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+
+/********* Sidebar Styles ************/
+
+img{
+  border:1px solid #;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+
 .bio > li {
   display: list-item;
 }
 
-.stats > li {
-  display: inline;
+.github-stats {
+  margin-bottom: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+#followers,#starred,#following{
+  text-decoration: none;
+}
+
+.stat {
+  float: left;
+  width: 33.333%;
+  font-size: 11px;
+  text-transform: capitalize;
+}
+
+.stat-count{
+  display: block;
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.stat-label{
+  color: #999;
+}
+
+/********* Main Styles ************/
+
+
+#repoTabs{
+  margin-bottom:3ex;
 }
 
 #btnFollow {
-  margin-top: -5ex;
+  margin-top: -8ex;
+  line-height: 12px;
 }
 
 #panelRepos, #panelActivity {
@@ -35,4 +104,34 @@ body {
 
 #repositories .row {
   margin:0;
+}
+
+.repoItem {
+  line-height:20px;
+  margin:0;
+  padding:0.5em 1em;
+}
+
+.repoItem a {
+  text-decoration: none;
+}
+
+.repoIcon {
+  float: left; width: 5%; margin-top:0.4ex;color: #777;
+}
+
+.repoInfo {
+  float: left; width: 85%;color: #777;
+}
+
+.repoInfo strong {
+  color: #4183c4;
+}
+
+.repoStars {
+  float: left; width: 10%;text-align:right;margin-top:10px;color: #777;
+}
+
+.panel-heading {
+  font-weight: bold;
 }

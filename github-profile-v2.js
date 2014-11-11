@@ -1,5 +1,19 @@
 //Call ajax function on page load
 $(function() {
+      $.get("https://api.github.com/users/phillycc", function(data) {
+        alert( "success" );
+      })
+      .done(function() {
+        alert( "second success" );
+      })
+      .fail(function() {
+        alert( "error" );
+      })
+      .always(function() {
+        alert( "finished" );
+      });
+
+
     $.ajax({
   			"url":"https://api.github.com/users/phillycc",
   			"dataType":"json",

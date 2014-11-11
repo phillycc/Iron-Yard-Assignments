@@ -4,7 +4,7 @@
 
 Used for creating resources, or performing custom actions (such as merging a pull request).
 
-***javascript
+***
 
 $ curl -H "Time-Zone: Europe/Amsterdam" -X POST https://api.github.com/repos/github/linguist/contents/new_file.md
 
@@ -26,7 +26,7 @@ POST /repos/:owner/:repo/git/refs
 
 Used for retrieving resources returned as an array.
 
-***javascript
+***
 
 auth_result = JSON.parse(RestClient.get('https://api.github.com/user',
                                         {:params => {:access_token => access_token}}))
@@ -36,7 +36,7 @@ if has_user_email_scope
     JSON.parse(RestClient.get('https://api.github.com/user/emails',
                               {:params => {:access_token => access_token}}))
 
-# GET /users/defunkt
+\# GET /users/defunkt
 $ curl https://api.github.com/users/defunkt
 
 GET /repos/:owner/:repo/git/commits/:sha
@@ -47,7 +47,7 @@ GET /repos/:owner/:repo/git/commits/:sha
 
 Used for updating existing resources (e.g., files, collections) and requires user authentication.
 
-***javascript
+***
 
 PUT /repos/:owner/:repo/contents/:path
 
@@ -61,7 +61,7 @@ PUT /user/starred/:owner/:repo
 
 Used for deleting resources (e.g., files) and requires admin access.
 
-***javascript
+***
 
 DELETE /user/following/:username
 

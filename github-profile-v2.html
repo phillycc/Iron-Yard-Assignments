@@ -47,10 +47,10 @@
     		<a id="avatar"><img width="230" height="230"></a>
     		<h3><span></span><br/><small></small></h3>
         <ul class="bio list-unstyled">
-          <li id="location"><span class="octicon octicon-location"></span><small></small></li>
-          <li id="email"><span class="octicon octicon-mail"></span><a>davelmer</a></li>
+          <li id="location"><span class="octicon octicon-location"></span><small>{{location}}</small></li>
+          <li id="email"><span class="octicon octicon-mail"></span><a href="mailto:{{email}}">{{email}}</a></li>
           <!--<li id="blog" class="octicon octicon-link"> {{blog}}</li>-->
-          <li id="joined"><span class="octicon octicon-clock"></span><small></small></li>
+          <li id="joined"><span class="octicon octicon-clock"></span><small>{{created_at}}</small></li>
         </ul>
 				<div class="github-stats">
 	        <a href="https://github.com/phillycc/followers" id="followers" class="stat">
@@ -180,6 +180,7 @@
 					</div>
     	</main>
     </div> <!-- /container -->
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 		<script src="github-profile-v2.js"></script>

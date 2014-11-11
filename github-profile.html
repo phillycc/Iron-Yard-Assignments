@@ -181,7 +181,29 @@
     	</main>
     </div> <!-- /container -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+		<script>
+			 $('main').each(function(){
+		     	var tabs = $(this).find('.nav.nav-tabs a').click(function(event){
+							// Add "active" class to parent <li>
+							$(this).parent().addClass('active');
+
+							// Remove "active" class from other <li>'s
+							$(this).parent().siblings().removeClass('active');
+
+							var getTabID = $(this).attr('href');
+
+							// Reveal corresponding "tab" section
+							$(getTabID).addClass('active');
+
+							// Hide other "tab" sections
+							$(getTabID).siblings('.tab-pane').removeClass('active');
+
+							// Keeps hash tag id from showing up in browser
+							return false;
+					});
+
+		   });
+		</script>
 		<script src="github-profile.js"></script>
 	</body>
 </html>

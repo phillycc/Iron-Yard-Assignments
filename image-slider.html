@@ -8,9 +8,23 @@
     <link href="image-slider.css" rel="stylesheet">
   </head>
   <body>
-
-
+    <div class="container">
+    <h1>Full Width Image Slider</h1>
+    <section id="slider">
+      <ul id="slides">
+        <li class="slide"><a href="#"><img src="grumpy-1.jpg"></a></li>
+        <li class="slide"><a href="#"><img src="grumpy-2.jpg"></a></li>
+        <li class="slide"><a href="#"><img src="grumpy-3.jpg"></a></li>
+        <li class="slide"><a href="#"><img src="grumpy-4.jpg"></a></li>
+        <li class="slide"><a href="#"><img src="grumpy-5.jpg"></a></li>
+      </ul>
+    </div>
+    <nav>
+      <span class="button-next" style="display: block;"><</span>
+      <span class="button-preview" style="display: block;">></span>
+    </nav>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
     <script src="image-slider.js"></script>
   </body>
 </html>

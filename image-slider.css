@@ -1,0 +1,53 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+body {
+  font-family: 'Lato', Calibri, Arial, sans-serif;
+  background: #fff;
+}
+
+h1 {
+  color: #47a3da;
+  padding: 1ex 0 2ex 0;
+}
+
+#slider {
+  width: 400px;
+  height: 400px;
+  overflow: hidden;
+  float:none;
+  margin:0 auto;
+}
+
+#slider .slides {
+  display: block;
+  width: 400px;
+  height: 400px;
+  margin: 0;
+  padding: 0;
+}
+
+#slider .slide {
+  float: left;
+  list-style-type: none;
+  width: 400px;
+  height: 400px;
+}
+
+nav span {
+  position: absolute;
+  top: 50%;
+  width: 50px;
+  height: 100px;
+  background: #47a3da;
+  color: #fff;
+  font-size: 50px;
+  text-align: center;
+  margin-top: -50px;
+  line-height: 100px;
+  cursor: pointer;
+  font-weight: normal;
+}
+
+nav span.btnNextRight {
+  right: 0px;
+}

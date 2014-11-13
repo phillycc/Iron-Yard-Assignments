@@ -10,44 +10,42 @@ h1 {
   padding: 1ex 0 2ex 0;
 }
 
-#slider {
-  width: 400px;
-  height: 400px;
-  overflow: hidden;
-  float:none;
-  margin:0 auto;
+.slider {
+  position: relative;
 }
-
-#slider .slides {
-  display: block;
-  width: 400px;
-  height: 400px;
-  margin: 0;
-  padding: 0;
+.slider > .buttons {
+  position: absolute; z-index: 1;
+  width: 100%; top: 25%;
 }
-
-#slider .slide {
+.slider > .buttons > a:first-child {
   float: left;
-  list-style-type: none;
-  width: 400px;
-  height: 400px;
 }
-
-nav span {
+.slider > .buttons > a:last-child {
+  float: right;
+}
+.slider .slides {
+  overflow: hidden;
+  white-space: nowrap;
+}
+.slider .slides > li {
+  display: inline-block;
+  transition: margin-left 2s ease;
+  width: 100%;
+}
+.slider .bullets {
   position: absolute;
-  top: 50%;
-  width: 50px;
-  height: 100px;
-  background: #47a3da;
-  color: #fff;
-  font-size: 50px;
+  bottom: 10%; top: auto;
+  width: 100%;
+  font-size: 300%; height: 25%;
   text-align: center;
-  margin-top: -50px;
-  line-height: 100px;
-  cursor: pointer;
-  font-weight: normal;
+  background-color: rgba(66,66,66,0.5);
 }
-
-nav span.btnNextRight {
-  right: 0px;
+.slider .slides > li.exit {
+  margin-left: -100%;
+}
+.slider .bullets {
+  line-height: 150%;
+}
+.slider .bullets .active {
+  font-size: 150%;
 }

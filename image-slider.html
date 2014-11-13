@@ -5,47 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Full Width Image Slider</title>
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <!--<link href="image-slider.css" rel="stylesheet">-->
-    <style>
-      .slides {
-        position: relative;
-      }
-      .slider > nav {
-        postion: absolute;
-        wdth: 100%;
-        height: 100%;
-        margin: 25% 0;
-        top: 25%;
-        z-index: 1;
-      }
-      .slider > nav > a:first-child {
-        float: left;
-      }
-      .slider > nav > a:last-child {
-        float: right;
-      }
-      .slider > .slides {
-        overflow: hidden;
-        white-space: nowrap;
-      }
-      .slider > .slides > li {
-        display: inline-block;
-        width: 100%;
-        transition: margin-left 2s ease;
-      }
-      .slider > .slides > li .thumbnail {
-        position: absolute;
-        width: 100%;
-      }
-      .slider .bullets {
-        position: absolute;
-      }
-      .slider .slides > li.exit {
-
-      }
-    </style>
+    <link href="image-slider.css" rel="stylesheet">
   </head>
-  <body>    
+  <body>
     <div class="container-fluid">
       <h1>Full Width Image Slider</h1>
       <div class="slider">
@@ -65,33 +27,12 @@
         </nav>
       </div> <!-- .slider -->
     </div>
-
-
-<!--
-jQuery .prop()
-Get the value of a property for the first element in the set of matched elements
-or set one or more properties for every matched element.
-
-_.template(clone.html(), image: {src: //path.to/image.jpg} })
--->
-
-    <!--<section id="slider">
-      <ul id="slides">
-        <li class="slide"><a href="#"><img src="grumpy-1.jpg"></a></li>
-        <li class="slide"><a href="#"><img src="grumpy-2.jpg"></a></li>
-        <li class="slide"><a href="#"><img src="grumpy-3.jpg"></a></li>
-        <li class="slide"><a href="#"><img src="grumpy-4.jpg"></a></li>
-        <li class="slide"><a href="#"><img src="grumpy-5.jpg"></a></li>
-      </ul>
-    </div>
-    <nav>
-      <span class="button-next" style="display: block;"><</span>
-      <span class="button-preview" style="display: block;">></span>
-    </nav>-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
-    <!--<script src="image-slider.js"></script>-->
+    <script src="image-slider.js"></script>
     <script>
+      /*
        _.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
       // use semi-colon to make explicit end of statement in JS
       ;(function(){
@@ -100,9 +41,7 @@ _.template(clone.html(), image: {src: //path.to/image.jpg} })
             $slideTpl = _.template($slide.html()),
             $bullets = $('.bullets'),
             $bullet = $($('template', $bullets).prop('content').children)
-
         //console.log(slide,slideTpl({image: {src: '//path.to/image.jpg'}}))
-
         var images = [
           {src: "1.jpg"}
           {src: "2.jpg"}
@@ -110,16 +49,12 @@ _.template(clone.html(), image: {src: //path.to/image.jpg} })
           {src: "4.jpg"}
           {src: "5.jpg"}
         ]
-
         _.each(image, function(image){
           $slide.clone().html(slideTpl({image:image})).appendTo($slides);
 
-          $bullets
         })
-
         //_.template(clone.html(), image: {src: '//path.to/image.jpg'} })
-
-      })();
+      })();*/
     </script>
   </body>
 </html>

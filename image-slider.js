@@ -1,3 +1,6 @@
+
+// use semi-colon to make explicit end of statement in JS
+
 ;(function(){ // CLOSURE
   var images = [
     { src: 'grumpy-1.jpg' },
@@ -13,6 +16,7 @@
       $buttons = $('.buttons'),
       $bullets = $('.bullets'),
       $bullet = $($('template', $bullets).prop('content').children);
+      //console.log($slide,slideTpl({image: {src: '//path.to/image.jpg'}}))
   /**
    * Dynamically create images / bullets...
    */
@@ -55,7 +59,7 @@
    * @element .slider .slides > li
    */
   $('.slider').on('enter', '.slides > li', function(event){
-    // TODO: What goes here?
+    $(this).removeClass('exit');
     return false;
   });
   /**

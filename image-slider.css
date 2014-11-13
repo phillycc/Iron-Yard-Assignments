@@ -38,7 +38,6 @@ h1 {
   width: 100%;
   font-size: 300%; height: 25%;
   text-align: center;
-  background-color: rgba(66,66,66,0.5);
 }
 .slider .slides > li.exit {
   margin-left: -100%;

@@ -16,7 +16,7 @@
       $buttons = $('.buttons'),
       $bullets = $('.bullets'),
       $bullet = $($('template', $bullets).prop('content').children);
-      //console.log($slide,slideTpl({image: {src: '//path.to/image.jpg'}}))
+      console.log($bullets)
   /**
    * Dynamically create images / bullets...
    */
@@ -67,6 +67,9 @@
    * @element .bullets
    */
   $bullets.on('activate', function(event, index){
+      //console.log(index);
+      //debugger;
+
       $($(this).children()
         .removeClass('active')
         .get(index)

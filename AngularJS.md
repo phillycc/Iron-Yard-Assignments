@@ -110,7 +110,7 @@ The ngDblclick directive allows you to specify custom behavior on a dblclick eve
 
 #### ngForm (ng-form)
 ```
-Groups form controls, but is not meant to serve as a replacement for the <form> tag with all of its capabilities.
+Groups form controls, but is not meant to serve as a replacement for the <form> tag with all of its capabilities. This directive can be nested, unlike <form>.
 
 As element:
 <ng-form [name="someForm"]> ... </ng-form>
@@ -149,4 +149,126 @@ Instantiates a template once per item from a collection, looping through the col
 Enables binding angular expressions to form onsubmit events. Also, prevents the default action if the form does not contain a defined action attribute.
 
 <form ng-submit="submit()" ng-controller="ExampleController"> ... </form>
+```
+
+#### form
+```
+An HTML element that when used together with ngController functions in accordance with the business logic defined in the model component that the controller references.
+
+<form name="myForm" ng-controller="FormController" class="my-form"> .. </form>
+```
+
+#### input
+```
+HTML input element control when assigned to ngModel provides data-binding, input state control, and validation.
+
+<input
+  ng-model=""
+  [name=""]
+  [required=""]
+  [ng-required=""]
+  [ng-minlength=""]
+  [ng-maxlength=""]
+  [ng-pattern=""]
+  [ng-change=""]
+  [ng-trim=""]>
+  ...
+</input>
+```
+
+#### select
+```
+HTML input element control when assigned to ngModel provides data-binding. Other optional arguments, such as required and ngRequired, allow for form validation, while ngOptions can be used in place of <option> especially when bound to a non-string value.
+
+<select
+  ng-model=""
+  [name=""]
+  [required=""]
+  [ng-required=""]
+  [ng-options=""]>
+  ...
+</select>
+```
+
+#### textarea
+```
+HTML input element control when assigned to ngModel provides data-binding, state control, and validation.
+
+<textarea
+  ng-model=""
+  [name=""]
+  [required=""]
+  [ng-required=""]
+  [ng-minlength=""]
+  [ng-maxlength=""]
+  [ng-pattern=""]
+  [ng-change=""]
+  [ng-trim=""]>
+  ...
+</textarea>
+```
+
+#### ngBlur
+```
+Specifies custom behavior on blur event, which fires when an element has lost focus.
+
+<window, input, select, textarea, a ng-blur="">
+  ...
+</window, input, select, textarea, a >
+```
+
+#### ngChange
+```
+Evaluates the given expression only when a change in the input value causes a new value to be committed to the model.
+
+<input ng-change="">
+  ...
+</input>
+```
+
+#### ngChecked
+```
+Binds a boolean state of checked on input type checkbox that is otherwise lost by the browser when it removes the attribute.
+
+<input ng-checked="">
+...
+</input>
+```
+
+#### ngFocus
+```
+Specifies custom behavior on focus event, which fires when an element gets focus.
+
+<window, input, select, textarea, a ng-focus="">
+  ...
+</window, input, select, textarea, a >
+```
+
+### Services
+
+#### $controller
+```
+Responsible for instantiating controllers and is just a simple call to $injector, but extracted into a service.
+
+$controller(constructor, locals);
+```
+
+#### $http
+```
+Facilitates communication with the remote HTTP servers via the browser's XMLHttpRequest object or via JSON.
+The $http API is based on the deferred/promise APIs exposed by the $q service.
+
+$http.get('/someUrl').
+  success(function(data, status, headers, config) {
+    ...
+  }).
+});
+```
+
+#### $interpolate
+```
+Compiles a string with markup into an interpolation function. This service is used by the HTML $compile service for data binding.
+
+var exp = $interpolate('{{greeting}} {{name}}!');
+expect(exp(context)).toEqual('Hello !');
 ```

@@ -14,16 +14,17 @@
         user.starred = data;
       });
 
-      $http.get('https://api.github.com/users/phillycc/repos').success(function(data){
-         user.repos = data;
+     $http.get('https://api.github.com/users/phillycc/repos').success(function(data){
+        user.repos = data;
 
-         if(user.repos.fork){
-             user.repos.icon = "<span class='octicon octicon-repo-forked'></span>";
-         } else {
-             user.repos.icon = "<span class='octicon octicon-repo'></span>";
-         }
+        angular.forEach(user.repos, function(repo) {
+          if (repo.fork){
+            repo.icon = "-forked";
+          } else {
+            repo.icon = "";
+          }
+        });
       });
-
    }]);
 
 })();

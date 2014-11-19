@@ -88,7 +88,7 @@
 												  <ul id="repoItems" class="list-group">
 														<li class="repoItem list-group-item" ng-repeat="repo in user.repos">
 															<a href="{{repo.html_url}}">
-																<div class="repoIcon">{{user.repos.icon}}</div>
+																<div class="repoIcon"><span class='octicon octicon-repo{{repo.icon}}'></span></div>
 																<div class="repoInfo"><strong>{{repo.name}}</strong>
 																<br/>{{repo.description | limitTo : 37}}</div>
 																<div class="repoStars">0 <span class='octicon octicon-star'></span></div><br style="clear: left;" />

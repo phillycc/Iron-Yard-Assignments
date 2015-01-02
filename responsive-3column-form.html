@@ -1,0 +1,79 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Responsive Multi-Column Form</title>
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="responsive-3column-form.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <header>
+          <h1>Responsive Multi-Column Form</h1>
+      </header>
+      <div class="row">
+          <form id="frmResponsive" method="POST" action="#">
+            <section class="col-md-4 col-sm-6">
+                <label for="txtFirstName">First Name</label>
+  	  					<input type="text" id="txtFirstName" name="txtFirstName" placeholder="Jonathan" required>
+  	  					<label for="txtLastName">Last Name</label>
+  	  					<input type="text" id="txtLastName" name="txtLastName" placeholder="Doe" required>
+  	  					<label for="txtEmail">Email Address</label>
+  	  					<input type="email" id="txtEmail" name="txtEmail" placeholder="jon@doe.com" required>
+  	  					<label for="selCountry">Country</label>
+  	  					<select id="selCountry" name="selCountry">
+    	  						<option>Choose a country</option>
+    	  						<option>United States</option>
+    	  						<option>Canada</option>
+                    <option>Mexico</option>
+  	  					</select>
+  	  					<label for="txtaBio">Biography</label>
+  	  					<textarea id="txtaBio" name="txtaBio"></textarea>
+            </section>
+            <section class="col-md-4 col-sm-6">
+                <label for="txtPhone">Phone Number</label>
+  	  					<input type="phone" id="txtPhone" name="txtPhone" placeholder="+351 999 999" required>
+    						<label for="txtaAffiliations">Affiliations</label>
+  	  					<textarea id="txtaAffiliations" name="txtaAffiliations"></textarea>
+  	  					<label>Occupation</label>
+  	  					<select id="selOccupation" name="selOccupation">
+    	  						<option>Choose an occupation</option>
+    	  						<option>Web Designer</option>
+    	  						<option>Web Developer</option>
+    	  						<option>Hybrid</option>
+  	  					</select>
+  	  					<label for="txtCatName">Cat's name</label>
+  	  					<input type="text" id="txtCatName" name="txtCatName" placeholder="Kitty">
+  	  					<label for="txtGagdet">Favorite Gadget</label>
+  	  					<input type="text" id="txtGagdet" name="txtGagdet" placeholder="Annoy-a-tron">
+            </section>
+            <section class="col-md-4 col-sm-12">
+                <label>Type of Talent</label>
+  	  					<select id="selTalent" name="selTalent">
+    	  						<option>Choose a talent</option>
+    	  						<option>Ninja silence</option>
+    	  						<option>Sumo power</option>
+    	  						<option>Samurai precision</option>
+  	  					</select>
+    						<label for="txtDrink">Favorite Drink</label>
+  	  					<input type="text" id="txtDrink" name="txtDrink" placeholder="Green Tea">
+  	  					<label for="txtPower">Special power</label>
+  	  					<input type="text" id="txtPower" name="txtPower" placeholder="Anti-gravity">
+  	  					<label for="txtWeapon">Weapon of choice</label>
+  	  					<input type="text" id="txtWeapon" name="txtWeapon" placeholder="Lightsaber">
+  	  					<label for="txtaComments">Comments</label>
+  	  					<textarea id="txtaComments" name="txtaComments"></textarea>
+            </section>
+            <section class="button col-sm-12">
+               <button type="submit" class="btn btn-primary btn-lg">Send Your Data</button>
+            </section>
+        </form>
+      </div>
+      <footer></footer>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+    <script src="responsive-3column-form.js"></script>
+  </body>
+</html>

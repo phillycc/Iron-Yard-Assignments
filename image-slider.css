@@ -1,0 +1,50 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+body {
+  font-family: 'Lato', Calibri, Arial, sans-serif;
+  background: #fff;
+}
+
+h1 {
+  color: #47a3da;
+  padding: 1ex 0 2ex 0;
+}
+
+.slider {
+  position: relative;
+}
+.slider > .buttons {
+  position: absolute; z-index: 1;
+  width: 100%; top: 25%;
+}
+.slider > .buttons > a:first-child {
+  float: left;
+}
+.slider > .buttons > a:last-child {
+  float: right;
+}
+.slider .slides {
+  overflow: hidden;
+  white-space: nowrap;
+}
+.slider .slides > li {
+  display: inline-block;
+  transition: margin-left 2s ease;
+  width: 100%;
+}
+.slider .bullets {
+  position: absolute;
+  bottom: 10%; top: auto;
+  width: 100%;
+  font-size: 300%; height: 25%;
+  text-align: center;
+}
+.slider .slides > li.exit {
+  margin-left: -100%;
+}
+.slider .bullets {
+  line-height: 150%;
+}
+.slider .bullets .active {
+  font-size: 150%;
+}

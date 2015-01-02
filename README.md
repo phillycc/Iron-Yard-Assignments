@@ -11,8 +11,8 @@
 * Mac OSX Terminal, command-line
 * [Cloud9](https://c9.io/), [Atom](https://atom.io/)
 * [Jekyll](http://jekyllrb.com/), [Liquid templating](http://jekyllrb.com/docs/templates/)
-* Bloggin with Jekyll and GitHub Pages 
 * [Scrum](http://en.wikipedia.org/wiki/Scrum_%28software_development%29)
+* Exercise(s): Build a blog with Jekyll and GitHub Pages 
 
 #### Week 2
 
@@ -22,7 +22,7 @@
 * [Node.js](http://nodejs.org/)
 * [Pair programming](http://en.wikipedia.org/wiki/Pair_programming)
 * [Core concepts of Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-* [Conway’s Game of Life](http://en.wikipedia.org/wiki/Conway's_Game_of_Life), String Calculator, Check Writer
+* Exercise(s): [Conway’s Game of Life](http://en.wikipedia.org/wiki/Conway's_Game_of_Life), String Calculator, Check Writer
 
 #### Week 3
 
@@ -43,7 +43,7 @@
 * [Command–query separation](http://martinfowler.com/bliki/CommandQuerySeparation.html)
 * Node.js modules
 * Memoization
-* Object-Oriented Chessboard
+* Exercise(s): Object-Oriented Chessboard
 
 #### Week 5
 
@@ -54,7 +54,7 @@
 * [Document Object Model (DOM)](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
 * Referential transparency, Functors
 * [Skitch](https://evernote.com/skitch/)
-* [Vertical Timeline](http://tympanus.net/Blueprints/VerticalTimeline/), [Horizontal Menu](http://tympanus.net/Blueprints/HorizontalDropDownMenu/), and [Nested Accordions](http://tympanus.net/Blueprints/NestedAccordion/) 
+* Exercise(s): [Vertical Timeline](http://tympanus.net/Blueprints/VerticalTimeline/), [Horizontal Menu](http://tympanus.net/Blueprints/HorizontalDropDownMenu/), and [Nested Accordions](http://tympanus.net/Blueprints/NestedAccordion/) 
 
 #### Week 6
 
@@ -63,19 +63,19 @@
 * CSS media queries
 * [Bootstrap 3](http://getbootstrap.com/)
 * [normalize.css](http://necolas.github.io/normalize.css/) 
-* [Ipsum placeholders](http://meettheipsums.com/), [PictureFill](http://scottjehl.github.io/picturefill/), HTML5 canvas element, [PerfectPixel](http://www.welldonecode.com/perfectpixel/) 
+* [Ipsum placeholders](http://meettheipsums.com/), [PictureFill](http://scottjehl.github.io/picturefill/), [HTML5 canvas element](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API), [PerfectPixel](http://www.welldonecode.com/perfectpixel/) 
 * [Gulp](http://gulpjs.com/), [Bower](http://bower.io/), [wiredep](https://github.com/taptapship/wiredep) 
-* [Horizontal Slide Out](http://tympanus.net/Blueprints/HorizontalSlideOutMenu/#), [Responsive Product Grid Layout](http://tympanus.net/Blueprints/ProductGridLayout/)
+* Exercise(s): [Horizontal Slide Out](http://tympanus.net/Blueprints/HorizontalSlideOutMenu/#), [Responsive Product Grid Layout](http://tympanus.net/Blueprints/ProductGridLayout/)
 
 #### Week 7
 
 ##### Lecture Topics & Lab:
 * [BD Conf](http://bdconf.com/events/orlando-2014/)
-* [Surf & Paddle](https://a4a9af4a2e802671f00b4af7d94a218d2d71be32.googledrive.com/host/0B_9V0tR7amAncWVCbGNEZUhXYmM/surf_and_paddle.html)
-* [Ajax](https://developer.mozilla.org/en-US/docs/AJAX) [JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON)
+* [Ajax](https://developer.mozilla.org/en-US/docs/AJAX), [JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON)
 * [jQuery](http://jquery.com/) 
 * [Gitflow](https://github.com/nvie/gitflow)
-* [GitHub API](https://developer.github.com/v3/), GitHub profile (jQuery) 
+* [GitHub API](https://developer.github.com/v3/)
+* Exercise(s): Build your GitHub profile using jQuery, re-create [Surf & Paddle](https://a4a9af4a2e802671f00b4af7d94a218d2d71be32.googledrive.com/host/0B_9V0tR7amAncWVCbGNEZUhXYmM/surf_and_paddle.html) 
 
 #### Week 8
 
@@ -83,11 +83,11 @@
 * jQuery [events](http://api.jquery.com/category/events/) & [promises](http://api.jquery.com/category/deferred-object/)
 * Create, Read, Update and Delete (CRUD); Browse, Read, Edit, Add, Delete (BREAD) 
 * Model View Controller (MVC)
-* Key-Value NoSQL
+* NoSQL using key-value pairs
 * [Lo-Dash Templating](https://lodash.com/docs#templateSettings)
 * [Gulp](http://gulpjs.com/), [Bower](http://bower.io/), [Browserify](http://browserify.org/)
 * [User stories](https://www.scrumalliance.org/community/spotlight/mike-cohn/march-2014/agile-user-stories-epics-and-themes)  
-* [ToDoMVC (jQuery)](http://todomvc.com/examples/jquery/#/all)
+* Exercise(s): [ToDoMVC (jQuery)](http://todomvc.com/examples/jquery/#/all)
 
 #### Week 9
 

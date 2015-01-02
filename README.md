@@ -69,12 +69,13 @@
 
 #### Week 7
 
-##### Lecture Topics & Lab: 
+##### Lecture Topics & Lab:
 * [BD Conf](http://bdconf.com/events/orlando-2014/)
-* [Ajax](https://developer.mozilla.org/en-US/docs/AJAX), [JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON)
+* [Surf & Paddle](https://a4a9af4a2e802671f00b4af7d94a218d2d71be32.googledrive.com/host/0B_9V0tR7amAncWVCbGNEZUhXYmM/surf_and_paddle.html)
+* [Ajax](https://developer.mozilla.org/en-US/docs/AJAX) [JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON)
 * [jQuery](http://jquery.com/) 
 * [Gitflow](https://github.com/nvie/gitflow)
-* GitHub profile (jQuery) 
+* [GitHub API](https://developer.github.com/v3/), GitHub profile (jQuery) 
 
 #### Week 8
 

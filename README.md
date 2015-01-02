@@ -50,6 +50,7 @@
 ##### Lecture Topics & Lab: 
 * [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5), semantic tags vs. *div soup*
 * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS), Typographic units, [Typeplate](http://typeplate.com/), Box Model
+* [Font Awesome](http://fortawesome.github.io/Font-Awesome/), [Unicode characters](http://unicode-table.com/en/) 
 * [Document Object Model (DOM)](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
 * Referential transparency, Functors
 * [Skitch](https://evernote.com/skitch/)
@@ -62,7 +63,7 @@
 * CSS media queries
 * [Bootstrap 3](http://getbootstrap.com/)
 * [normalize.css](http://necolas.github.io/normalize.css/) 
-* [Ipsum placeholders](http://meettheipsums.com/), [PictureFill](http://scottjehl.github.io/picturefill/),HTML5 canvas element, [PerfectPixel](http://www.welldonecode.com/perfectpixel/) 
+* [Ipsum placeholders](http://meettheipsums.com/), [PictureFill](http://scottjehl.github.io/picturefill/), HTML5 canvas element, [PerfectPixel](http://www.welldonecode.com/perfectpixel/) 
 * [Gulp](http://gulpjs.com/), [Bower](http://bower.io/), [wiredep](https://github.com/taptapship/wiredep) 
 * [Horizontal Slide Out](http://tympanus.net/Blueprints/HorizontalSlideOutMenu/#), [Responsive Product Grid Layout](http://tympanus.net/Blueprints/ProductGridLayout/)
 

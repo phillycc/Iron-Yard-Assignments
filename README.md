@@ -91,7 +91,7 @@
 
 ##### Lecture Topics & Lab: 
 * [AngularJS](https://angularjs.org/)
-* REST API, Restangular
+* REST API, [Restangular](https://github.com/mgonto/restangular)
 * [Firebase](https://www.firebase.com/)
 * [Yeoman](http://yeoman.io/), generators, [gulp-angular](https://github.com/Swiip/generator-gulp-angular)
 * [OAuth 2.0](http://oauth.net/2/), [hello.js](http://adodson.com/hello.js/#hellojs)

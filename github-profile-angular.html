@@ -1,0 +1,197 @@
+<!DOCTYPE>
+<html ng-app="user">
+	<head>
+		<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>phillycc (David Elmer) GitHub</title>
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+		<link href="http://cdnjs.cloudflare.com/ajax/libs/octicons/2.1.2/octicons.min.css" rel="stylesheet">
+    <link href="github-profile-angular.css" rel="stylesheet">
+	</head>
+	<body ng-controller="UserController as user">
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://github.com/" style="margin-left:40px;"><span class="mega-octicon more-mega octicon-logo-github"></span></a>
+        </div>
+        <form class="navbar-form pull-left">
+          <div class="form-group">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search GitHub">
+            </div>
+          </div>
+        </form>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul id="navLinks" class="nav navbar-nav">
+      			<li><a href="#">Explore</a></li>
+      			<li><a href="#">Features</a></li>
+      			<li><a href="#">Enterprise</a></li>
+      			<li><a href="#">Blog</a></li>
+          </ul>
+          <div class="pull-right btnAccess">
+            <button type="button" class="btn btn-success">Sign up</button>&nbsp;&nbsp;
+						<button type="button" class="btn btn-default">Sign in</button>
+          </div>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <div class="container" style="width:1100px;">
+    	<aside class="sidebar col-sm-3 col-md-3">
+    		<a id="avatar"><img width="230" height="230" src="{{user.info.avatar_url}}"></a>
+    		<h3><span>{{user.info.name}}</span><br/><small>{{user.info.login}}</small></h3>
+        <ul class="bio list-unstyled">
+          <li id="location"><span class="octicon octicon-location"></span><small>{{user.info.location}}</small></li>
+          <li id="email"><span class="octicon octicon-mail"></span><a href="mailto:{{user.info.email}}">{{user.info.email}}</a></li>
+          <!--<li id="blog" class="octicon octicon-link"> {{blog}}</li>-->
+          <li id="joined"><span class="octicon octicon-clock"></span><small>Joined on {{user.info.created_at | date:'MMM d, yyyy'}}</small></li>
+        </ul>
+				<div class="github-stats">
+	        <a href="https://github.com/phillycc/followers" id="followers" class="stat">
+	          <strong class="stat-count">{{user.info.followers}}</strong>
+	          <span class="stat-label">Followers</span>
+	        </a>
+          <a href="https://github.com/stars/phillycc" id="starred" class="stat">
+            <strong class="stat-count">{{user.starred.length}}</strong>
+            <span class="stat-label">Starred</span>
+          </a>
+	        <a href="https://github.com/phillycc/following" id="following" class="stat">
+	          <strong class="stat-count">{{user.info.following}}</strong>
+	          <span class="stat-label">Following</span>
+	        </a>
+      	</div>
+				<br/><br/><br/>
+    	</aside>
+    	<main class="col-sm-9 col-md-9" style="padding-left:0px;padding-right:0px;">
+				<!-- Nav tabs -->
+				<ul id="repoTabs" class="nav nav-tabs" role="tablist">
+				  <li class="active"><a href="#contributions" role="tab" data-toggle="tab"><span class="octicon octicon-diff-added"></span> Contributions</a></li>
+					<li><a href="#repositories" role="tab" data-toggle="tab"><span class="octicon octicon-repo"></span> Repositories</a></li>
+					<li><a href="#activity" role="tab" data-toggle="tab"><span class="octicon octicon-rss"></span> Public Activity</a></li>
+				</ul>
+				<div class="pull-right">
+					<button id="btnFollow" type="button" class="btn btn-success"><span class="octicon octicon-person"></span> Follow</button>
+				</div>
+				<!-- Tab panes -->
+				<div class="tab-content">
+				  <div role="tabpanel" class="tab-pane active" id="contributions">
+							<div class="row">
+	                <div class="col-sm-6">
+	                    <div class="panel panel-default">
+	                        <div class="panel-heading">Popular repositories</div>
+												  <ul id="repoItems" class="list-group">
+														<li class="repoItem list-group-item" ng-repeat="repo in user.repos">
+															<a href="{{repo.html_url}}">
+																<div class="repoIcon"><span class='octicon octicon-repo{{repo.icon}}'></span></div>
+																<div class="repoInfo"><strong>{{repo.name}}</strong>
+																<br/>{{repo.description | limitTo : 37}}</div>
+																<div class="repoStars">0 <span class='octicon octicon-star'></span></div><br style="clear: left;" />
+															</a>
+														</li>
+													</ul>
+											</div>
+	                </div>
+	                <div class="col-sm-6">
+	                    <div class="panel panel-default">
+	                        <div class="panel-heading">Repositories contributed to</div>
+	                        <ul id="repoItems" class="list-group">
+														<li class="repoItem list-group-item">
+															<a href="https://github.com/rgcoders/Surf-Paddle">
+																<div class="repoIcon"><span class="octicon octicon-repo"></span></div>
+																<div class="repoInfo">rgcoders/<strong>Surf-Paddle</strong><br/>Assignment 25 at Iron Yard Orlando</div>
+																<div class="repoStars">0 <span class="octicon octicon-star"></span></div>
+																<br style="clear: left;" />
+															</a>
+														</li>
+														<li class="repoItem list-group-item">
+															<a href="https://github.com/rgcoders/Surf-Paddle">
+																<div class="repoIcon"><span class="octicon octicon-repo"></span></div>
+																<div class="repoInfo">The Iron Yard... /<strong>FEE--2014--F</strong>...<br/>The Handbook for the Front End Engine</div>
+																<div class="repoStars">13 <span class="octicon octicon-star"></span></div>
+																<br style="clear: left;" />
+															</a>
+														</li>
+														<li class="repoItem list-group-item">
+															<a href="https://github.com/rgcoders/Surf-Paddle">
+																<div class="repoIcon"><span class="octicon octicon-repo"></span></div>
+																<div class="repoInfo">asoper29/<strong>24--Weekend-Warriors</strong></div>
+																<div class="repoStars">2 <span class="octicon octicon-star"></span></div>
+																<br style="clear: left;" />
+															</a>
+														</li>
+													</ul>
+	                    </div>
+	                </div>
+	            </div>
+							<div class="row">
+									<div class="col-sm-12">
+										<div class="panel panel-default">
+												<div class="panel-heading">Public contributions</div>
+												<div class="panel-body" style="text-align:center;font-size:25pt;padding:25px;">[ SVG map goes here! ]</div>
+												<table class="table">
+  													<tr style="text-align:center;">
+																<td style="border-right:1px solid #ddd;width:33%;">Year of contributions</td>
+																<td style="border-right:1px solid #ddd;width:33%;">Longest streak</td>
+																<td style="width:33%;">Current streak</td>
+														</tr>
+  											</table>
+										</div>
+							</div>
+					</div>
+					</div>
+				  <div role="tabpanel" class="tab-pane" id="repositories">
+						<div class="row">
+								<nav id="subNavRepos" class="navbar navbar-default" role="navigation">
+								  <div class="container-fluid">
+								    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+								      <form class="navbar-form navbar-left" role="search">
+								        <div class="form-group">
+								          <input type="text" class="form-control" placeholder="Find a respository...">
+								        </div>
+								        <button type="submit" class="btn btn-default">Search</button>
+								      </form>
+								      <ul class="nav navbar-nav navbar-right">
+								        <li><a href="#">All</a></li>
+												<li><a href="#">Sources</a></li>
+												<li><a href="#">Forks</a></li>
+												<li><a href="#">Mirrors</a></li>
+								      </ul>
+								    </div><!-- /.navbar-collapse -->
+								  </div><!-- /.container-fluid -->
+								</nav>
+								<div class="col-sm-12">
+										<div id="panelRepos" class="panel panel-default">
+												<ul id="panelRepoItems" class="list-group">
+													<!--<li class="list-group-item"></li>-->
+												</ul>
+										</div>
+								</div>
+						</div>
+					</div>
+				  <div role="tabpanel" class="tab-pane" id="activity">
+						<div class="row">
+								<div class="col-sm-12">
+										<div id="panelActivity" class="panel panel-default">
+												<ul class="list-group">
+													<li class="list-group-item">Cras justo odio</li>
+													<li class="list-group-item">Dapibus ac facilisis in</li>
+													<li class="list-group-item">Morbi leo risus</li>
+												</ul>
+										</div>
+								</div>
+						</div>
+					</div>
+    	</main>
+    </div> <!-- /container -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script>
+		<script type="text/javascript" src="github-profile-angular-app.js"></script>
+	</body>
+</html>

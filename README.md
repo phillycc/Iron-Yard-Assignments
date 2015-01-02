@@ -41,7 +41,7 @@
 * User stories
 * [Object-oriented javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript)
 * [Command–query separation](http://martinfowler.com/bliki/CommandQuerySeparation.html)
-* Node.js module.exports
+* Node.js modules
 * Memoization
 * Object-Oriented Chessboard
 

@@ -11,7 +11,7 @@
 * Mac OSX Terminal, command-line
 * [Cloud9](https://c9.io/), [Atom](https://atom.io/)
 * [Jekyll](http://jekyllrb.com/), [Liquid templating](http://jekyllrb.com/docs/templates/)
-* Jekyll blog, GitHub Pages 
+* Bloggin with Jekyll and GitHub Pages 
 * [Scrum](http://en.wikipedia.org/wiki/Scrum_%28software_development%29)
 
 #### Week 2

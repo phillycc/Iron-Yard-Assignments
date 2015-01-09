@@ -14,29 +14,6 @@
 * commit message.
 */
 
-var letterNum = ['zero','one','two','three','four','five','six','seven','eight','nine','ten'];
-
-/**
-* Converts a string representing a number
-* in English to its numeric equivalent
-*
-* @param String numberWord
-* @return Number
-*/
-function toNumber(numberWord){
-  if (numberWord === "zero") return 0;
-  if (numberWord === "one") return 1;
-  if (numberWord === "two") return 2;
-  if (numberWord === "three") return 3;
-  if (numberWord === "four") return 4;
-  if (numberWord === "five") return 5;
-  if (numberWord === "six") return 6;
-  if (numberWord === "seven") return 7;
-  if (numberWord === "eight") return 8;
-  if (numberWord === "nine") return 9;
-  if (numberWord === "ten") return 10;
-}
-
 /*** OPERATIONS ***/
 
 /**
@@ -64,7 +41,9 @@ var add = function(numberX,numberY){
 var subtract = function(numberX,numberY){
   numberX = toNumber(numberX);
   numberY = toNumber(numberY);
-  return numberY - numberX;
+  if (numberX-numberY >= 0) {
+    return numberX-numberY;
+  }
 }
 
 /**
@@ -92,19 +71,39 @@ var multiply = function(numberX,numberY){
 var divide = function(numberX,numberY){
   dividend = toNumber(numberX);
   divisor = toNumber(numberY);
-
   if (divisor != 0) return dividend / divisor;
 }
 
 
-var print = function (a,b,c) {
-  console.log('it should multiply "' + a + '" and "' + b + '": ',
-  /*multiply(a, b) === c);*/
+/**
+* Converts a string representing a number
+* in English to its numeric equivalent
+*
+* @param String numberWord
+* @return Number
+*/
+function toNumber(numberWord){
+  if (numberWord === "zero") return 0;
+  if (numberWord === "one") return 1;
+  if (numberWord === "two") return 2;
+  if (numberWord === "three") return 3;
+  if (numberWord === "four") return 4;
+  if (numberWord === "five") return 5;
+  if (numberWord === "six") return 6;
+  if (numberWord === "seven") return 7;
+  if (numberWord === "eight") return 8;
+  if (numberWord === "nine") return 9;
+  if (numberWord === "ten") return 10;
 }
 
-/*letterNum.forEach(function(a, i){
-  letterNum.forEach(function(b, j){
-    print(a, b, add(i,j));
-    print(a, b, multiply(i,j));
-  });
-});*/
+var testValues = ['zero','one','two','three','four','five','six','seven','eight','nine'];
+
+var i, j;
+for (i = 0; i < testValues.length; i++) {
+  for (j = 0; j < testValues.length; j++) {
+    console.log(testValues[i],testValues[j],add(testValues[i],testValues[j]));
+    console.log(testValues[i],testValues[j],multiply(testValues[i],testValues[j]));
+    console.log(testValues[i],testValues[j],subtract(testValues[i],testValues[j]));
+    console.log(testValues[i],testValues[j],divide(testValues[i],testValues[j]));
+  }
+}

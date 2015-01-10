@@ -191,17 +191,14 @@ describe('tick', function(){
 });
 
 /**
- *
- * The conway function determines if a cell in
- * Conway's Game of Life is alive or dead after
- * a single tick given the status of the neighbors
- * of that cell.
+ * The conway function applies the rules of Conway's Game of Life
+ * to determine whether a given cell is alive or dead based on
+ * the cell's state and the states of all adjacent cells
  *
  * Function Definition: conway()
- * @param: Array of Array of Boolean board
- * @param: Number row
- * @param: Number col
- * @return: Boolean
+ * @param: Boolean cell state before
+ * @param: Array of Array of Boolean neighbors
+ * @return: Boolean cell state after
  *
 **/
 function conway(cell, neighbors){
@@ -258,8 +255,7 @@ describe('overpopulation rule', function(){
 });
 
 /**
- *
- * The neighborsOf function returns a list of all
+ * The neighborsOf function returns an array of all
  * neighboring cells inside a 3x3 board of cells
  * for a given row-column coordinate
  *
@@ -417,20 +413,7 @@ describe('neighborsOf', function(){
     });
 });
 
-/**
- * Log `success` if `actual` is STRICTLY equal to `expected`
- *
- * @param ANY actual
- * @param ANY expected
- * @param String success
- */
-/*function test(actual, expected, success){
-    if (success === undefined) success = actual+' >> '+expected+' pass!';
-    assert.strictEqual(actual, expected);
-    console.log(success);
-}*/
-
-/*var testCases = [
+var testCases = [
     // CASE 1 - Initially Empty Board
     [
       [ false, false, false ],
@@ -484,6 +467,5 @@ describe('neighborsOf', function(){
 console.log('\n=====Production Tests======')
 
 for (var index=0; index<testCases.length; index++){
-  // console.log('CASE '+(index+1)+':\n'+tick(testCases[index]));
+  console.log('CASE '+(index+1)+':\n'+tick(testCases[index]));
 }
-*/

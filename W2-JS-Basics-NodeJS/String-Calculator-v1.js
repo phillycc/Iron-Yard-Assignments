@@ -96,6 +96,21 @@ function toNumber(numberWord){
   if (numberWord === "ten") return 10;
 }
 
+/**
+* Log `success` if `actual` is STRICTLY equal to `expected`
+*
+* @param ANY actual
+* @param ANY expected
+* @param String success
+*/
+/*
+function test(actual, expected, success){
+  if (success === undefined) success = actual+' >> '+expected+' pass!';
+  assert.strictEqual(actual, expected);
+  console.log(success);
+}*/
+
+
 var testValues = ['zero','one','two','three','four','five','six','seven','eight','nine'];
 
 var i, j;

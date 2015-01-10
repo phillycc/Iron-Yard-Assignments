@@ -110,9 +110,7 @@ function board(){
  * You may test more starting position, if you like, of course.
  */
 
-//******** PRODUCTION CODE ************//
 /**
- *
  * The tick function is passed a 3x3 board,
  * applies Conway's Game of Life rules, and
  * returns a 3x3 board after a single tick.
@@ -130,7 +128,6 @@ function tick(before){
           arrNextBoard[x][y]=conway(cell, neighborsOf(before,x,y));
       });
   });
-  //console.log(arrNextBoard);
   return arrNextBoard;
 }
 

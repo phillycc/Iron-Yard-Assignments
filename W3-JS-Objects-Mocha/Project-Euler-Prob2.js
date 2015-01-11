@@ -14,12 +14,31 @@ var should = require('chai').should();
  *
  * By considering the terms in the Fibonacci sequence whose values do
  * not exceed four million, find the sum of the even-valued terms.
- */
+ *
+ *
+ * Use the format provided below for your solution and write tests!
+ *
+ * function solution(){
+ *    // change input to suit the solution, e.g. `limit`
+ *    return {
+ *      // I wanna see this one...
+ *      solveFor: function(limit){  . . . },
+ *
+ *      fibonacci: function(limit){  . . .  },
+ *      filterEvens: function(list){  . . .  },
+ *      sum: function(list){  . . .  }
+ *    }
+ *  }
+**/
 
 function solution(){
     return {
         solveFor: function(limit){
-            return 0;
+          return this.sum(
+            this.filterEvens(
+              this.fibonacci(limit)
+            )
+          );
         },
         /**
          * @param Number limit
@@ -42,23 +61,29 @@ function solution(){
                 sequence.push(temp);
             }
             return sequence;
-        }
+        },
+        /**
+        * @param Array list of Number
+        * @return Array of even-valued Number
+        */
         filterEvens: function(list){
-            return list.filter (function(){
+            return list.filter (function(item){
                 return ( item % 2 === 0);
             });
-        }
+        },
+        /**
+        * @param Array list of Number
+        * @return Number sum of all items in list
+        */
         sum: function(list){
-            var total=0;
-            arr.forEach(function(element){
-               total+=element;
-            });
-            return total;
+          return list.reduce(function(prev, item){
+            return prev + item;
+          }, 0);
         }
     }
 }
 
-//sum(arrEvens);
+//************ TEST CODE ************//
 
 describe('Project Euler No. 2', function(){
     var S; // or var S = solution();
@@ -89,6 +114,7 @@ describe('Project Euler No. 2', function(){
             assert.deepEqual(S.filterEvens([ 2 ]), [ 2 ]);
             assert.deepEqual(S.filterEvens([ 1, 2 ]), [ 2 ]);
             assert.deepEqual(S.filterEvens([ 1, 2, 3 ]), [ 2 ]);
+            assert.deepEqual(S.filterEvens([ 1, 2, 3, 5, 8, 13 ]), [ 2 , 8 ]);
         });
     });
 
@@ -102,7 +128,7 @@ describe('Project Euler No. 2', function(){
             assert.equal(S.sum([ 2 ]), 2);
             assert.equal(S.sum([ 1, 1 ]), 2);
             assert.equal(S.sum([ 1, 2 ]), 3);
-            assert.equal(S.sum([ 3, 1, 4 ]), 8);
+            assert.equal(S.sum([ 1, 2, 3, 5, 8 ]), 19);
         });
     });
 
@@ -113,12 +139,8 @@ describe('Project Euler No. 2', function(){
 
         it('should be able to solve simple examples', function(){
             assert.equal(S.solveFor(0), 0);
-            assert.equal(S.solveFor(3), 2); // FAIL!
+            assert.equal(S.solveFor(3), 2);
+            assert.equal(S.solveFor(10), 10);
         });
     });
 });
-
-//console.log(arrEvens);
-//fibonacci: function(limit){ /* . . . */ },
-//filterEvens: function(list){ /* . . . */ },
-//sum: function(list){ /* . . . */ }

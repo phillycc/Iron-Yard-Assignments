@@ -129,6 +129,8 @@ function solution(moves){
 
 //solution(catMoves);
 
+//************ TEST CODE ************//
+
 describe('makeMove', function(){
     it('should be a type of function named makeMove()', function(){
         assert.typeOf(makeMove,'function');

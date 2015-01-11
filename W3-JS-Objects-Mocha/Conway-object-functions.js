@@ -90,25 +90,6 @@ var game = {
         });
         return after;
     },
-    /**
-     * WARNING: This is VOODOO MAGIC...
-     *
-     * GIVEN:
-     *   this.board === [
-     *      [ false, true,  false ],
-     *      [ false, true,  false ],
-     *      [ false, true,  false ],
-     *   ];
-     *
-     * EXPECT:
-     *   +---+---+---+
-     *   |   | X |   |
-     *   +---+---+---+
-     *   |   | X |   |
-     *   +---+---+---+
-     *   |   | X |   |
-     *   +---+---+---+
-     */
     display: function(){
         var spacer = '+---+---+---+\n';
 
@@ -126,4 +107,5 @@ var game = {
         + spacer;
     } // END display
 } // END game
+
 console.log(game.display(game.tick(game.newBoard())));

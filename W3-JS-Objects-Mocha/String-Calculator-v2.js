@@ -1,5 +1,18 @@
-
 var assert = require('assert');
+
+/**
+ * String Calculator
+ *
+ * Given two strings that represent numbers in English -- "one", "two", "three" --
+ * calculate the addition or multiplication of those numbers and return that value
+ * as a `Number`. For example:
+ *
+ * add("one", "one") === 2
+ *
+ * It should implement a fromEnglish() function that translates String to Number in
+ * a single step
+**/
+
 
 function stringCalc(){
   var words = { zero: 0, one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10 };

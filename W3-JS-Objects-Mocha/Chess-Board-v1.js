@@ -2,6 +2,89 @@ var assert = require('chai').assert;
 var expect = require('chai').expect;
 var should = require('chai').should();
 
+/**
+ * The following creates a chess board as a two dimensional array of
+ * strings. The first move is made by copying the 'p' in (6,4) to (4,4).
+ * The old position (6,4) is made blank.
+ *
+ * var board = [
+ * ['R','N','B','Q','K','B','N','R'],
+ * ['P','P','P','P','P','P','P','P'],
+ * [' ',' ',' ',' ',' ',' ',' ',' '],
+ * [' ',' ',' ',' ',' ',' ',' ',' '],
+ * [' ',' ',' ',' ',' ',' ',' ',' '],
+ * [' ',' ',' ',' ',' ',' ',' ',' '],
+ * ['p','p','p','p','p','p','p','p'],
+ * ['r','n','b','q','k','b','n','r'] ];
+ *
+ * console.log(board.join('\n') + '\n\n');
+ *
+ * // Move King's Pawn forward 2
+ * board[4][4] = board[6][4];
+ * board[6][4] = ' ';
+ * console.log(board.join('\n'));
+ *
+ * Here is the output:
+ *
+ * R,N,B,Q,K,B,N,R
+ * P,P,P,P,P,P,P,P
+ * , , , , , , ,
+ * , , , , , , ,
+ * , , , , , , ,
+ * , , , , , , ,
+ * p,p,p,p,p,p,p,p
+ * r,n,b,q,k,b,n,r
+ *
+ * R,N,B,Q,K,B,N,R
+ * P,P,P,P,P,P,P,P
+ * , , , , , , ,
+ * , , , , , , ,
+ * , , , ,p, , ,
+ * , , , , , , ,
+ * p,p,p,p, ,p,p,p
+ * r,n,b,q,k,b,n,r
+ *
+ * Write a series of steps that adjust the array to look like the
+ * Catalan Opening: Closed Variation (See below). Write tests that
+ * verify that your "board" looks correctly at every step.
+ *
+ * // Move White Queen's Pawn forward 2
+ * board[4][3] = board[6][3];
+ * board[6][3] = ' ';
+ *
+ * // Move Black King's Pawn forward 2
+ * board[3][3] = board[1][3];
+ * board[1][3] = ' ';
+ *
+ * // Move White Right Knight forward 2, left 1
+ * board[5][5] = board[7][6];
+ * board[7][6] = ' ';
+ *
+ * // Move Black Left Knight forward 2, right 1
+ * board[2][5] = board[0][6];
+ * board[0][6] = ' ';
+ *
+ * // Move White Right Knight's Pawn forward 1
+ * board[5][6] = board[6][6];
+ * board[6][6] = ' ';
+ *
+ * // Move Black King's Pawn forward 1
+ * board[2][4] = board[1][4];
+ * board[1][4] = ' ';
+ *
+ * // Move White Right Bishop forward right 1
+ * board[6][6] = board[7][5];
+ * board[7][5] = ' ';
+ *
+ * // Move Black Left Bishop forward right 1
+ * board[1][4] = board[0][5];
+ * board[0][5] = ' ';
+ *
+ * // Move White Left Bishop's Pawn forward 2
+ * board[4][2] = board[6][2];
+ * board[6][2] = ' ';
+**/
+
 var board = [
   ['R','N','B','Q','K','B','N','R'],
   ['P','P','P','P','P','P','P','P'],

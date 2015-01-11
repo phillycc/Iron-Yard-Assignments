@@ -1,29 +1,17 @@
+var assert = require('chai').assert;
+var expect = require('chai').expect;
+var should = require('chai').should();
+
 /** Check writing
-*
-* Given a Number representing money -- $1234.56 -- convert
-* that into its string representation in English words. For
-* example, 1234.56 is "one thousand, two hundred thirty four
-* and 56/100s", just like you would see on a check.
-*
-* In a lot of ways, this is the inverse of the "String Calculator"
-* problem, so a lot of what you've learned there will be put into
-* practice here, but backwards. Yey.
-*/
-
-/** Sample Data:
-* 1234.56 => "one thousand, two hundred thirty four, and 56/100s"
-* 123.45 => "one hundred twenty three and 45/100s"
-* 12.34 => "twelve and 34/100s"
-* 1.23 => "one and 23/100s"
-*
-*Extra credit:
-*
-* 12345678.90 =>
-* "twelve million, three hundred fourt five thousand, six hundred
-* seventy eight and 90/100s"
-
-* Make up your own, too.
-*/
+ *
+ * Given a Number representing money -- $1234.56 -- convert
+ * that into its string representation in English words. For
+ * example, 1234.56 is "one thousand, two hundred thirty four
+ * and 56/100s", just like you would see on a check.
+ *
+ * It should implement a toEnglish() function that translates
+ * Number to String in a single step
+**/
 
 function checkWriteOutput(){
   var ones = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"];
@@ -82,10 +70,6 @@ function checkWriteOutput(){
 
 
 //************** TEST ******************
-
-var assert = require('chai').assert;
-var expect = require('chai').expect;
-var should = require('chai').should();
 
 describe('checkWriteOutput()', function(){
     it('should be a type of function named checkWriteOutput()', function(){

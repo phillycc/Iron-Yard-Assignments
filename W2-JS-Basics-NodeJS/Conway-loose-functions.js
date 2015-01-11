@@ -167,7 +167,7 @@ function conway(cell, neighbors){
  * @param: Array of Array of Boolean board
  * @param: Number row
  * @param: Number col
- * @return: Array of Array of Boolean
+ * @return: Array of Boolean neighbor states
  *
 **/
 function neighborsOf(board,row,col){
@@ -188,11 +188,11 @@ function neighborsOf(board,row,col){
             neighbors.push(board[row + dX][col + dY]);
         });
     });
-
     return neighbors;
 }
 
-//************ TEST CODE: TICK ************//
+
+//************ TEST CODE: TICK() ************//
 
 describe('tick', function(){
   it('should have a `tick()` function', function(){
@@ -247,7 +247,8 @@ describe('tick', function(){
   });
 });
 
-//************ TEST CODE: CONWAY ************//
+
+//************ TEST CODE: CONWAY() ************//
 
 describe('generation rule', function(){
   it('should NOT generate a new cell if there are fewer than 3 neighbors', function(){
@@ -287,7 +288,7 @@ describe('overpopulation rule', function(){
   });
 });
 
-//************ TEST CODE: NEIGHBORSOF ************//
+//************ TEST CODE: NEIGHBORSOF() ************//
 
 describe('neighborsOf', function(){
     it('should have a `neighborsOf()` function', function(){

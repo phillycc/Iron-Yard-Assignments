@@ -132,60 +132,6 @@ function tick(before){
 }
 
 
-//************ TEST CODE: TICK ************//
-
-describe('tick', function(){
-    it('should have a `tick()` function', function(){
-        assert(tick);
-    });
-    it('should be a type of function named tick()', function(){
-        assert.typeOf(tick,'function');
-    });
-
-    describe('GIVEN a 3x3 board', function(){
-        var _board;
-
-        beforeEach(function(){
-            _board = board();
-        });
-
-        describe('WHEN the board is empty', function(){
-            it('should remain empty', function(){
-                assert.deepEqual(tick(_board),board());
-            });
-        });
-
-        describe('WHEN the board has fewer than 3 adjacent cells', function(){
-
-            it('should die in 1 tick', function(){
-                _board[0][0] = true;
-                assert.deepEqual(tick(_board), board());
-
-                _board[1][1] = true;
-                assert.deepEqual(tick(_board), board());
-            });
-        });
-
-        describe('WHEN the board has 3 adjacent cells in a line', function(){
-            var _board;
-            beforeEach(function(){
-                _board = [
-                    [ false, true, false ],
-                    [ false, true, false ],
-                    [ false, true, false ],
-                ];
-                expected = [
-                    [ false, false, false ],
-                    [ true,  true,  true  ],
-                    [ false, false, false ],
-                ];
-            });
-            it('should oscilate every tick', function(){
-                assert.deepEqual(tick(_board), expected);
-            });
-        });
-    });
-});
 
 /**
  * The conway function applies the rules of Conway's Game of Life
@@ -211,45 +157,6 @@ function conway(cell, neighbors){
   if (liveNeighbors===3) return true;
   return false;
 }
-//************ TEST CODE: CONWAY ************//
-
-describe('generation rule', function(){
-    it('should NOT generate a new cell if there are fewer than 3 neighbors', function(){
-        expect(conway(false, [ ]), false).to.be.false;
-        expect(conway(false, [ true ]), false).to.be.false;
-        expect(conway(false, [ true, true ]), false).to.be.false;
-        expect(conway(false, [ false, false, false ]), false).to.be.false;
-    });
-    it('should generate a new cell if there are exactly 3 neighbors', function(){
-        expect(conway(false, [ true, true, true ]), true).to.be.true;
-    });
-    it('should NOT generate a new cell if there are MORE than 3 neighbors', function(){
-        expect(conway(false, [ true, true, true, true ]), false).to.be.false;
-        expect(conway(false, [ true, true, true, true, true ]), false).to.be.false;
-    });
-});
-
-describe('underpopulation rule', function(){
-    it('should die if there are fewer than 2 or 3 neighbors', function(){
-        expect(conway(true, [ ]), false).to.be.false;
-        expect(conway(true, [ true ]), false).to.be.false;
-        expect(conway(true, [ false, false ]), false).to.be.false;
-        expect(conway(true, [ false, false, false ]), false).to.be.false;
-    });
-});
-describe('survival rule', function(){
-    it('should survive if there are exactly 2 or 3 neighbors', function(){
-        expect(conway(true, [ true, true ]), true).to.be.true;
-        expect(conway(true, [ true, true, true ]), true).to.be.true;
-    });
-});
-
-describe('overpopulation rule', function(){
-    it('should die if there are more than 3 neighbors', function(){
-        expect(conway(true, [ true, true, true, true ]), false).to.be.false;
-        expect(conway(true, [ true, true, true, true, true ]), false).to.be.false;
-    });
-});
 
 /**
  * The neighborsOf function returns an array of all
@@ -283,47 +190,104 @@ function neighborsOf(board,row,col){
     });
 
     return neighbors;
-
-    //return boolean values of nearest neighbors for given col,row
-    /*var neighbors = [ ];
-
-    if (row===0 && col===0){
-        neighbors.push(board[0][1],board[1][0],board[1][1]);
-    }
-    if (row===0 && col===1){
-        neighbors.push(board[0][0],board[1][0],board[1][1],
-          board[0][2],board[1][2]);
-    }
-    if (row===0 && col===2){
-        neighbors.push(board[0][1],board[1][1],board[1][2]);
-    }
-    if (row===1 && col===0){
-        neighbors.push(board[0][0],board[0][1],board[1][1],
-          board[2][0],board[2][1]);
-    }
-    if (row===1 && col===1){
-        neighbors.push(board[0][0],board[0][1],board[0][2],
-          board[1][0],board[1][2],board[2][0],
-          board[2][1],board[2][2]);
-    }
-    if (row===1 && col===2){
-        neighbors.push(board[0][1],board[0][2],board[1][1],
-          board[2][1],board[2][2]);
-    }
-    if (row===2 && col===0){
-        neighbors.push(board[1][0],board[1][1],board[2][1]);
-    }
-    if (row===2 && col===1){
-        neighbors.push(board[1][0],board[2][0],board[1][1],
-          board[1][2],board[2][2]);
-    }
-    if (row===2 && col===2){
-        neighbors.push(board[1][1],board[1][2],board[2][1]);
-    }
-    return neighbors;*/
 }
 
-//************ TEST CODE ************//
+//************ TEST CODE: TICK ************//
+
+describe('tick', function(){
+  it('should have a `tick()` function', function(){
+    assert(tick);
+  });
+  it('should be a type of function named tick()', function(){
+    assert.typeOf(tick,'function');
+  });
+
+  describe('GIVEN a 3x3 board', function(){
+    var _board;
+
+    beforeEach(function(){
+      _board = board();
+    });
+
+    describe('WHEN the board is empty', function(){
+      it('should remain empty', function(){
+        assert.deepEqual(tick(_board),board());
+      });
+    });
+
+    describe('WHEN the board has fewer than 3 adjacent cells', function(){
+
+      it('should die in 1 tick', function(){
+        _board[0][0] = true;
+        assert.deepEqual(tick(_board), board());
+
+        _board[1][1] = true;
+        assert.deepEqual(tick(_board), board());
+      });
+    });
+
+    describe('WHEN the board has 3 adjacent cells in a line', function(){
+      var _board;
+      beforeEach(function(){
+        _board = [
+        [ false, true, false ],
+        [ false, true, false ],
+        [ false, true, false ],
+        ];
+        expected = [
+        [ false, false, false ],
+        [ true,  true,  true  ],
+        [ false, false, false ],
+        ];
+      });
+      it('should oscilate every tick', function(){
+        assert.deepEqual(tick(_board), expected);
+      });
+    });
+  });
+});
+
+//************ TEST CODE: CONWAY ************//
+
+describe('generation rule', function(){
+  it('should NOT generate a new cell if there are fewer than 3 neighbors', function(){
+    expect(conway(false, [ ]), false).to.be.false;
+    expect(conway(false, [ true ]), false).to.be.false;
+    expect(conway(false, [ true, true ]), false).to.be.false;
+    expect(conway(false, [ false, false, false ]), false).to.be.false;
+  });
+  it('should generate a new cell if there are exactly 3 neighbors', function(){
+    expect(conway(false, [ true, true, true ]), true).to.be.true;
+  });
+  it('should NOT generate a new cell if there are MORE than 3 neighbors', function(){
+    expect(conway(false, [ true, true, true, true ]), false).to.be.false;
+    expect(conway(false, [ true, true, true, true, true ]), false).to.be.false;
+  });
+});
+
+describe('underpopulation rule', function(){
+  it('should die if there are fewer than 2 or 3 neighbors', function(){
+    expect(conway(true, [ ]), false).to.be.false;
+    expect(conway(true, [ true ]), false).to.be.false;
+    expect(conway(true, [ false, false ]), false).to.be.false;
+    expect(conway(true, [ false, false, false ]), false).to.be.false;
+  });
+});
+describe('survival rule', function(){
+  it('should survive if there are exactly 2 or 3 neighbors', function(){
+    expect(conway(true, [ true, true ]), true).to.be.true;
+    expect(conway(true, [ true, true, true ]), true).to.be.true;
+  });
+});
+
+describe('overpopulation rule', function(){
+  it('should die if there are more than 3 neighbors', function(){
+    expect(conway(true, [ true, true, true, true ]), false).to.be.false;
+    expect(conway(true, [ true, true, true, true, true ]), false).to.be.false;
+  });
+});
+
+//************ TEST CODE: NEIGHBORSOF ************//
 
 describe('neighborsOf', function(){
     it('should have a `neighborsOf()` function', function(){
@@ -409,6 +373,9 @@ describe('neighborsOf', function(){
         });
     });
 });
+
+
+//************ TEST CODE: DISPLAY TESTCASES ************//
 
 var testCases = [
     // CASE 1 - Initially Empty Board

@@ -1,0 +1,320 @@
+@import url("http://fonts.googleapis.com/css?family=Oswald:300,400,700");
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:300,400,600");
+
+body {
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  color: #666;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0; padding: 0;
+  margin-top: 1.5ex;
+  font: 400 100%/1.2 Oswald, Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  color: #123456;
+}
+
+img {
+  max-width: 100%;
+}
+article p {
+  font-size: 115%;
+}
+figure {
+  margin: 1em 40px;
+}
+.avatar {
+  width:50px;
+  border-radius: 50%;
+  padding: 0;
+}
+#main h2 {
+  font-size: 7ex;
+}
+#main #main-title {
+  max-width: 80%;
+}
+.aside {
+  display: none;
+}
+.author {
+  text-align: center;
+  display: block;
+  padding: 5ex;
+}
+.author .avatar {
+  width: 100px;
+  display: block;
+  margin: auto;
+}
+.byline span {
+  display: none;
+}
+.social-links {
+  padding-top: 23;
+}
+a {
+  text-decoration: underline;
+}
+#someAuthor {
+  font-size: 17pt;
+}
+
+#ad {
+  display: block;
+  padding-top: 1ex;
+}
+
+hr {
+  border-top: 1px solid #808080;
+  width: 114%;
+  margin-left: -5em;
+}
+blockquote {
+  font-size: 170%;
+  color: #2971B0;
+  margin: 1ex 0;
+  padding: 0.5ex 0;
+  padding-left: 0.5em;
+  border-left: 2pt solid grey;
+}
+
+.glyphicon {
+  color: white;
+  background-color: grey;
+  padding: 4pt;
+  font-size: 18pt;
+  text-decoration: none;
+}
+.glyphicon b {
+  display: none;
+}
+
+.popposts h3 {
+  font-size: 48pt;
+  text-align: center;
+  margin-bottom: 1ex;
+  margin-top: 0;
+}
+
+.popposts .row {
+  margin:0;
+  padding:0;
+}
+
+.popposts h4 {
+  font-size: 20pt;
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto 0 0;
+  padding: 1.5ex 1em;
+  max-width: 90%;
+}
+
+#tint:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 128, 255, 0.498039);
+  transition: all .3s linear;
+}
+
+#tint:hover:before {
+  background: none;
+}
+
+#tint {
+  position: relative;
+  float: left;
+  cursor: pointer;
+}
+
+.col-md-3 {
+  top: 0;
+  left: 0;
+  right: 0;
+  margin:0;
+  padding:0;
+}
+
+.col-md-3 img {
+  /*position: relative;*/
+  max-width: 100% !important;
+  vertical-align: middle;
+  height: auto;
+  overflow: hidden;
+}
+
+.pageFooter {
+  background-color: #133551;
+  padding: 4ex 0px;
+  text-align: center;
+}
+
+.pageFooter a, .pageFooter a:link, .pageFooter a:visited {
+  color: #A3B3BF;
+  text-decoration: none;
+  font-size: 13pt;
+}
+
+.navFooter {
+  list-style-type: none;
+  margin-bottom: 0;
+}
+
+.navFooter li {
+  display: inline;
+}
+
+.navFooter li a {
+  border-style: none solid none none;
+  padding: 0px 1em;
+}
+
+.navFooter li:nth-child(4) a {
+  border-style: none;
+}
+
+.brand:before {
+  display: block;
+  margin-top: -0.5ex;
+  margin-bottom: -2ex;
+  content: url('https://a4a9af4a2e802671f00b4af7d94a218d2d71be32.googledrive.com/host/0B_9V0tR7amAncWVCbGNEZUhXYmM/icon-theironyard.png');
+}
+
+@media (min-width: 600px){
+  .author {
+    display: none;
+  }
+  .glyphicon b {
+    display: inline-block;
+    margin: 0;
+    background-color: #AABBCC;
+    font-size: 13pt;
+    padding: 5px;
+    word-spacing: -13px;
+    text-transform: capitalize;
+    font-weight: normal;
+  }
+  .post-footer a {
+    background-color: transparent;
+  }
+  .glyphicon:before {
+    background-color: #133551;
+    vertical-align: middle;
+    padding: 4px 7px;
+    padding-top: 2px;
+    font-size: 13pt;
+  }
+  .glyphicon-share b {
+    background-color: #2971B0;
+  }
+  .byline span {
+    display: inline;
+  }
+  .avatar {
+    width: 30px; height: 30px;
+  }
+  #main h2 {
+    font-size: 5ex;
+  }
+}
+@media (min-width: 750px){
+  .aside {
+    display: inline;
+  }
+  .aside h4 {
+    font-size: 25pt;
+    padding-bottom: 1ex;
+  }
+  figure {
+    width: 50%;
+    float: right;
+  }
+  .sidebar {
+    max-width: 100%;
+  }
+  #main #main-title {
+    font-size: 7ex;
+    padding-bottom: 2ex;
+    max-width: 100%;
+
+  }
+}
+
+@media (max-width: 767px){
+  .col-sm-6 img {
+    width: 100%;
+  }
+}
+
+@media (max-width: 991px){
+  .col-sm-6 {
+    padding:10px;
+  }
+
+  .col-sm-6 img {
+    position: relative;
+  }
+
+  .popposts h4 {
+    padding: 3ex 1.25em;
+  }
+}
+
+@media (min-width: 992px){
+  article.col-md-8 {
+    padding-left: 9ex;
+  }
+  .sidebar {
+    float: none;
+    max-width: 100%;
+  }
+  .author {
+    display: block;
+  }
+  figure{
+    float: none;
+    width: 75%;
+    margin: auto;
+  }
+  section.aside {
+    display: block;
+    width: 75%;
+    margin: auto;
+    margin-top: ;
+  }
+  #someAuthor .avatar{
+    width: 30%;
+    height: 30%;
+  }
+  #main #main-title {
+    font-size: 9ex;
+    padding-bottom: 10px;
+    max-width: 92%;
+  }
+  .aside h4 {
+    font-size: 15pt;
+    padding-bottom: 1ex;
+    padding-top: 5ex;
+  }
+  #sidebar-full {
+    width: 30%;
+    margin-top: 5ex;
+  }
+  .social-links {
+    font-size: 13pt;
+    padding-top: 4ex;
+  }
+  .social-links a {
+    color: #A4B1BC;
+  }
+}

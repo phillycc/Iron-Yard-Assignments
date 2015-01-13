@@ -52,8 +52,6 @@ function Chess(){
               //queen
               if (dY===3){
                 var pieceName = 'Q'+dX+dY;
-                console.log("here");
-
                 self.arrPieces.push(self.pieceName = new Piece('Queen', 'black', points['Queen']));
               }
               //king

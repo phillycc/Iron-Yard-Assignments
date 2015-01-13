@@ -94,12 +94,6 @@ Game.prototype.tick = function(){
     var newBoard = board();
     var self = this;
 
-    /*this.board = newBoard.map(){
-        return row.map(function(cell, y){
-            return self.rules(cell, self.neighborsOf(x,y));
-        });
-    });*/
-
     this.board.forEach(function(row, x){
         row.forEach(function(cell,y){
             var newCell = self.rules(cell, self.neighborsOf(x,y));

@@ -7,6 +7,66 @@ var Game = require('./game.js');
   describe('Conway LITE: Voodoo Black Magic Edition\n', function(){
       var game = new Game();
 
+      describe('Conway LITE API', function(){
+        it('should play the game', function(){
+          assert.deepEqual(game.board, [
+            [ false, false, false ],
+            [ false, false, false ],
+            [ false, false, false ],
+            ]);
+
+            game.setAlive(0,1);
+            game.setAlive(1,1);
+            game.setAlive(2,1);
+
+            assert.isTrue(game.isAlive(0,1));
+            assert.isTrue(game.isAlive(1,1));
+            assert.isTrue(game.isAlive(2,1));
+
+            assert.equal(game.display(),
+            "+---+---+---+\n" +
+            "|   | X |   |\n" +
+            "+---+---+---+\n" +
+            "|   | X |   |\n" +
+            "+---+---+---+\n" +
+            "|   | X |   |\n" +
+            "+---+---+---+\n"
+          );
+
+          game.tick();
+
+          assert.isTrue(game.isAlive(1,0));
+          assert.isTrue(game.isAlive(1,1));
+          assert.isTrue(game.isAlive(1,2));
+
+          assert.equal(game.display(),
+          "+---+---+---+\n" +
+          "|   |   |   |\n" +
+          "+---+---+---+\n" +
+          "| X | X | X |\n" +
+          "+---+---+---+\n" +
+          "|   |   |   |\n" +
+          "+---+---+---+\n"
+        );
+
+        game.tick();
+
+        assert.isTrue(game.isAlive(0,1));
+        assert.isTrue(game.isAlive(1,1));
+        assert.isTrue(game.isAlive(2,1));
+
+        assert.equal(game.display(),
+        "+---+---+---+\n" +
+        "|   | X |   |\n" +
+        "+---+---+---+\n" +
+        "|   | X |   |\n" +
+        "+---+---+---+\n" +
+        "|   | X |   |\n" +
+        "+---+---+---+\n"
+        );
+      });
+    });
+
       /* describe('Constructor function tick()', function(){
           it('should be a type of function\n', function(){
               assert.isFunction(game.tick);
@@ -170,63 +230,4 @@ var Game = require('./game.js');
             assert.isFalse(game.isAlive(2,2));
         });
     });*/
-    describe('Conway LITE API', function(){
-        it('should play the game', function(){
-            assert.deepEqual(game.board, [
-              [ false, false, false ],
-              [ false, false, false ],
-              [ false, false, false ],
-            ]);
-
-            game.setAlive(0,1);
-            game.setAlive(1,1);
-            game.setAlive(2,1);
-
-            assert.isTrue(game.isAlive(0,1));
-            assert.isTrue(game.isAlive(1,1));
-            assert.isTrue(game.isAlive(2,1));
-
-            assert.equal(game.display(),
-              "+---+---+---+\n" +
-              "|   | X |   |\n" +
-              "+---+---+---+\n" +
-              "|   | X |   |\n" +
-              "+---+---+---+\n" +
-              "|   | X |   |\n" +
-              "+---+---+---+\n"
-            );
-
-            game.tick();
-
-            assert.isTrue(game.isAlive(1,0));
-            assert.isTrue(game.isAlive(1,1));
-            assert.isTrue(game.isAlive(1,2));
-
-            assert.equal(game.display(),
-              "+---+---+---+\n" +
-              "|   |   |   |\n" +
-              "+---+---+---+\n" +
-              "| X | X | X |\n" +
-              "+---+---+---+\n" +
-              "|   |   |   |\n" +
-              "+---+---+---+\n"
-            );
-
-            game.tick();
-
-            assert.isTrue(game.isAlive(0,1));
-            assert.isTrue(game.isAlive(1,1));
-            assert.isTrue(game.isAlive(2,1));
-
-            assert.equal(game.display(),
-              "+---+---+---+\n" +
-              "|   | X |   |\n" +
-              "+---+---+---+\n" +
-              "|   | X |   |\n" +
-              "+---+---+---+\n" +
-              "|   | X |   |\n" +
-              "+---+---+---+\n"
-            );
-        });
-    });
 });
